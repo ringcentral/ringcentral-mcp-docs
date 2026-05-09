@@ -1,0 +1,112 @@
+site_name: RingCentral MCP Servers
+site_description: Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.
+site_author: RingCentral Platform Team
+site_url: https://mcp.labs.ringcentral.com/docs
+
+repo_name: ringcentral/mcp-servers
+repo_url: https://github.com/ringcentral/mcp-servers
+edit_uri: edit/main/docs
+docs_dir: docs
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ringcentral
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ringcentral
+  version:
+    provider: mike
+    default: latest
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: On this page
+
+nav:
+  - Home: index.md
+  - Servers:
+    - Overview: servers/index.md
+    - RingCentral Labs MCP: servers/rc-labs-mcp.md
+    - App Connect (Unified CRM): servers/app-connect.md
+  - Tool Reference:
+    - App Connect:
+      - getSessionInfo: tools/app-connect/get-session-info.md
+      - getPublicConnectors: tools/app-connect/get-public-connectors.md
+      - getHelp: tools/app-connect/get-help.md
+      - findContactByName: tools/app-connect/find-contact-by-name.md
+      - findContactByPhone: tools/app-connect/find-contact-by-phone.md
+      - createContact: tools/app-connect/create-contact.md
+      - createCallLog: tools/app-connect/create-call-log.md
+      - rcGetCallLogs: tools/app-connect/rc-get-call-logs.md
+      - logout: tools/app-connect/logout.md
+    - RingCentral Labs MCP:
+      - Overview: tools/rc-labs/index.md
+  - Guides:
+    - Quickstart: guides/quickstart.md
+    - Connecting to Claude: guides/connecting-to-claude.md
+    - CRM Integration Workflow: guides/crm-workflow.md
+    - Authentication: guides/authentication.md
+  - Changelog: changelog.md
