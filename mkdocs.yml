@@ -1,15 +1,14 @@
-site_name: RingCentral MCP Servers
+site_name: MCP
 site_description: Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.
 site_author: RingCentral Platform Team
-site_url: https://mcp.labs.ringcentral.com/docs
+site_url: https://mcp.labs.ringcentral.com/
 
-repo_name: ringcentral/mcp-servers
-repo_url: https://github.com/ringcentral/mcp-servers
-edit_uri: edit/main/docs
+edit_uri: ""
 docs_dir: docs
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/favicon.png
   palette:
@@ -60,6 +59,7 @@ extra:
     default: latest
 
 plugins:
+  - material-ringcentral
   - search
   - tags
 
@@ -87,26 +87,36 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Servers:
-    - Overview: servers/index.md
-    - RingCentral Labs MCP: servers/rc-labs-mcp.md
-    - App Connect (Unified CRM): servers/app-connect.md
-  - Tool Reference:
-    - App Connect:
-      - getSessionInfo: tools/app-connect/get-session-info.md
-      - getPublicConnectors: tools/app-connect/get-public-connectors.md
-      - getHelp: tools/app-connect/get-help.md
-      - findContactByName: tools/app-connect/find-contact-by-name.md
-      - findContactByPhone: tools/app-connect/find-contact-by-phone.md
-      - createContact: tools/app-connect/create-contact.md
-      - createCallLog: tools/app-connect/create-call-log.md
-      - rcGetCallLogs: tools/app-connect/rc-get-call-logs.md
-      - logout: tools/app-connect/logout.md
-    - RingCentral Labs MCP:
-      - Overview: tools/rc-labs/index.md
-  - Guides:
+  - Solutions:
+    - Overview: solutions/index.md
+    - CRM Enrichment: solutions/crm-enrichment.md
+    - Communication Analytics: solutions/communication-analytics.md
+    - Coaching & Insights: solutions/coaching-insights.md
+    - Customer Engagement: solutions/customer-engagement.md
+    - Meetings Intelligence: solutions/meetings-intelligence.md
+    - Team Collaboration: solutions/team-collaboration.md
+  - Installation & Setup:
     - Quickstart: guides/quickstart.md
     - Connecting to Claude: guides/connecting-to-claude.md
-    - CRM Integration Workflow: guides/crm-workflow.md
     - Authentication: guides/authentication.md
-  - Changelog: changelog.md
+  - Reference:
+    - Servers:
+      - Overview: servers/index.md
+      - RingCentral MCP: servers/rc-labs-mcp.md
+      - App Connect (Unified CRM): servers/app-connect.md
+    - Tool Reference:
+      - RingCentral MCP:
+        - Overview: tools/rc-labs/index.md
+      - App Connect:
+        - getSessionInfo: tools/app-connect/get-session-info.md
+        - getPublicConnectors: tools/app-connect/get-public-connectors.md
+        - getHelp: tools/app-connect/get-help.md
+        - findContactByName: tools/app-connect/find-contact-by-name.md
+        - findContactByPhone: tools/app-connect/find-contact-by-phone.md
+        - createContact: tools/app-connect/create-contact.md
+        - createCallLog: tools/app-connect/create-call-log.md
+        - rcGetCallLogs: tools/app-connect/rc-get-call-logs.md
+        - logout: tools/app-connect/logout.md
+    - Changelog: changelog.md
+  - Guides:
+    - CRM Integration Workflow: guides/crm-workflow.md

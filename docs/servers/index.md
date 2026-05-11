@@ -8,7 +8,7 @@ RingCentral currently publishes two MCP servers. Both implement the [Model Conte
 
 | Server | URL | Status | Tools |
 |--------|-----|--------|-------|
-| RingCentral Labs MCP | `https://mcp.labs.ringcentral.com` | 🟡 Labs / Beta | — |
+| RingCentral MCP | `https://mcp.labs.ringcentral.com` | 🟡 Labs / Beta | — |
 | App Connect (Unified CRM) | `https://unified-crm-extension.labs.ringcentral.com/mcp` | 🟢 Available | 9 |
 
 ---
@@ -28,7 +28,7 @@ curl -X POST https://<server-url> \
 
 ## Authentication model
 
-- **RingCentral Labs MCP** — no authentication required for tool discovery; some tools may require a valid RingCentral session.
+- **RingCentral MCP** — no authentication required for tool discovery; some tools may require a valid RingCentral session.
 - **App Connect** — tools marked ⚠️ **REQUIRES CRM CONNECTION** require the user to have authenticated with both RingCentral and a supported CRM platform. See [Authentication](../guides/authentication.md).
 
 ---

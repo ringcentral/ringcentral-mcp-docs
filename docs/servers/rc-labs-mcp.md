@@ -1,4 +1,4 @@
-# RingCentral Labs MCP
+# RingCentral MCP
 
 **Endpoint:** `https://mcp.labs.ringcentral.com`  
 **Status:** 🟡 Labs / Beta  
@@ -8,7 +8,7 @@
 
 ## About
 
-The RingCentral Labs MCP server is the experimental home for new platform capabilities built by the RingCentral Labs engineering team. Tools published here are under active development and subject to change.
+The RingCentral MCP server is the experimental home for new platform capabilities built by the RingCentral Labs engineering team. Tools published here are under active development and subject to change.
 
 !!! warning "Labs status"
     Tools on this server are not covered by RingCentral's standard SLA. They may be renamed, modified, or removed without prior notice. Use in production with caution.

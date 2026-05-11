@@ -35,7 +35,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `rcGetCallLogs`
 - `logout`
 
-### RingCentral Labs MCP — Initial release
+### RingCentral MCP — Initial release
 - Server published at `https://mcp.labs.ringcentral.com`
 - Tool discovery endpoint active
 

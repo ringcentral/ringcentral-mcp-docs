@@ -1,6 +1,6 @@
-# RingCentral Labs MCP — Tool Reference
+# RingCentral MCP — Tool Reference
 
-The RingCentral Labs MCP server is under active development. Tool documentation will be published here as tools are promoted from internal testing.
+The RingCentral MCP server is under active development. Tool documentation will be published here as tools are promoted from internal testing.
 
 ---
 
