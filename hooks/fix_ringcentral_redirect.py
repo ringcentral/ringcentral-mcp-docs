@@ -72,6 +72,32 @@ def _mirror_site_under_docs(site_dir):
     _copy_site_contents(site_dir, site_dir / "ringcentral-mcp-docs" / "docs")
 
 
+def _rewrite_docs_asset_urls(site_dir):
+    docs_roots = [
+        site_dir / "docs",
+        site_dir / "docs" / "docs",
+        site_dir / "ringcentral-mcp-docs" / "docs",
+    ]
+    replacements = {
+        'href="assets/': 'href="https://mcp.labs.ringcentral.com/docs/assets/',
+        'href="_rc/': 'href="https://mcp.labs.ringcentral.com/docs/_rc/',
+        'href="stylesheets/': 'href="https://mcp.labs.ringcentral.com/docs/stylesheets/',
+        'src="assets/': 'src="https://mcp.labs.ringcentral.com/docs/assets/',
+        'src="_rc/': 'src="https://mcp.labs.ringcentral.com/docs/_rc/',
+    }
+
+    for docs_root in docs_roots:
+        if not docs_root.exists():
+            continue
+        for html_file in docs_root.rglob("*.html"):
+            html = html_file.read_text(encoding="utf-8")
+            updated = html
+            for old, new in replacements.items():
+                updated = updated.replace(old, new)
+            if updated != html:
+                html_file.write_text(updated, encoding="utf-8")
+
+
 def on_post_build(config):
     site_dir = Path(config["site_dir"])
     (site_dir / "CNAME").write_text("mcp.labs.ringcentral.com\n", encoding="utf-8")
@@ -90,3 +116,4 @@ def on_post_build(config):
 
     _inline_redirect_in_404(site_dir)
     _mirror_site_under_docs(site_dir)
+    _rewrite_docs_asset_urls(site_dir)

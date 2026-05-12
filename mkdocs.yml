@@ -56,10 +56,6 @@ extra:
       link: https://github.com/ringcentral
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ringcentral
-  version:
-    provider: mike
-    default: latest
-
 plugins:
   - material-ringcentral:
       labs_project: ringcentral-mcp
