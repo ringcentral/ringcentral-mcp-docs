@@ -69,6 +69,7 @@ def _mirror_site_under_docs(site_dir):
 
 def on_post_build(config):
     site_dir = Path(config["site_dir"])
+    (site_dir / "CNAME").write_text("mcp.labs.ringcentral.com\n", encoding="utf-8")
 
     extra_js = Path(config["site_dir"]) / "_rc" / "extra.js"
     extra_js.parent.mkdir(parents=True, exist_ok=True)
