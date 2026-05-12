@@ -1,12 +1,21 @@
 from pathlib import Path
 
 
+FOOTER_REPLACEMENTS = {
+    'href="https://mcp.labs.ringcentral.com/docs/releases/">Release notes</a>':
+        'href="https://mcp.labs.ringcentral.com/docs/changelog/">Changelog</a>',
+    'href="https://github.com/ringcentral/rc-unified-crm-extension" target="_blank" rel="noopener">GitHub</a>':
+        'href="https://github.com/ringcentral/ringcentral-mcp-docs" target="_blank" rel="noopener">GitHub</a>',
+}
+
+
 SAFE_REDIRECT_JS = """\
 console.log('extra.js loaded');
 (function () {
   const legacyHost = 'ringcentral.github.io';
-  const legacyPath = '/rc-unified-crm-extension';
-  const canonicalHost = 'appconnect.labs.ringcentral.com';
+  const legacyPath = '/ringcentral-mcp-docs';
+  const canonicalHost = 'mcp.labs.ringcentral.com';
+  const canonicalPath = '/docs';
 
   if (window.location.hostname !== legacyHost) {
     return;
@@ -18,7 +27,8 @@ console.log('extra.js loaded');
 
   const nextUrl = new URL(window.location.href);
   nextUrl.hostname = canonicalHost;
-  nextUrl.pathname = nextUrl.pathname.slice(legacyPath.length) || '/';
+  const remainingPath = nextUrl.pathname.slice(legacyPath.length);
+  nextUrl.pathname = canonicalPath + (remainingPath || '/');
 
   if (nextUrl.href !== window.location.href) {
     window.location.replace(nextUrl.href);
@@ -27,7 +37,31 @@ console.log('extra.js loaded');
 """
 
 
+def _inline_redirect_in_404(site_dir):
+    not_found = site_dir / "404.html"
+    if not not_found.exists():
+        return
+
+    html = not_found.read_text(encoding="utf-8")
+    marker = "<meta charset=\"utf-8\">"
+    script = f"{marker}\n      <script>{SAFE_REDIRECT_JS}</script>"
+    if marker in html and SAFE_REDIRECT_JS not in html:
+        not_found.write_text(html.replace(marker, script, 1), encoding="utf-8")
+
+
 def on_post_build(config):
+    site_dir = Path(config["site_dir"])
+
     extra_js = Path(config["site_dir"]) / "_rc" / "extra.js"
     extra_js.parent.mkdir(parents=True, exist_ok=True)
     extra_js.write_text(SAFE_REDIRECT_JS, encoding="utf-8")
+
+    for html_file in site_dir.rglob("*.html"):
+        html = html_file.read_text(encoding="utf-8")
+        updated = html
+        for old, new in FOOTER_REPLACEMENTS.items():
+            updated = updated.replace(old, new)
+        if updated != html:
+            html_file.write_text(updated, encoding="utf-8")
+
+    _inline_redirect_in_404(site_dir)
