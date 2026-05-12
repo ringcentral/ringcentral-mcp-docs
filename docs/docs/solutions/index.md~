@@ -1,0 +1,67 @@
+---
+title: Solutions
+description: Real-world use cases powered by RingCentral's MCP servers.
+hide:
+  - toc
+---
+
+# Solutions
+
+Real-world use cases powered by RingCentral's MCP servers. Browse by capability to see example prompts, expected responses, and which tools are called under the hood.
+
+<div class="grid cards" markdown>
+
+-   :material-contacts:{ .lg .middle } __CRM Enrichment__
+
+    ---
+
+    Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.
+
+    [View examples →](crm-enrichment.md)
+
+-   :material-chart-bar:{ .lg .middle } __Communication Analytics__
+
+    ---
+
+    Call volume over time, duration patterns, busiest hours, and transcript content analysis.
+
+    [View examples →](communication-analytics.md)
+
+-   :material-chart-line:{ .lg .middle } __Coaching & Insights__
+
+    ---
+
+    AI analyzes your communication patterns to surface coaching tips, flag improvement areas, and benchmark outcomes.
+
+    [View examples →](coaching-insights.md)
+
+-   :material-account-voice:{ .lg .middle } __Customer Engagement__
+
+    ---
+
+    Initiate calls via RingOut, automate SMS interactions, access and prioritize voicemails.
+
+    [View examples →](customer-engagement.md)
+
+-   :material-calendar-text:{ .lg .middle } __Meetings Intelligence__
+
+    ---
+
+    Capture decisions, extract to-dos, search meeting history — become a more reliable and accountable collaborator.
+
+    [View examples →](meetings-intelligence.md)
+
+-   :material-forum:{ .lg .middle } __Team Collaboration__
+
+    ---
+
+    Search internal message history, send messages, and maintain context across team channels and direct conversations.
+
+    [View examples →](team-collaboration.md)
+
+</div>
+
+---
+
+!!! tip "New here?"
+    Start with the [Quickstart guide](../guides/quickstart.md) to connect a server before exploring solutions.
