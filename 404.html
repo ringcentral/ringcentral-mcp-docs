@@ -4,6 +4,31 @@
   <head>
     
       <meta charset="utf-8">
+      <script>console.log('extra.js loaded');
+(function () {
+  const legacyHost = 'ringcentral.github.io';
+  const legacyPath = '/ringcentral-mcp-docs';
+  const canonicalHost = 'mcp.labs.ringcentral.com';
+  const canonicalPath = '/docs';
+
+  if (window.location.hostname !== legacyHost) {
+    return;
+  }
+
+  if (!window.location.pathname.startsWith(legacyPath)) {
+    return;
+  }
+
+  const nextUrl = new URL(window.location.href);
+  nextUrl.hostname = canonicalHost;
+  const remainingPath = nextUrl.pathname.slice(legacyPath.length);
+  nextUrl.pathname = canonicalPath + (remainingPath || '/');
+
+  if (nextUrl.href !== window.location.href) {
+    window.location.replace(nextUrl.href);
+  }
+})();
+</script>
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
         <meta name="description" content="Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.">
@@ -18,7 +43,7 @@
         
       
       
-      <link rel="icon" href="/assets/favicon.png">
+      <link rel="icon" href="/docs/assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -27,10 +52,10 @@
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="/docs/assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="/docs/assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,11 +74,11 @@
       
     
     
-      <link rel="stylesheet" href="/_rc/ringcentral.css">
+      <link rel="stylesheet" href="/docs/_rc/ringcentral.css">
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="/docs/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/docs/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -103,9 +128,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="MCP" class="md-header__button md-logo" aria-label="MCP" data-md-component="logo">
+    <a href="/docs/." title="MCP" class="md-header__button md-logo" aria-label="MCP" data-md-component="logo">
       
-  <img src="/_rc/RingCentral_logo_color.png" alt="logo">
+  <img src="/docs/_rc/RingCentral_logo_color.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -222,7 +247,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="/docs/." class="md-tabs__link">
         
   
   
@@ -243,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/solutions/" class="md-tabs__link">
+        <a href="/docs/solutions/" class="md-tabs__link">
           
   
   
@@ -263,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/quickstart/" class="md-tabs__link">
+        <a href="/docs/guides/quickstart/" class="md-tabs__link">
           
   
   
@@ -290,7 +315,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/servers/" class="md-tabs__link">
+        <a href="/docs/servers/" class="md-tabs__link">
           
   
   
@@ -313,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/crm-workflow/" class="md-tabs__link">
+        <a href="/docs/guides/crm-workflow/" class="md-tabs__link">
           
   
   
@@ -353,9 +378,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="MCP" class="md-nav__button md-logo" aria-label="MCP" data-md-component="logo">
+    <a href="/docs/." title="MCP" class="md-nav__button md-logo" aria-label="MCP" data-md-component="logo">
       
-  <img src="/_rc/RingCentral_logo_color.png" alt="logo">
+  <img src="/docs/_rc/RingCentral_logo_color.png" alt="logo">
 
     </a>
     MCP
@@ -370,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="/docs/." class="md-nav__link">
         
   
   
@@ -451,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/" class="md-nav__link">
+      <a href="/docs/solutions/" class="md-nav__link">
         
   
   
@@ -479,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/crm-enrichment/" class="md-nav__link">
+      <a href="/docs/solutions/crm-enrichment/" class="md-nav__link">
         
   
   
@@ -507,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/communication-analytics/" class="md-nav__link">
+      <a href="/docs/solutions/communication-analytics/" class="md-nav__link">
         
   
   
@@ -535,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/coaching-insights/" class="md-nav__link">
+      <a href="/docs/solutions/coaching-insights/" class="md-nav__link">
         
   
   
@@ -563,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/customer-engagement/" class="md-nav__link">
+      <a href="/docs/solutions/customer-engagement/" class="md-nav__link">
         
   
   
@@ -591,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/meetings-intelligence/" class="md-nav__link">
+      <a href="/docs/solutions/meetings-intelligence/" class="md-nav__link">
         
   
   
@@ -619,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/solutions/team-collaboration/" class="md-nav__link">
+      <a href="/docs/solutions/team-collaboration/" class="md-nav__link">
         
   
   
@@ -708,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/quickstart/" class="md-nav__link">
+      <a href="/docs/guides/quickstart/" class="md-nav__link">
         
   
   
@@ -736,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/connecting-to-claude/" class="md-nav__link">
+      <a href="/docs/guides/connecting-to-claude/" class="md-nav__link">
         
   
   
@@ -764,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/authentication/" class="md-nav__link">
+      <a href="/docs/guides/authentication/" class="md-nav__link">
         
   
   
@@ -907,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/servers/" class="md-nav__link">
+      <a href="/docs/servers/" class="md-nav__link">
         
   
   
@@ -935,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/servers/rc-labs-mcp/" class="md-nav__link">
+      <a href="/docs/servers/rc-labs-mcp/" class="md-nav__link">
         
   
   
@@ -963,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/servers/app-connect/" class="md-nav__link">
+      <a href="/docs/servers/app-connect/" class="md-nav__link">
         
   
   
@@ -1107,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/rc-labs/" class="md-nav__link">
+      <a href="/docs/tools/rc-labs/" class="md-nav__link">
         
   
   
@@ -1197,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/get-session-info/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/get-session-info/" class="md-nav__link">
         
   
   
@@ -1225,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/get-public-connectors/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/get-public-connectors/" class="md-nav__link">
         
   
   
@@ -1253,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/get-help/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/get-help/" class="md-nav__link">
         
   
   
@@ -1281,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/find-contact-by-name/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/find-contact-by-name/" class="md-nav__link">
         
   
   
@@ -1309,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/find-contact-by-phone/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/find-contact-by-phone/" class="md-nav__link">
         
   
   
@@ -1337,7 +1362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/create-contact/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/create-contact/" class="md-nav__link">
         
   
   
@@ -1365,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/create-call-log/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/create-call-log/" class="md-nav__link">
         
   
   
@@ -1393,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/rc-get-call-logs/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/rc-get-call-logs/" class="md-nav__link">
         
   
   
@@ -1421,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tools/app-connect/logout/" class="md-nav__link">
+      <a href="/docs/tools/app-connect/logout/" class="md-nav__link">
         
   
   
@@ -1465,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/changelog/" class="md-nav__link">
+      <a href="/docs/changelog/" class="md-nav__link">
         
   
   
@@ -1554,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/crm-workflow/" class="md-nav__link">
+      <a href="/docs/guides/crm-workflow/" class="md-nav__link">
         
   
   
@@ -1697,13 +1722,11 @@
         
           
             
-            <a href="https://github.com/ringcentral/ringcentral-mcp" class="rc-labs-footer__proj" target="_blank" rel="noopener">
-              
-                <span class="rc-labs-footer__badge rc-labs-footer__badge--new">New</span>
-              
+            <div class="rc-labs-footer__proj rc-labs-footer__proj--active">
+              <span class="rc-labs-footer__badge rc-labs-footer__badge--here">You are here</span>
               <div class="rc-labs-footer__proj-name">RingCentral MCP</div>
               <div class="rc-labs-footer__proj-desc">AI tool integration for RingEX</div>
-            </a>
+            </div>
           
         
 
@@ -1718,8 +1741,8 @@
     <nav class="rc-labs-footer__nav">
       <a href="https://support.ringcentral.com" target="_blank" rel="noopener">Support</a>
       <a href="https://www.ringcentral.com/legal/privacy-notice.html" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://mcp.labs.ringcentral.com/releases/">Release notes</a>
-      <a href="https://github.com/ringcentral/rc-unified-crm-extension" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://mcp.labs.ringcentral.com/docs/changelog/">Changelog</a>
+      <a href="https://github.com/ringcentral/ringcentral-mcp-docs" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </div>
 </footer>
@@ -1733,14 +1756,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "/docs/", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "/docs/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="/docs/assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="/_rc/ringcentral.js"></script>
+        <script src="/docs/_rc/ringcentral.js"></script>
       
-        <script src="/_rc/extra.js"></script>
+        <script src="/docs/_rc/extra.js"></script>
       
     
   </body>
