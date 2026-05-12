@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil
 
 
 FOOTER_REPLACEMENTS = {
@@ -49,6 +50,23 @@ def _inline_redirect_in_404(site_dir):
         not_found.write_text(html.replace(marker, script, 1), encoding="utf-8")
 
 
+def _mirror_site_under_docs(site_dir):
+    docs_dir = site_dir / "docs"
+    if docs_dir.exists():
+        shutil.rmtree(docs_dir)
+    docs_dir.mkdir()
+
+    for item in site_dir.iterdir():
+        if item.name == "docs":
+            continue
+
+        target = docs_dir / item.name
+        if item.is_dir():
+            shutil.copytree(item, target)
+        else:
+            shutil.copy2(item, target)
+
+
 def on_post_build(config):
     site_dir = Path(config["site_dir"])
 
@@ -65,3 +83,4 @@ def on_post_build(config):
             html_file.write_text(updated, encoding="utf-8")
 
     _inline_redirect_in_404(site_dir)
+    _mirror_site_under_docs(site_dir)
