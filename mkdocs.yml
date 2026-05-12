@@ -5,6 +5,8 @@ site_url: https://mcp.labs.ringcentral.com/
 
 edit_uri: ""
 docs_dir: docs
+hooks:
+  - hooks/fix_ringcentral_redirect.py
 
 theme:
   name: material
