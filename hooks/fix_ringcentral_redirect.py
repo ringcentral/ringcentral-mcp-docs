@@ -55,7 +55,7 @@ def _copy_site_contents(site_dir, target_dir):
         shutil.rmtree(target_dir)
     target_dir.mkdir(parents=True)
     for item in site_dir.iterdir():
-        if item.name == "docs":
+        if item.name in {"docs", "ringcentral-mcp-docs"}:
             continue
 
         target = target_dir / item.name
@@ -68,6 +68,8 @@ def _copy_site_contents(site_dir, target_dir):
 def _mirror_site_under_docs(site_dir):
     _copy_site_contents(site_dir, site_dir / "docs")
     _copy_site_contents(site_dir, site_dir / "docs" / "docs")
+    _copy_site_contents(site_dir, site_dir / "ringcentral-mcp-docs")
+    _copy_site_contents(site_dir, site_dir / "ringcentral-mcp-docs" / "docs")
 
 
 def on_post_build(config):
