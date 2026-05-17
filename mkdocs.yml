@@ -1,10 +1,12 @@
 site_name: MCP
 site_description: Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.
 site_author: RingCentral Platform Team
-site_url: https://mcp.labs.ringcentral.com/
+site_url: https://mcp.labs.ringcentral.com/docs/
 
 edit_uri: ""
 docs_dir: docs
+hooks:
+  - hooks/fix_ringcentral_redirect.py
 
 theme:
   name: material
@@ -56,7 +58,8 @@ extra:
       link: https://twitter.com/ringcentral
 
 plugins:
-  - material-ringcentral
+  - material-ringcentral:
+      labs_project: ringcentral-mcp
   - search
   - tags
 
