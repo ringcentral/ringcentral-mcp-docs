@@ -98,7 +98,6 @@ The most complete log entry combines data from `rcGetCallLogs` with a contact lo
 3. createCallLog       → post log with incomingData + contactId + note
 ```
 
-See the [CRM Integration Workflow](../../guides/crm-workflow.md) guide for a full walkthrough.
 
 ---
 

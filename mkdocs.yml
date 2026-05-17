@@ -54,9 +54,6 @@ extra:
       link: https://github.com/ringcentral
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ringcentral
-  version:
-    provider: mike
-    default: latest
 
 plugins:
   - material-ringcentral
@@ -95,18 +92,41 @@ nav:
     - Customer Engagement: solutions/customer-engagement.md
     - Meetings Intelligence: solutions/meetings-intelligence.md
     - Team Collaboration: solutions/team-collaboration.md
-  - Installation & Setup:
-    - Quickstart: guides/quickstart.md
-    - Connecting to Claude: guides/connecting-to-claude.md
-    - Authentication: guides/authentication.md
+  - Setup:
+    - Overview: setup/index.md
+    - Claude: setup/claude.md
+    - ChatGPT: setup/chatgpt.md
   - Reference:
     - Servers:
       - Overview: servers/index.md
       - RingCentral MCP: servers/rc-labs-mcp.md
-      - App Connect (Unified CRM): servers/app-connect.md
+      - App Connect: servers/app-connect.md
     - Tool Reference:
       - RingCentral MCP:
-        - Overview: tools/rc-labs/index.md
+        - Overview: tools/ringcentral/index.md
+        - gatekeeper_select_tool: tools/ringcentral/gatekeeper-select-tool.md
+        - platform_get_capabilities: tools/ringcentral/platform-get-capabilities.md
+        - platform_list_get_operations: tools/ringcentral/platform-list-get-operations.md
+        - platform_list_post_operations: tools/ringcentral/platform-list-post-operations.md
+        - profile_get_current_extension: tools/ringcentral/profile-get-current-extension.md
+        - platform_call_get_operation: tools/ringcentral/platform-call-get-operation.md
+        - platform_call_post_operation: tools/ringcentral/platform-call-post-operation.md
+        - platform_create_glip_conversation_new: tools/ringcentral/platform-create-glip-conversation-new.md
+        - platform_create_glip_post_new: tools/ringcentral/platform-create-glip-post-new.md
+        - platform_list_glip_chats_new: tools/ringcentral/platform-list-glip-chats-new.md
+        - platform_list_glip_conversations_new: tools/ringcentral/platform-list-glip-conversations-new.md
+        - platform_list_glip_teams_new: tools/ringcentral/platform-list-glip-teams-new.md
+        - platform_read_glip_conversation_new: tools/ringcentral/platform-read-glip-conversation-new.md
+        - platform_read_glip_posts_new: tools/ringcentral/platform-read-glip-posts-new.md
+        - platform_read_glip_team_new: tools/ringcentral/platform-read-glip-team-new.md
+        - platform_list_messages: tools/ringcentral/platform-list-messages.md
+        - platform_read_message: tools/ringcentral/platform-read-message.md
+        - platform_read_message_content: tools/ringcentral/platform-read-message-content.md
+        - platform_read_user_call_log: tools/ringcentral/platform-read-user-call-log.md
+        - platform_read_extension: tools/ringcentral/platform-read-extension.md
+        - platform_read_unified_presence: tools/ringcentral/platform-read-unified-presence.md
+        - platform_read_ai_notes: tools/ringcentral/platform-read-ai-notes.md
+        - platform_search_directory_entries: tools/ringcentral/platform-search-directory-entries.md
       - App Connect:
         - getSessionInfo: tools/app-connect/get-session-info.md
         - getPublicConnectors: tools/app-connect/get-public-connectors.md
@@ -118,5 +138,3 @@ nav:
         - rcGetCallLogs: tools/app-connect/rc-get-call-logs.md
         - logout: tools/app-connect/logout.md
     - Changelog: changelog.md
-  - Guides:
-    - CRM Integration Workflow: guides/crm-workflow.md

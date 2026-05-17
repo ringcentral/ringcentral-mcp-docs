@@ -85,5 +85,3 @@ Returns an empty array `[]` if no match is found.
 
 !!! tip "Common workflow"
     Inbound call → `findContactByPhone` → display contact info → after call ends → [`createCallLog`](create-call-log.md)
-
-    See the full [CRM Integration Workflow](../../guides/crm-workflow.md) guide.

@@ -76,4 +76,4 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
 ---
 
 !!! tip "New here?"
-    Start with the [Quickstart guide](../guides/quickstart.md) to connect a server before exploring solutions.
+    Start with the [Setup guide](../setup/index.md) to connect a server before exploring solutions.
