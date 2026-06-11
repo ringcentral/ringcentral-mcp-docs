@@ -31,6 +31,16 @@ Connect a RingCentral MCP server to your AI assistant in minutes. Choose your cl
     <span class="rc-sol__link">View instructions →</span>
   </a>
 
+  <a href="codex/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-2-1h-6v-2h6v2zM7.5 17l-1.41-1.41L8.67 13l-2.59-2.59L7.5 9l4 4-4 4z"/></svg>
+    </span>
+    <div class="rc-sol__num">03</div>
+    <div class="rc-sol__title">Codex</div>
+    <p class="rc-sol__desc">Connect via the Codex app's MCP Servers settings. Uses a dedicated server URL — see instructions.</p>
+    <span class="rc-sol__link">View instructions →</span>
+  </a>
+
 </div>
 
 ---
@@ -41,6 +51,9 @@ Connect a RingCentral MCP server to your AI assistant in minutes. Choose your cl
 |--------|-----|----------|
 | App Connect | `https://unified-crm-extension.labs.ringcentral.com/mcp` | CRM contact lookup, call logging |
 | RingCentral MCP | `https://mcp.labs.ringcentral.com/ringex` | RingCentral platform tools |
+
+!!! note "Using Codex?"
+    Codex uses a dedicated URL for the RingCentral MCP server — see the [Codex instructions](codex.md) for details.
 
 ---
 

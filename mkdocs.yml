@@ -99,6 +99,7 @@ nav:
     - Overview: setup/index.md
     - Claude: setup/claude.md
     - ChatGPT: setup/chatgpt.md
+    - Codex: setup/codex.md
   - Reference:
     - Servers:
       - Overview: servers/index.md
