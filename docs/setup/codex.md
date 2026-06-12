@@ -13,10 +13,7 @@ The Codex app supports remote MCP servers through its **MCP Servers** settings. 
 
 | Server | URL |
 |--------|-----|
-| RingCentral MCP | `https://ringex-mcp-origin.labs.ringcentral.com/ringex` |
-
-!!! note "Codex-specific URL"
-    Codex uses a dedicated endpoint for the RingCentral MCP server. It differs from the URL used with Claude and ChatGPT — make sure to use the one above.
+| RingCentral MCP | `https://mcp.labs.ringcentral.com/ringex` |
 
 ---
 
@@ -37,7 +34,7 @@ The Codex app supports remote MCP servers through its **MCP Servers** settings. 
     |-------|-------|
     | Name | `RingCentral MCP` (any name works) |
     | Type | **Streamable HTTP** |
-    | URL | `https://ringex-mcp-origin.labs.ringcentral.com/ringex` |
+    | URL | `https://mcp.labs.ringcentral.com/ringex` |
 
     After saving, Codex returns you to the MCP server list automatically.
 
