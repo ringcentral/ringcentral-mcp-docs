@@ -2,7 +2,7 @@
 
 Executes a supported RingCentral Platform POST operation with a JSON request body.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

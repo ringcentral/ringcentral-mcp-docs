@@ -2,7 +2,7 @@
 
 Create or open a direct conversation (1:1 or group). Maps to the RingCentral REST API `POST /team-messaging/v1/conversations`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Chat](../../servers/ringex-chat.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

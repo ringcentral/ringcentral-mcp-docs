@@ -2,7 +2,7 @@
 
 Get one or more messages from a user's message store. Maps to the RingCentral REST API `GET /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Phone](../../servers/ringex-phone.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

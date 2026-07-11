@@ -17,37 +17,9 @@ Supported CRM platforms include Salesforce, HubSpot, Zoho, and others supported 
 
 ## Connecting
 
-=== "Claude Desktop (Settings → Connectors)"
+See the [App Connect Setup guide](app-connect-setup.md) for step-by-step instructions for Claude, ChatGPT, and Codex — including how to link your CRM.
 
-    Remote MCP servers cannot be added to `claude_desktop_config.json`. Use the Connectors UI instead:
-
-    1. Open Claude Desktop → **Settings → Connectors**
-    2. Click **Add connector**
-    3. Enter URL: `https://unified-crm-extension.labs.ringcentral.com/mcp`
-    4. Click **Connect**
-    5. Authenticate with RingCentral when prompted
-    6. Authenticate with your CRM when prompted
-
-=== "Claude.ai (Settings → Integrations)"
-
-    1. Open **Settings → Integrations → Add MCP Server**
-    2. Enter URL: `https://unified-crm-extension.labs.ringcentral.com/mcp`
-    3. Click **Connect**
-    4. Authenticate with RingCentral when prompted
-    5. Authenticate with your CRM when prompted
-
-=== "Cursor"
-
-    ```json
-    {
-      "mcpServers": {
-        "appconnect": {
-          "url": "https://unified-crm-extension.labs.ringcentral.com/mcp",
-          "type": "http"
-        }
-      }
-    }
-    ```
+For other MCP clients (Cursor, etc.), add this server the same way you'd add any remote MCP server, using the endpoint above.
 
 ---
 
@@ -58,7 +30,7 @@ This server uses a **two-layer auth** model:
 1. **RingCentral identity** — required for all tools. Uses OAuth 2.0 / SSO via your RingCentral account.
 2. **CRM connection** — required for tools marked ⚠️ **REQUIRES CRM CONNECTION**. Users must link their CRM account via the App Connect portal.
 
-See the [Setup guide](../setup/claude.md) for step-by-step connection instructions.
+See the [Setup guide](app-connect-setup.md) for step-by-step connection instructions.
 
 ---
 

@@ -41,21 +41,11 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <span class="rc-sol__link">View examples →</span>
   </a>
 
-  <a href="meetings-intelligence/" class="rc-sol-card">
-    <span class="rc-sol__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V8h14v11zM7 10h10v2H7zm0 4h7v2H7z"/></svg>
-    </span>
-    <div class="rc-sol__num">04</div>
-    <div class="rc-sol__title">Meetings Intelligence</div>
-    <p class="rc-sol__desc">Capture decisions, extract to-dos, search meeting history — become a more reliable and accountable collaborator.</p>
-    <span class="rc-sol__link">View examples →</span>
-  </a>
-
   <a href="team-collaboration/" class="rc-sol-card">
     <span class="rc-sol__icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 12V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14l4-4h10a1 1 0 0 0 1-1zm4-6h-2v9H6v2a1 1 0 0 0 1 1h11l4 4V7a1 1 0 0 0-1-1z"/></svg>
     </span>
-    <div class="rc-sol__num">05</div>
+    <div class="rc-sol__num">04</div>
     <div class="rc-sol__title">Team Collaboration</div>
     <p class="rc-sol__desc">Search internal message history, send messages, and maintain context across team channels and direct conversations.</p>
     <span class="rc-sol__link">View examples →</span>
@@ -65,7 +55,7 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <span class="rc-sol__icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 0H4a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 16H5.17L4 17.17V2h16v14zM12 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 6H6v-.67C6 11.47 9.33 10.5 12 10.5s6 .97 6 2.83V14z"/></svg>
     </span>
-    <div class="rc-sol__num">06</div>
+    <div class="rc-sol__num">05</div>
     <div class="rc-sol__title">CRM Enrichment</div>
     <p class="rc-sol__desc">Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.</p>
     <span class="rc-sol__link">View examples →</span>
@@ -76,4 +66,4 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
 ---
 
 !!! tip "New here?"
-    Start with the [Setup guide](../setup/index.md) to connect a server before exploring solutions.
+    Start with the [Servers overview](../servers/index.md) to pick a server and connect it before exploring solutions.

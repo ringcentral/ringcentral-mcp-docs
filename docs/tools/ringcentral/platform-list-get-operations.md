@@ -2,7 +2,7 @@
 
 Lists the supported read-only RingCentral Platform GET operations available through `platform_call_get_operation`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

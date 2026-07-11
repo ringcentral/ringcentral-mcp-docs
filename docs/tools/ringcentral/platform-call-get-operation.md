@@ -2,7 +2,7 @@
 
 Executes a supported read-only RingCentral Platform GET operation. Missing `accountId`, `extensionId`, and `ownerExtensionId` path parameters default to `~`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

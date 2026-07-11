@@ -2,7 +2,7 @@
 
 Get the unified presence status for a RingCentral extension. Maps to the RingCentral REST API `GET /restapi/v1.0/account/{accountId}/extension/{extensionId}/unified-presence`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---
@@ -18,7 +18,7 @@ Get the unified presence status for a RingCentral extension. Maps to the RingCen
 
 ## Returns
 
-Returns the unified presence object for the specified extension, including the aggregated presence status (e.g. `Available`, `Busy`, `DoNotDisturb`), telephony session presence, meeting presence, and glip (Team Messaging) presence.
+Returns the unified presence object for the specified extension, including the aggregated presence status (e.g. `Available`, `Busy`, `DoNotDisturb`), telephony session presence, and glip (Team Messaging) presence.
 
 ---
 
@@ -35,7 +35,7 @@ Returns the unified presence object for the specified extension, including the a
 ## Notes
 
 - Both `path.accountId` and `path.extensionId` default to `~`, so calling this tool with no parameters returns the authenticated user's own presence.
-- The unified presence aggregates status across telephony, meetings, and Team Messaging into a single top-level status.
+- The unified presence aggregates status across telephony and Team Messaging into a single top-level status.
 - To look up the extension profile rather than its presence, use [`platform_read_extension`](platform-read-extension.md).
 
 ---

@@ -2,7 +2,7 @@
 
 Search the company directory for extensions, users, and contacts. Maps to the RingCentral REST API `POST /restapi/v1.0/account/{accountId}/directory/entries/search`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

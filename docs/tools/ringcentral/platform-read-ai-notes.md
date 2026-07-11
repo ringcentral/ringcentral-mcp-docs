@@ -2,7 +2,7 @@
 
 Get AI-generated notes for a telephony session. Maps to the RingCentral REST API `GET /ai/copilot/v1/accounts/~/extensions/{ownerExtensionId}/ai-notes/{telephonySessionId}`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Phone](../../servers/ringex-phone.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

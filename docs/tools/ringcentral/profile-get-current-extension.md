@@ -2,7 +2,7 @@
 
 Returns the RingCentral extension for the authenticated bearer token. This tool always returns the caller's own extension and cannot query arbitrary account or extension IDs.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

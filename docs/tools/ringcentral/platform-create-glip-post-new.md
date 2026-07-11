@@ -2,7 +2,7 @@
 
 Create a post in a RingCentral Team Messaging chat. Maps to the RingCentral REST API `POST /team-messaging/v1/chats/{chatId}/posts`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Chat](../../servers/ringex-chat.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

@@ -1,10 +1,21 @@
-# RingCentral MCP
+# RingCentral MCP (Deprecated)
 
 **Endpoint:** `https://mcp.labs.ringcentral.com/ringex`  
-**Status:** 🟡 Labs / Beta  
+**Status:** 🔴 Deprecated  
 **Transport:** SSE over HTTPS
 
 ---
+
+!!! danger "Deprecated — migrate to RingEx Phone, Chat, and Admin"
+    This monolithic server has been replaced by three focused servers. It remains reachable for now to support in-flight migrations, but it will not receive new tools and may be shut off in a future release. Point new integrations at the replacements below.
+
+    | Tool group on this server | Migrate to |
+    |---|---|
+    | Call log & AI call notes, SMS/fax/voicemail messages | [RingEx Phone](ringex-phone.md) |
+    | Team messaging (Glip) chats, conversations, teams, posts | [RingEx Chat](ringex-chat.md) |
+    | Meta/discovery, generic operations, extension, presence, directory | [RingEx Admin](ringex-admin.md) |
+
+    Tool names and parameters are unchanged — only the endpoint URL differs. See each replacement server's page for its connecting instructions.
 
 ## About
 
@@ -13,41 +24,13 @@ The RingCentral MCP server gives your AI assistant direct access to the RingCent
 Run [`platform_get_capabilities`](../tools/ringcentral/platform-get-capabilities.md) to see a full summary of supported API endpoints and tools.
 
 !!! warning "Labs status"
-    This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
+    This server was part of RingCentral Labs and was never covered by RingCentral's standard SLA. It is now deprecated in favor of RingEx Phone, Chat, and Admin — see the migration notice above.
 
 ---
 
 ## Connecting
 
-=== "Claude Desktop (Settings → Connectors)"
-
-    Remote MCP servers cannot be added to `claude_desktop_config.json`. Use the Connectors UI instead:
-
-    1. Open Claude Desktop → **Settings → Connectors**
-    2. Click **Add connector**
-    3. Enter URL: `https://mcp.labs.ringcentral.com/ringex`
-    4. Click **Connect**
-
-=== "Claude.ai (Settings → Integrations)"
-
-    1. Open **Settings → Integrations → Add MCP Server**
-    2. Enter URL: `https://mcp.labs.ringcentral.com/ringex`
-    3. Click **Connect**
-
-=== "Cursor"
-
-    Add to `.cursor/mcp.json` in your project root:
-
-    ```json
-    {
-      "mcpServers": {
-        "ringcentral": {
-          "url": "https://mcp.labs.ringcentral.com/ringex",
-          "type": "http"
-        }
-      }
-    }
-    ```
+This server is deprecated — new connections should go to its replacements instead. If you're not yet able to migrate, add it to your MCP client the same way as the replacement servers, using this server's endpoint above: see the [RingEx Phone](ringex-phone-setup.md), [RingEx Chat](ringex-chat-setup.md), or [RingEx Admin](ringex-admin-setup.md) setup guides for the general steps for Claude, ChatGPT, and Codex.
 
 ---
 

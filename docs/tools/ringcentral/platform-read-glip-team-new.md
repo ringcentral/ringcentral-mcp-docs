@@ -2,7 +2,7 @@
 
 Get details about a specific Team Messaging team. Maps to the RingCentral REST API `GET /team-messaging/v1/teams/{chatId}`.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Chat](../../servers/ringex-chat.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---

@@ -2,7 +2,7 @@
 
 First stop for translating a natural-language RingCentral request into MCP tool calls. Selects one RingCentral MCP tool using endpoint input schemas.
 
-**Server:** [RingCentral MCP](../../servers/rc-labs-mcp.md)  
+**Server:** [RingEx Admin](../../servers/ringex-admin.md) — also reachable via the deprecated [RingCentral MCP](../../servers/rc-labs-mcp.md)  
 **CRM required:** No
 
 ---
