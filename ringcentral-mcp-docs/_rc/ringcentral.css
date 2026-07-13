@@ -136,6 +136,15 @@ body:not(:has(.ac-home))::before { content: none !important; display: none !impo
     z-index: 0;
   }
 
+  /* When navigation is hidden (hide: navigation in front matter), suppress the
+     sidebar gradient and divider so the left column is clean white */
+  body:has(.md-sidebar--primary[hidden]) .md-main__inner {
+    background: #ffffff !important;
+  }
+  body:has(.md-sidebar--primary[hidden]) .md-main__inner::after {
+    display: none !important;
+  }
+
   /* Sidebar width — override Material's 12.1rem default.
      position: static removes sticky scroll so the whole page scrolls as one unit.
      Wrapped in this query so Material's drawer still works on narrow viewports. */
@@ -880,6 +889,8 @@ body:not(:has(.ac-home)) .md-typeset h2 {
 .md-content__inner::before { height: 0 !important; }
 /* Strip Material's 1.5rem top margin from .md-main__inner */
 .md-main__inner { margin-top: 0 !important; }
+/* Strip Material's bottom padding from .md-main */
+.md-main { padding-bottom: 0 !important; }
 
 /* --------------------------------------------------------------------------
    Footer — dark navy Labs footer
@@ -2128,4 +2139,581 @@ body:has(.ac-home) .md-main { overflow-x: clip; }
   .rc-labs-footer__bar {
     padding: 0.85rem 1.25rem;
   }
+}
+
+/* ==========================================================================
+   HERO BANNERS
+   Homepage heroes (.ac-hero) and interior page heroes (.ac-page-hero)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared hero tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --hero-orange:   #FF8800;
+  --hero-navy:     #1B2A4A;
+  --hero-lavender: #c45aff;
+  --hero-radius:   12px;
+}
+
+/* --------------------------------------------------------------------------
+   HOMEPAGE HEROES  (.ac-hero + modifier)
+   Full-bleed sections for use inside .ac-home
+   -------------------------------------------------------------------------- */
+.ac-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shared inner elements */
+.ac-hero__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hero-orange);
+  margin-bottom: 0.5rem;
+}
+.ac-hero__title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0;
+}
+.ac-hero__sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.65;
+  margin-top: 0.75rem;
+  max-width: 38rem;
+}
+.ac-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+/* Pill / badge used by --mesh */
+.ac-hero__pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.28);
+  margin-bottom: 0.75rem;
+}
+/* Stat element used by --stats */
+.ac-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.ac-hero__stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--hero-orange);
+  line-height: 1;
+}
+.ac-hero__stat-label {
+  font-size: 0.72rem;
+  opacity: 0.45;
+  margin-top: 0.2rem;
+}
+
+/* ── A: Cinematic Centered ──────────────────────────────────────────────── */
+.ac-hero--cinematic {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2a1a3e 60%, #3d1a00 100%);
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+.ac-hero--cinematic::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 65%, rgba(255,136,0,0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ac-hero--cinematic .ac-hero__title,
+.ac-hero--cinematic .ac-hero__sub { color: #fff; }
+.ac-hero--cinematic .ac-hero__sub { margin-left: auto; margin-right: auto; }
+.ac-hero--cinematic .ac-hero__cta { justify-content: center; }
+
+/* ── B: Navy / Gradient Split ───────────────────────────────────────────── */
+.ac-hero--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+}
+.ac-hero--split .ac-hero__left {
+  background: var(--hero-navy);
+  padding: 4rem 3rem 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  position: relative; z-index: 1;
+}
+.ac-hero--split .ac-hero__right {
+  background: linear-gradient(135deg, var(--hero-orange) 0%, var(--hero-lavender) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.ac-hero--split .ac-hero__right::before {
+  content: '';
+  position: absolute;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  top: -60px; left: -60px;
+}
+.ac-hero--split .ac-hero__right::after {
+  content: '';
+  position: absolute;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  bottom: 20px; right: 20px;
+}
+.ac-hero--split .ac-hero__visual {
+  position: relative; z-index: 1;
+  color: rgba(255,255,255,0.9);
+  font-size: 4rem;
+}
+
+/* ── C: Orange Diagonal Slash ───────────────────────────────────────────── */
+.ac-hero--slash {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 320px;
+  color: var(--hero-navy);
+}
+.ac-hero--slash::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 52%; height: 100%;
+  background: linear-gradient(135deg, var(--hero-orange) 0%, var(--hero-navy) 100%);
+  clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.ac-hero--slash .ac-hero__copy {
+  position: relative; z-index: 1;
+  max-width: 44%;
+}
+.ac-hero--slash .ac-hero__title { color: var(--hero-navy); }
+.ac-hero--slash .ac-hero__sub   { color: #555; }
+
+/* ── D: Dark Stats Banner ───────────────────────────────────────────────── */
+.ac-hero--stats {
+  background: #0f172a;
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  min-height: 300px;
+}
+.ac-hero--stats::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--hero-orange), var(--hero-lavender), transparent);
+}
+
+/* ── E: Full-Bleed Gradient Mesh ────────────────────────────────────────── */
+.ac-hero--mesh {
+  background: linear-gradient(120deg, var(--hero-orange) 0%, var(--hero-lavender) 42%, var(--hero-navy) 100%);
+  padding: 5rem 2.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  min-height: 380px;
+}
+.ac-hero--mesh::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 28% 50%, rgba(255,255,255,0.14) 0%, transparent 58%);
+  pointer-events: none;
+}
+.ac-hero--mesh .ac-hero__title { color: #fff; max-width: 30rem; position: relative; }
+.ac-hero--mesh .ac-hero__sub   { color: rgba(255,255,255,0.75); position: relative; }
+.ac-hero--mesh .ac-hero__pill  { position: relative; }
+
+/* --------------------------------------------------------------------------
+   INTERIOR PAGE HEROES  (.ac-page-hero + modifier)
+   Sit within the normal content column, above body text
+   -------------------------------------------------------------------------- */
+.ac-page-hero {
+  border-radius: var(--hero-radius);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Shared interior hero elements */
+.ac-page-hero__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--hero-orange);
+  margin-bottom: 0.35rem;
+}
+.ac-page-hero__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.ac-page-hero__sub {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.4rem;
+  opacity: 0.7;
+}
+.ac-page-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.ac-page-hero__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(196,90,255,0.12);
+  color: #9b3fc8;
+}
+.ac-page-hero__badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(255,136,0,0.12);
+  color: var(--hero-orange);
+  border: 1px solid rgba(255,136,0,0.25);
+}
+.ac-page-hero__reading {
+  font-size: 0.7rem;
+  opacity: 0.45;
+}
+.ac-page-hero__breadcrumb {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+.ac-page-hero__breadcrumb a {
+  color: var(--hero-lavender);
+  text-decoration: none;
+  font-weight: 600;
+}
+.ac-page-hero__breadcrumb a:hover { text-decoration: underline; }
+
+/* ── F: Left-Bar Accent ─────────────────────────────────────────────────── */
+.ac-page-hero--bar {
+  background: var(--md-default-bg-color, #fff);
+  border: 1px solid var(--md-default-fg-color--lightest, #e8e8e8);
+  display: flex;
+}
+.ac-page-hero--bar::before {
+  content: '';
+  display: block;
+  width: 4px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--hero-orange) 0%, var(--hero-lavender) 100%);
+}
+.ac-page-hero--bar .ac-page-hero__body {
+  padding: 1.25rem 1.5rem;
+}
+
+/* ── G: Tinted Surface ──────────────────────────────────────────────────── */
+.ac-page-hero--tint {
+  background: linear-gradient(135deg, rgba(255,136,0,0.06) 0%, rgba(196,90,255,0.04) 100%);
+  border: 1px solid rgba(255,136,0,0.15);
+  padding: 1.25rem 1.5rem;
+}
+.ac-page-hero--tint::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--hero-orange), var(--hero-lavender));
+  opacity: 0.4;
+}
+
+/* ── H: Navy Strip with Badge ───────────────────────────────────────────── */
+.ac-page-hero--navy {
+  background: var(--hero-navy);
+  padding: 1.25rem 1.5rem 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #fff;
+}
+.ac-page-hero--navy::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--hero-orange);
+}
+.ac-page-hero--navy .ac-page-hero__eyebrow { color: var(--hero-orange); }
+.ac-page-hero--navy .ac-page-hero__title   { color: #fff; }
+.ac-page-hero--navy .ac-page-hero__sub     { color: rgba(255,255,255,0.5); }
+.ac-page-hero--navy .ac-page-hero__actions { flex-shrink: 0; }
+
+/* ── I: Gradient Underline Rule ─────────────────────────────────────────── */
+.ac-page-hero--rule {
+  background: var(--md-default-bg-color, #fff);
+  border: 1px solid var(--md-default-fg-color--lightest, #e8e8e8);
+  padding: 1.25rem 1.5rem 0;
+}
+.ac-page-hero--rule .ac-page-hero__title-wrap {
+  padding-bottom: 1rem;
+}
+.ac-page-hero--rule .ac-page-hero__rule {
+  height: 3px;
+  background: linear-gradient(90deg, var(--hero-orange) 0%, var(--hero-lavender) 40%, transparent 100%);
+  margin: 0 -1.5rem;
+}
+.ac-page-hero--rule .ac-page-hero__sub {
+  padding: 0.85rem 0 1.1rem;
+  opacity: 0.65;
+}
+
+/* ── J: Copy + Visual Split ─────────────────────────────────────────────── */
+.ac-page-hero--visual {
+  background: var(--md-default-bg-color, #fff);
+  border: 1px solid var(--md-default-fg-color--lightest, #e8e8e8);
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.ac-page-hero--visual .ac-page-hero__body {
+  padding: 1.25rem 1.5rem;
+}
+.ac-page-hero--visual .ac-page-hero__vis {
+  background: linear-gradient(135deg, var(--hero-navy), #2d1b4e);
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+/* ── K: Breadcrumb-Flush Header ─────────────────────────────────────────── */
+.ac-page-hero--breadcrumb {
+  background: linear-gradient(180deg, rgba(196,90,255,0.06) 0%, var(--md-default-bg-color, #fff) 100%);
+  border: 1px solid rgba(196,90,255,0.15);
+  padding: 1rem 1.5rem 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Hero CTA buttons (shared by homepage and interior heroes)
+   -------------------------------------------------------------------------- */
+.ac-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.ac-hero-btn:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
+.ac-hero-btn--solid {
+  background: var(--hero-orange);
+  color: #fff !important;
+}
+.ac-hero-btn--outline {
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85) !important;
+}
+.ac-hero-btn--navy {
+  background: var(--hero-navy);
+  color: #fff !important;
+}
+
+/* --------------------------------------------------------------------------
+   Hero responsive
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 860px) {
+  .ac-hero--split {
+    grid-template-columns: 1fr;
+  }
+  .ac-hero--split .ac-hero__right {
+    display: none; /* hide decorative panel on narrow viewports */
+  }
+  .ac-hero--slash .ac-hero__copy { max-width: 60%; }
+  .ac-hero--slash::after { width: 40%; }
+  .ac-page-hero--visual { grid-template-columns: 1fr; }
+  .ac-page-hero--visual .ac-page-hero__vis { display: none; }
+}
+@media screen and (max-width: 600px) {
+  .ac-hero--cinematic,
+  .ac-hero--stats,
+  .ac-hero--mesh { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .ac-hero--slash .ac-hero__copy { max-width: 80%; }
+  .ac-hero--slash::after { width: 28%; clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  .ac-hero__stats { gap: 1.25rem; }
+}
+
+/* ==========================================================================
+   BUTTON DESIGN SYSTEM — Pill style
+   Single source of truth for all button contexts across the site.
+   ========================================================================== */
+
+/* ── Base: pill shape + hover lift, shared by all contexts ───────────────── */
+.md-typeset .md-button,
+.crm-mkt__callout-btn,
+.bld-cta__btn {
+  border-radius: 999px !important;
+  transition: opacity 0.15s, transform 0.15s !important;
+}
+.md-typeset .md-button:hover,
+.crm-mkt__callout-btn:hover,
+.bld-cta__btn:hover {
+  transform: translateY(-1px) !important;
+  opacity: 0.9 !important;
+}
+
+/* ── Context 1: MkDocs Material .md-button ───────────────────────────────── */
+.md-typeset .md-button {
+  border: 2px solid #FF7A00 !important;
+  color: #FF7A00 !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  padding: 0.45rem 1.4rem !important;
+  letter-spacing: 0.01em !important;
+}
+.md-typeset .md-button--primary {
+  background: #FF7A00 !important;
+  color: #fff !important;
+  border-color: #FF7A00 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
+  border-color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* ── Size modifiers ──────────────────────────────────────────────────────── */
+.md-typeset .md-button--lg {
+  padding: 0.7rem 1.75rem !important;
+  font-size: 1rem !important;
+}
+.md-typeset .md-button--sm {
+  padding: 0.3rem 1rem !important;
+  font-size: 0.75rem !important;
+}
+.md-typeset .md-button--xs {
+  padding: 0.15rem 0.65rem !important;
+  font-size: 0.7rem !important;
+}
+
+/* ── Variant modifiers ───────────────────────────────────────────────────── */
+.md-typeset .md-button--ghost {
+  border-color: transparent !important;
+  color: #FF7A00 !important;
+  background: transparent !important;
+}
+.md-typeset .md-button--ghost:hover {
+  border-color: transparent !important;
+  background: rgba(255, 122, 0, 0.08) !important;
+  opacity: 1 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--ghost {
+  color: rgba(255,255,255,0.85) !important;
+  border-color: transparent !important;
+}
+.md-typeset .md-button--danger {
+  background: #D32F2F !important;
+  color: #fff !important;
+  border-color: #D32F2F !important;
+}
+.md-typeset .md-button--danger:hover {
+  background: #B71C1C !important;
+  border-color: #B71C1C !important;
+  opacity: 1 !important;
+}
+
+/* ── Context 2: CRM marketplace callout strip ────────────────────────────── */
+.crm-mkt__callout-btn--primary {
+  background: #FF7A00 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.crm-mkt__callout-btn--secondary {
+  background: transparent !important;
+  color: #FF7A00 !important;
+  border: 2px solid #FF7A00 !important;
+}
+[data-md-color-scheme="slate"] .crm-mkt__callout-btn--secondary {
+  color: rgba(255,255,255,0.85) !important;
+  border-color: rgba(255,255,255,0.4) !important;
+}
+
+/* ── Context 3: Vendor page .bld-cta__btn — pill radius only (already orange solid) */
+
+/* ==========================================================================
+   RECIPE PAGE PREVIEW SCOPE
+   Wrap any full-bleed homepage section in .rc-recipe-preview to render it
+   at column width without the viewport-relative padding / margin-left tricks.
+   ========================================================================== */
+.rc-recipe-preview {
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0 1.5rem;
+}
+.rc-recipe-preview .ac-v5-hero,
+.rc-recipe-preview .ac-v5-pillars,
+.rc-recipe-preview .ac-v5-features,
+.rc-recipe-preview .ac-v5-ai-section,
+.rc-recipe-preview .ac-v5-devtile,
+.rc-recipe-preview .ac-v5-ticker-wrap {
+  width: 100% !important;
+  margin-left: 0 !important;
+  border-radius: 0 !important;
+}
+/* Override the viewport-relative horizontal padding that breaks in-column display */
+.rc-recipe-preview .ac-v5-hero {
+  padding: 2.5rem 2rem 2.25rem !important;
+}
+.rc-recipe-preview .ac-v5-pillars {
+  padding: 2rem !important;
+}
+.rc-recipe-preview .ac-v5-features {
+  padding: 1.5rem 2rem 2rem !important;
+}
+.rc-recipe-preview .ac-v5-ai-section {
+  padding: 2.5rem 2rem !important;
+}
+.rc-recipe-preview .ac-v5-ticker-wrap {
+  padding: 1.25rem 2rem 1.5rem !important;
 }
