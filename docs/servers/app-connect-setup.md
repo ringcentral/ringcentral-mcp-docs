@@ -51,7 +51,7 @@ Once App Connect is active in a conversation:
 2. Your assistant will display the available connectors
 3. Click through the OAuth flow to link your CRM account
 
-Supported platforms include Salesforce, HubSpot, Zoho, and others. See [`getPublicConnectors`](../tools/app-connect/get-public-connectors.md) for the full list.
+Supported platforms include Salesforce, HubSpot, Zoho, and others. See [`getPublicConnectors`](../tools/app-connect.md#getpublicconnectors) for the full list.
 
 ---
 

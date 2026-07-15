@@ -10,12 +10,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### RingEx Phone, Chat, Admin — Added
 - Three new servers published, replacing the monolithic RingCentral MCP server:
   - **RingEx Phone** — `https://mcp.labs.ringcentral.com/ringex/phone` (call log, AI call notes, SMS/fax/voicemail messages)
-  - **RingEx Chat** — `https://mcp.labs.ringcentral.com/ringex/chat` (Team Messaging / Glip)
+  - **RingEx Chat** — `https://mcp.labs.ringcentral.com/ringex/team-chat` (Team Messaging / Glip)
   - **RingEx Admin** — `https://mcp.labs.ringcentral.com/ringex/admin` (tool discovery, generic operations, extension, presence, directory)
-- All 23 tools previously on RingCentral MCP are unchanged in name and parameters — only the endpoint differs. See the [migration mapping](servers/rc-labs-mcp.md) for which tools moved where.
+- Tool names changed as part of the split: generic dispatch tools (`gatekeeper_select_tool`, `platform_call_get_operation`, `platform_call_post_operation`, `platform_list_get_operations`, `platform_list_post_operations`) were removed in favor of dedicated, purpose-named tools, and Glip tools were renamed to the `team_messaging_*` convention. See the migration notes on each server page for common renames.
 
-### RingCentral MCP — Deprecated
-- `https://mcp.labs.ringcentral.com/ringex` is now deprecated in favor of RingEx Phone, Chat, and Admin above. It remains reachable to support in-flight migrations.
+### RingCentral MCP — Removed
+- The deprecated monolithic `https://mcp.labs.ringcentral.com/ringex` server and its documentation have been removed. Use RingEx Phone, Chat, and Admin above instead.
 
 ### App Connect
 - `findContactByPhone` — improve phone number normalisation for international formats
