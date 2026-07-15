@@ -86,44 +86,8 @@ body[data-page="home"] .md-content__inner {
   display: flex;
   flex-direction: column;
   /* Height is driven by content — no min-height so copy+window dictate it */
-  background:
-    /* Radial sun glow at the horizon */
-    radial-gradient(ellipse 90% 55% at 50% 108%,
-      rgba(255, 165, 10, 0.92) 0%,
-      rgba(255, 90,  10, 0.68) 18%,
-      rgba(200, 50, 110, 0.38) 38%,
-      rgba(100, 20, 140, 0.15) 58%,
-      transparent 72%),
-    /* Sky: deep indigo → violet → rose → amber */
-    linear-gradient(180deg,
-      #080620  0%,
-      #120E42  18%,
-      #1E1060  34%,
-      #341575  48%,
-      #5E1A7E  62%,
-      #8A1F60  74%,
-      #BC3A28  86%,
-      #E05A08  100%
-    );
-}
-/* Thin atmospheric horizon glow line */
-.rc-hero::before {
-  content: '';
-  position: absolute;
-  bottom: 80px;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,180,40,0.0) 10%,
-    rgba(255,180,40,0.55) 30%,
-    rgba(255,210,80,0.85) 50%,
-    rgba(255,180,40,0.55) 70%,
-    rgba(255,180,40,0.0) 90%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 1;
+  background: linear-gradient(135deg, var(--rc-g-warm-1) 0%, var(--rc-g-warm-2) 45%,
+                                var(--rc-g-warm-3) 75%, var(--rc-g-warm-4) 100%);
 }
 #heroCanvas { display: none; }
 .rc-hero__inner {
