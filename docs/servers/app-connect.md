@@ -2,8 +2,7 @@
 
 **Endpoint:** `https://unified-crm-extension.labs.ringcentral.com/mcp`  
 **Status:** 🟢 Available  
-**Transport:** SSE over HTTPS  
-**Tools:** 9
+**Transport:** SSE over HTTPS
 
 ---
 
@@ -34,16 +33,36 @@ See the [Setup guide](app-connect-setup.md) for step-by-step connection instruct
 
 ---
 
-## Tool summary
+## Available tools
 
-| Tool | CRM Required | Description |
+9 tools are available on this server.
+
+| Tool | Requires CRM | Description |
 |------|:---:|-------------|
-| [`getSessionInfo`](../tools/app-connect/get-session-info.md) | — | Current user identity and CRM connection status |
-| [`getPublicConnectors`](../tools/app-connect/get-public-connectors.md) | — | List available CRM connectors |
-| [`getHelp`](../tools/app-connect/get-help.md) | — | Quick integration guide |
-| [`findContactByName`](../tools/app-connect/find-contact-by-name.md) | ⚠️ | Search CRM contacts by name |
-| [`findContactByPhone`](../tools/app-connect/find-contact-by-phone.md) | ⚠️ | Search CRM contacts by phone number |
-| [`createContact`](../tools/app-connect/create-contact.md) | ⚠️ | Create a new CRM contact |
-| [`createCallLog`](../tools/app-connect/create-call-log.md) | ⚠️ | Log a call activity to the CRM |
-| [`rcGetCallLogs`](../tools/app-connect/rc-get-call-logs.md) | ⚠️ | Retrieve call logs from RingCentral |
-| [`logout`](../tools/app-connect/logout.md) | — | Sign out from the CRM session |
+| [`getSessionInfo`](../tools/app-connect.md#getsessioninfo) | — | Current user identity and CRM connection status |
+| [`getPublicConnectors`](../tools/app-connect.md#getpublicconnectors) | — | List available CRM connectors |
+| [`getHelp`](../tools/app-connect.md#gethelp) | — | Quick integration guide |
+| [`findContactByName`](../tools/app-connect.md#findcontactbyname) | ⚠️ | Search CRM contacts by name |
+| [`findContactByPhone`](../tools/app-connect.md#findcontactbyphone) | ⚠️ | Search CRM contacts by phone number |
+| [`createContact`](../tools/app-connect.md#createcontact) | ⚠️ | Create a new CRM contact |
+| [`createCallLog`](../tools/app-connect.md#createcalllog) | ⚠️ | Log a call activity to the CRM |
+| [`rcGetCallLogs`](../tools/app-connect.md#rcgetcalllogs) | ⚠️ | Retrieve call logs from RingCentral |
+| [`logout`](../tools/app-connect.md#logout) | — | Sign out from the CRM session |
+
+---
+
+## Getting started
+
+1. **Connect** — Add the server URL above to your AI client, following the [Setup guide](app-connect-setup.md).
+2. **Verify** — Ask your assistant to check your RingCentral session status to confirm the connection is active.
+3. **Use** — Link your CRM, then ask your AI assistant to look up contacts, create records, or log call activity. Tools marked ⚠️ require an active CRM connection.
+
+---
+
+## Tool discovery
+
+```bash
+curl -X POST https://unified-crm-extension.labs.ringcentral.com/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+```

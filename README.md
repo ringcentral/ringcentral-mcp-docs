@@ -36,21 +36,12 @@ rc-mcp-docs/
     │   └── extra.css            # RingCentral brand overrides
     ├── servers/
     │   ├── index.md             # Server registry overview
-    │   ├── rc-labs-mcp.md
     │   └── app-connect.md
     ├── tools/
-    │   ├── app-connect/
-    │   │   ├── get-session-info.md
-    │   │   ├── get-public-connectors.md
-    │   │   ├── get-help.md
-    │   │   ├── find-contact-by-name.md
-    │   │   ├── find-contact-by-phone.md
-    │   │   ├── create-contact.md
-    │   │   ├── create-call-log.md
-    │   │   ├── rc-get-call-logs.md
-    │   │   └── logout.md
-    │   └── rc-labs/
-    │       └── index.md
+    │   ├── app-connect.md        # Consolidated tools reference
+    │   ├── ringex-phone.md       # Consolidated tools reference
+    │   ├── ringex-chat.md        # Consolidated tools reference
+    │   └── ringex-admin.md       # Consolidated tools reference
     └── guides/
         ├── quickstart.md
         ├── connecting-to-claude.md

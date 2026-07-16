@@ -86,4 +86,4 @@ After a sales call or customer conversation, keeping your CRM up to date is tedi
 - Valid RingCentral session active
 
 !!! note "Supported CRM platforms"
-    Use [`getPublicConnectors`](../tools/app-connect/get-public-connectors.md) to see the full list of CRM platforms currently supported by App Connect.
+    Use [`getPublicConnectors`](../tools/app-connect.md#getpublicconnectors) to see the full list of CRM platforms currently supported by App Connect.

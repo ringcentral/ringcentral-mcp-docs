@@ -7,7 +7,7 @@ hide:
 
 # Servers
 
-RingCentral currently publishes four active MCP servers, plus one deprecated legacy server that remains reachable during migration. All implement the [Model Context Protocol](https://modelcontextprotocol.io) specification and are reachable over HTTPS using Server-Sent Events (SSE) transport.
+RingCentral currently publishes four active MCP servers. All implement the [Model Context Protocol](https://modelcontextprotocol.io) specification and are reachable over HTTPS using Server-Sent Events (SSE) transport.
 
 <div class="rc-solutions-grid">
 
@@ -55,20 +55,14 @@ RingCentral currently publishes four active MCP servers, plus one deprecated leg
 
 ---
 
-!!! warning "RingCentral MCP is deprecated"
-    The original monolithic **RingCentral MCP** server has been replaced by three focused servers — **RingEx Phone**, **RingEx Chat**, and **RingEx Admin**. See [RingCentral MCP (Deprecated)](rc-labs-mcp.md) for the migration mapping.
-
----
-
 ## Server registry
 
 | Server | URL | Status | Tools |
 |--------|-----|--------|-------|
-| RingEx Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟡 Labs / Beta · New | 5 |
-| RingEx Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟡 Labs / Beta · New | 8 |
-| RingEx Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🟡 Labs / Beta · New | 10 |
+| RingEx Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟡 Labs / Beta · New | 24 |
+| RingEx Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟡 Labs / Beta · New | 65 |
+| RingEx Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🟡 Labs / Beta · New | 26 |
 | App Connect | `https://unified-crm-extension.labs.ringcentral.com/mcp` | 🟢 Available | 9 |
-| RingCentral MCP | `https://mcp.labs.ringcentral.com/ringex` | 🔴 Deprecated | 23 |
 
 ---
 
@@ -89,7 +83,6 @@ curl -X POST https://<server-url> \
 
 - **RingEx Phone / Chat / Admin** — no authentication required for tool discovery; most tools require a valid RingCentral session.
 - **App Connect** — tools marked ⚠️ **REQUIRES CRM CONNECTION** require the user to have authenticated with both RingCentral and a supported CRM platform.
-- **RingCentral MCP (Deprecated)** — same session-based model as its replacements; kept active only to support in-flight migrations.
 
 ---
 

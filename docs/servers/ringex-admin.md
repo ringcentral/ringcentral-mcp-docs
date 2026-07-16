@@ -8,15 +8,24 @@
 
 ## About
 
-RingEx Admin gives your AI assistant access to account and extension administration: tool discovery, generic API dispatch, extension details, presence, and directory search. It's one of three servers that replace the deprecated [RingCentral MCP](rc-labs-mcp.md) server — this one covers meta/discovery and account-level tools.
+RingEx Admin gives your AI assistant access to account and extension administration: account info, extensions, roles and permissions, call analytics, directory/contacts, and presence. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
 
-Run [`platform_get_capabilities`](../tools/ringcentral/platform-get-capabilities.md) to see a full summary of supported API endpoints and tools.
+Run `about_ringcentral_mcp_tools` to see a full summary of supported tools and permissions.
 
 !!! warning "Labs status"
     This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
 
 !!! info "Migrating from RingCentral MCP"
-    If you previously used `gatekeeper_select_tool`, `platform_get_capabilities`, `platform_list_get_operations`, `platform_list_post_operations`, `profile_get_current_extension`, `platform_call_get_operation`, `platform_call_post_operation`, `platform_read_extension`, `platform_read_unified_presence`, or `platform_search_directory_entries` on the deprecated RingCentral MCP server, point your client at this endpoint instead. Tool names and parameters are unchanged.
+    If you previously used any account or admin tool on the deprecated RingCentral MCP server, point your client at this endpoint instead. Tool names changed during the split — the generic dispatch tools (`gatekeeper_select_tool`, `platform_call_get_operation`, `platform_call_post_operation`, `platform_list_get_operations`, `platform_list_post_operations`) were removed in favor of dedicated, purpose-named tools. Common renames:
+
+    | Old tool | New tool |
+    |------|------|
+    | `platform_get_capabilities` | `about_ringcentral_mcp_tools` |
+    | `platform_read_unified_presence` | `platform_read_user_presence_status` |
+    | `platform_search_directory_entries` | `platform_list_directory_entries` |
+    | `platform_read_ai_notes` | `read_call_ai_notes` |
+
+    Run `about_ringcentral_mcp_tools` for the authoritative current list.
 
 ---
 
@@ -30,26 +39,44 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
+26 tools are available on this server.
+
 | Tool | Requires CRM | Description |
 |------|:---:|-------------|
-| [`gatekeeper_select_tool`](../tools/ringcentral/gatekeeper-select-tool.md) | — | Route a natural-language request to the right tool |
-| [`platform_get_capabilities`](../tools/ringcentral/platform-get-capabilities.md) | — | List all supported API endpoints and tools |
-| [`platform_list_get_operations`](../tools/ringcentral/platform-list-get-operations.md) | — | List available GET operations |
-| [`platform_list_post_operations`](../tools/ringcentral/platform-list-post-operations.md) | — | List available POST operations |
-| [`platform_call_get_operation`](../tools/ringcentral/platform-call-get-operation.md) | — | Execute any supported GET operation |
-| [`platform_call_post_operation`](../tools/ringcentral/platform-call-post-operation.md) | — | Execute any supported POST operation |
-| [`profile_get_current_extension`](../tools/ringcentral/profile-get-current-extension.md) | — | Get the authenticated user's extension |
-| [`platform_read_extension`](../tools/ringcentral/platform-read-extension.md) | — | Get extension details |
-| [`platform_read_unified_presence`](../tools/ringcentral/platform-read-unified-presence.md) | — | Get presence status |
-| [`platform_search_directory_entries`](../tools/ringcentral/platform-search-directory-entries.md) | — | Search the company directory |
+| [`about_ringcentral_mcp_tools`](../tools/ringex-admin.md#about_ringcentral_mcp_tools) | — | List all available tools and permissions for this server |
+| [`platform_analytics_calls_aggregation_fetch`](../tools/ringex-admin.md#platform_analytics_calls_aggregation_fetch) | — | Get calls aggregation data |
+| [`platform_get_account_info_v2`](../tools/ringex-admin.md#platform_get_account_info_v2) | — | Get account info |
+| [`platform_list_account_phone_numbers_v2`](../tools/ringex-admin.md#platform_list_account_phone_numbers_v2) | — | List account phone numbers |
+| [`platform_list_account_switches`](../tools/ringex-admin.md#platform_list_account_switches) | — | List account switches |
+| [`platform_list_administered_sites`](../tools/ringex-admin.md#platform_list_administered_sites) | — | List user administered sites |
+| [`platform_list_answering_rules`](../tools/ringex-admin.md#platform_list_answering_rules) | — | List call handling rules |
+| [`platform_list_contacts`](../tools/ringex-admin.md#platform_list_contacts) | — | List contacts |
+| [`platform_list_directory_entries`](../tools/ringex-admin.md#platform_list_directory_entries) | — | Get company directory entries |
+| [`platform_list_extensions`](../tools/ringex-admin.md#platform_list_extensions) | — | List extensions |
+| [`platform_list_favorite_contacts`](../tools/ringex-admin.md#platform_list_favorite_contacts) | — | List favorite contacts |
+| [`platform_read_account_phone_number`](../tools/ringex-admin.md#platform_read_account_phone_number) | — | Get a phone number |
+| [`platform_read_account_presence`](../tools/ringex-admin.md#platform_read_account_presence) | — | Get user presence status list |
+| [`platform_read_call_recording`](../tools/ringex-admin.md#platform_read_call_recording) | — | Get call recording |
+| [`platform_read_call_recording_content`](../tools/ringex-admin.md#platform_read_call_recording_content) | — | Get call recording content |
+| [`platform_read_company_call_log`](../tools/ringex-admin.md#platform_read_company_call_log) | — | List company call records |
+| [`platform_read_company_call_record`](../tools/ringex-admin.md#platform_read_company_call_record) | — | Get company call record(s) |
+| [`platform_read_contact`](../tools/ringex-admin.md#platform_read_contact) | — | Get user contact(s) |
+| [`platform_read_country`](../tools/ringex-admin.md#platform_read_country) | — | Get country |
+| [`platform_read_directory_entry`](../tools/ringex-admin.md#platform_read_directory_entry) | — | Get corporate directory entry |
+| [`platform_read_directory_federation`](../tools/ringex-admin.md#platform_read_directory_federation) | — | Get account federation |
+| [`platform_read_permission`](../tools/ringex-admin.md#platform_read_permission) | — | Get permission |
+| [`platform_read_permission_category`](../tools/ringex-admin.md#platform_read_permission_category) | — | Get permission category |
+| [`platform_read_user_role`](../tools/ringex-admin.md#platform_read_user_role) | — | Get user role |
+| [`platform_read_user_presence_status`](../tools/ringex-admin.md#platform_read_user_presence_status) | — | Get user presence status |
+| [`read_call_ai_notes`](../tools/ringex-admin.md#read_call_ai_notes) | — | Read call AI notes |
 
 ---
 
 ## Getting started
 
 1. **Connect** — Add the server URL above to your AI client.
-2. **Verify** — Run `profile_get_current_extension` to confirm your RingCentral identity is resolved.
-3. **Use** — Ask your AI assistant to look up a colleague in the directory, check presence, or inspect your extension. See the [Tool Reference](../tools/ringcentral/index.md) for parameter-level detail (tool names and parameters carry over from the deprecated server).
+2. **Verify** — Run `platform_get_account_info_v2` to confirm your RingCentral identity is resolved.
+3. **Use** — Ask your AI assistant to look up a colleague in the directory, check presence, review call analytics, or inspect account/extension settings. Tool names differ from the deprecated server — see the migration note above.
 
 ---
 
