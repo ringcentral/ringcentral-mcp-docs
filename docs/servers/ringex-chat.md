@@ -1,6 +1,6 @@
 # RingEx Chat
 
-**Endpoint:** `https://mcp.labs.ringcentral.com/ringex/chat`  
+**Endpoint:** `https://mcp.labs.ringcentral.com/ringex/team-chat`  
 **Status:** 🟡 Labs / Beta · New  
 **Transport:** SSE over HTTPS
 
@@ -52,7 +52,7 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 ## Tool discovery
 
 ```bash
-curl https://mcp.labs.ringcentral.com/ringex/chat \
+curl https://mcp.labs.ringcentral.com/ringex/team-chat \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 ```
