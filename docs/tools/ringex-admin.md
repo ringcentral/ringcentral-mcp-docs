@@ -1,14 +1,14 @@
-# RingEx Admin — Tools Reference
+# RingEX Admin — Tools Reference
 
-Full reference for every tool available on the [RingEx Admin](../servers/ringex-admin.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
+Full reference for every tool available on the [RingEX Admin](../servers/ringex-admin.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
 
 ---
 
 ## about_ringcentral_mcp_tools
 
-Call this first when you want to know what a RingEx MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
+Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
 
-**Available on:** [RingEx Phone](../servers/ringex-phone.md) · [RingEx Chat](../servers/ringex-chat.md) · [RingEx Admin](../servers/ringex-admin.md)  
+**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -54,7 +54,7 @@ This tool takes no parameters.
 ---
 
 !!! tip "Start here"
-    Run this tool right after connecting a new RingEx server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
+    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
 
 ---
 
@@ -62,7 +62,7 @@ This tool takes no parameters.
 
 Runs an aggregation query against RingCentral's Call Analytics API, returning grouped or summarized call metrics (such as call volume or duration) for the account, sliced by whatever dimensions and filters you specify in the request body.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -130,7 +130,7 @@ Returns the raw RingCentral response for the calls aggregation query.
 
 Retrieves core account information for a RingCentral account — status, service plan, operator, and related account-level settings. Defaults to the authenticated user's own account when no `accountId` is given.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -186,7 +186,7 @@ Returns the raw RingCentral account info response.
 
 Lists phone numbers provisioned on the RingCentral account. Results can be filtered by number type, usage type, status, toll type, extension status, BYOC (Bring Your Own Carrier) numbers, or a specific phone number, and pagination is supported via `page` and `perPage`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -254,7 +254,7 @@ Returns the raw RingCentral response listing account phone numbers.
 
 Lists the network switches registered for automatic emergency address updates on the account. Results can be filtered by site or a search string, sorted, and paginated.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -317,7 +317,7 @@ Returns the raw RingCentral response listing account switches.
 
 Lists the RingCentral sites that a given extension (typically an admin) is permitted to administer. Defaults to the current user's own extension when no `extensionId` is provided.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -374,7 +374,7 @@ Returns the raw RingCentral response listing administered sites.
 
 Lists the call handling (answering) rules configured for an extension — for example custom rules that route calls differently based on caller, time of day, or other conditions. Results can be filtered by rule type, view, or enabled status, and support pagination.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -438,7 +438,7 @@ Returns the raw RingCentral response listing call handling rules.
 
 Lists personal address book contacts for an extension. Supports filtering by name prefix or phone number, sorting, and pagination.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -502,7 +502,7 @@ Returns the raw RingCentral response listing address book contacts.
 
 Lists entries in the company directory (users, departments, and similar directory objects) for the account. Supports filtering by site accessibility, federation status, entry type or type group, and site, plus pagination.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -567,7 +567,7 @@ Returns the raw RingCentral response listing company directory entries.
 
 Lists extensions (users, departments, IVR menus, and other extension types) on the account. Can be filtered by extension number, email address, status, or extension type, with pagination support.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -632,7 +632,7 @@ Returns the raw RingCentral response listing extensions.
 
 Lists the contacts an extension has marked as favorites.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -689,7 +689,7 @@ Returns the raw RingCentral response listing favorite contacts.
 
 Retrieves details for a single phone number on the account, identified by its `phoneNumberId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -748,7 +748,7 @@ Returns the raw RingCentral response for the phone number.
 
 Retrieves the presence status (available, busy, on a call, etc.) for all extensions on the account. Optionally includes detailed telephony state or SIP data, with pagination support.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -810,7 +810,7 @@ Returns the raw RingCentral response listing presence status for all extensions 
 
 Downloads the actual audio content of a call recording, identified by its `recordingId`. Optional parameters control how the content is delivered — inline versus as an attachment, and the filename used.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -869,7 +869,7 @@ Returns the raw audio content of the call recording from RingCentral.
 
 Retrieves metadata for a single call recording, identified by its `recordingId`. This returns information about the recording (such as duration and content type), not the audio itself — use [`platform_read_call_recording_content`](#platform_read_call_recording_content) to fetch the actual audio.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -928,7 +928,7 @@ Returns the raw RingCentral response describing the call recording.
 
 Lists call log records for the entire company (account-wide), not just a single extension. Supports extensive filtering — by extension number, phone number, call direction, call type, recording presence/type, date range, and session identifiers — plus pagination.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1002,7 +1002,7 @@ Returns the raw RingCentral response listing company-wide call log records.
 
 Retrieves one or more specific company call log records, identified by `callRecordId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1062,7 +1062,7 @@ Returns the raw RingCentral response for the requested company call record(s).
 
 Retrieves a single personal address book contact by its `contactId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1122,7 +1122,7 @@ Returns the raw RingCentral response for the requested contact.
 
 Retrieves reference data for a single country from RingCentral's country dictionary, identified by `countryId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1180,7 +1180,7 @@ Returns the raw RingCentral response for the requested country.
 
 Retrieves a single company directory entry by its `entryId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1240,7 +1240,7 @@ Returns the raw RingCentral response for the requested directory entry.
 
 Retrieves the federated account/directory relationships configured for multi-account or multi-brand setups on the account. Can be filtered by federation type.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1298,7 +1298,7 @@ Returns the raw RingCentral response describing account directory federation.
 
 Retrieves details for a single permission category from RingCentral's permission dictionary, identified by `permissionCategoryId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1356,7 +1356,7 @@ Returns the raw RingCentral response for the requested permission category.
 
 Retrieves details for a single permission from RingCentral's permission dictionary, identified by `permissionId`.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1414,7 +1414,7 @@ Returns the raw RingCentral response for the requested permission.
 
 Retrieves the presence status for a single extension — available, busy, on a call, and similar states. Optionally includes detailed telephony state or SIP data. Defaults to the current user's own extension when omitted.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1473,7 +1473,7 @@ Returns the raw RingCentral response with the extension's presence status.
 
 Retrieves details for a single user role — including the permissions it grants — identified by `roleId`. Optionally includes advanced permission details.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -1533,7 +1533,7 @@ Returns the raw RingCentral response for the requested user role.
 
 Retrieves AI-generated notes and transcript details for a specific call, identified by its telephony session ID. Use this when you already know the telephony session ID for a call (typically from a call-log record) and want the AI summary or transcript for it — a phone number or a broad call-history request alone isn't enough to use this tool.
 
-**Server:** [RingEx Admin](../servers/ringex-admin.md)  
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---

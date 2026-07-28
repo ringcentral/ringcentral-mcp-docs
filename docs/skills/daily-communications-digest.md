@@ -6,9 +6,9 @@ description: Produces a daily RingEX Phone communications digest from recent cal
 # Daily Communications Digest
 
 **Skill ID:** `daily-communications-digest`
-**Server:** [RingEx Phone](../servers/ringex-phone.md)
+**Server:** [RingEX Phone](../servers/ringex-phone.md)
 
-Reviews a user's recent RingEx Phone activity — calls, SMS, and voicemail — and turns it into a prioritized follow-up report. The full skill source below is pulled directly from its `SKILL.md` file, so it always reflects the current version.
+Reviews a user's recent RingEX Phone activity — calls, SMS, and voicemail — and turns it into a prioritized follow-up report. The full skill source below is pulled directly from its `SKILL.md` file, so it always reflects the current version.
 
 ---
 

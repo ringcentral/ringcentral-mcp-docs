@@ -1,6 +1,6 @@
 ---
 title: App Connect Setup
-description: Connect the App Connect MCP server to Claude, ChatGPT, or Codex, and link your CRM.
+description: Connect the App Connect MCP server to ChatGPT, Claude, or Codex, and link your CRM.
 ---
 
 # App Connect Setup
@@ -34,17 +34,6 @@ The App Connect server remembers the CRM session tied to your RingCentral identi
 
 ## Connect to your AI client
 
-=== "Claude"
-
-    Custom connectors live under **Customize > Connectors** (Claude.ai) or **Settings → Connectors** (Claude Desktop) — not through `claude_desktop_config.json`, which only supports local stdio servers.
-
-    1. Sign in to [claude.ai](https://claude.ai), or open Claude Desktop.
-    2. **Pro/Max:** go to **Customize > Connectors** → click **+** → **Add custom connector**. **Team/Enterprise:** an Owner first adds it under **Organization settings > Connectors** → **Add** → hover **Custom** → select **Web**; members then connect individually via **Customize > Connectors**.
-    3. Enter a name (e.g. `RingCentral App Connect`) and the URL above, then click **Add**.
-    4. Complete the RingCentral OAuth flow. This only establishes your RingCentral identity — see [Connect your CRM](#connect-your-crm-via-the-chrome-extension) below to link a CRM.
-    5. In a new conversation, click the **+** button (lower left of the chat box) → **Connectors**, and toggle App Connect on.
-    6. Verify: ask "Check my RingCentral session status."
-
 === "ChatGPT"
 
     ChatGPT calls this an **App** (renamed from "Connector" in December 2025). Connecting a server that can call tools — not just read/fetch — requires Developer Mode.
@@ -57,6 +46,17 @@ The App Connect server remembers the CRM session tied to your RingCentral identi
 
     !!! note "Pro users"
         With read/fetch-only Developer Mode, you can look up CRM contacts and call logs, but can't create contacts or log calls.
+
+=== "Claude"
+
+    Custom connectors live under **Customize > Connectors** (Claude.ai) or **Settings → Connectors** (Claude Desktop) — not through `claude_desktop_config.json`, which only supports local stdio servers.
+
+    1. Sign in to [claude.ai](https://claude.ai), or open Claude Desktop.
+    2. **Pro/Max:** go to **Customize > Connectors** → click **+** → **Add custom connector**. **Team/Enterprise:** an Owner first adds it under **Organization settings > Connectors** → **Add** → hover **Custom** → select **Web**; members then connect individually via **Customize > Connectors**.
+    3. Enter a name (e.g. `RingCentral App Connect`) and the URL above, then click **Add**.
+    4. Complete the RingCentral OAuth flow. This only establishes your RingCentral identity — see [Connect your CRM](#connect-your-crm-via-the-chrome-extension) below to link a CRM.
+    5. In a new conversation, click the **+** button (lower left of the chat box) → **Connectors**, and toggle App Connect on.
+    6. Verify: ask "Check my RingCentral session status."
 
 === "Codex"
 

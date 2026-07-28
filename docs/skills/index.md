@@ -17,7 +17,7 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     </span>
     <div class="rc-sol__num">01</div>
     <div class="rc-sol__title">Daily Communications Digest</div>
-    <p class="rc-sol__desc">Turn a day's calls, SMS, and voicemail on RingEx Phone into a prioritized follow-up report.</p>
+    <p class="rc-sol__desc">Turn a day's calls, SMS, and voicemail on RingEX Phone into a prioritized follow-up report.</p>
     <span class="rc-sol__link">View skill →</span>
   </a>
 

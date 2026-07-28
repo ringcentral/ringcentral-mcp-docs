@@ -1,4 +1,4 @@
-# RingEx Chat
+# RingEX Chat
 
 **Endpoint:** `https://mcp.labs.ringcentral.com/ringex/team-chat`  
 **Status:** 🟡 Labs / Beta · New  
@@ -8,32 +8,16 @@
 
 ## About
 
-RingEx Chat gives your AI assistant access to RingCentral Team Messaging (Glip): chats, direct and group conversations, teams, and posts. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers team collaboration.
+RingEX Chat gives your AI assistant access to RingCentral Team Messaging (Glip): chats, direct and group conversations, teams, and posts. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers team collaboration.
 
 !!! warning "Labs status"
     This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
-
-!!! info "Migrating from RingCentral MCP"
-    If you previously used any Team Messaging tool on the deprecated RingCentral MCP server, point your client at this endpoint instead. Tool names changed during the split — Glip tools were renamed to the `team_messaging_*` convention and the generic dispatch tools were removed. Common renames:
-
-    | Old tool | New tool |
-    |------|------|
-    | `platform_list_glip_chats_new` | `team_messaging_list_chats` |
-    | `platform_list_glip_conversations_new` | `team_messaging_list_conversations` |
-    | `platform_list_glip_teams_new` | `team_messaging_list_teams` |
-    | `platform_read_glip_conversation_new` | `team_messaging_get_conversation` |
-    | `platform_read_glip_posts_new` | `team_messaging_list_posts` |
-    | `platform_read_glip_team_new` | `team_messaging_get_team` |
-    | `platform_create_glip_conversation_new` | `open_team_messaging_conversation` |
-    | `platform_create_glip_post_new` | `send_team_messaging_post` |
-
-    Run `about_ringcentral_mcp_tools` for the authoritative current list.
 
 ---
 
 ## Connecting
 
-See the [RingEx Chat Setup guide](ringex-chat-setup.md) for step-by-step instructions for Claude, ChatGPT, and Codex.
+See the [RingEX Chat Setup guide](ringex-chat-setup.md) for step-by-step instructions for Claude, ChatGPT, and Codex.
 
 For other MCP clients (Cursor, etc.), add this server the same way you'd add any remote MCP server, using the endpoint above.
 
@@ -117,7 +101,7 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 1. **Connect** — Add the server URL above to your AI client.
 2. **Verify** — Ask your assistant to list your team messaging chats to confirm the connection is active.
-3. **Use** — Ask your AI assistant to catch you up on a chat, post an update, manage tasks/notes/events, or administer teams and webhooks. Tool names differ from the deprecated server — see the migration note above.
+3. **Use** — Ask your AI assistant to catch you up on a chat, post an update, manage tasks/notes/events, or administer teams and webhooks.
 
 ---
 

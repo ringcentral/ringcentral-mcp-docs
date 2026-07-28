@@ -101,15 +101,15 @@ nav:
     - Daily Communications Digest: skills/daily-communications-digest.md
   - Servers:
     - Overview: servers/index.md
-    - RingEx Phone:
+    - RingEX Phone:
       - Overview: servers/ringex-phone.md
       - Setup: servers/ringex-phone-setup.md
       - Tools: tools/ringex-phone.md
-    - RingEx Chat:
+    - RingEX Chat:
       - Overview: servers/ringex-chat.md
       - Setup: servers/ringex-chat-setup.md
       - Tools: tools/ringex-chat.md
-    - RingEx Admin:
+    - RingEX Admin:
       - Overview: servers/ringex-admin.md
       - Setup: servers/ringex-admin-setup.md
       - Tools: tools/ringex-admin.md

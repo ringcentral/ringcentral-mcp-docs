@@ -1,14 +1,14 @@
-# RingEx Phone — Tools Reference
+# RingEX Phone — Tools Reference
 
-Full reference for every tool available on the [RingEx Phone](../servers/ringex-phone.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
+Full reference for every tool available on the [RingEX Phone](../servers/ringex-phone.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
 
 ---
 
 ## about_ringcentral_mcp_tools
 
-Call this first when you want to know what a RingEx MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
+Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
 
-**Available on:** [RingEx Phone](../servers/ringex-phone.md) · [RingEx Chat](../servers/ringex-chat.md) · [RingEx Admin](../servers/ringex-admin.md)  
+**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -54,7 +54,7 @@ This tool takes no parameters.
 ---
 
 !!! tip "Start here"
-    Run this tool right after connecting a new RingEx server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
+    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
 
 ---
 
@@ -62,7 +62,7 @@ This tool takes no parameters.
 
 Lists RingCentral message-store records — SMS, voicemail, fax, and pager messages. Use `messageType` to scope results to one message category, and filter by conversation, direction, read status, or date range. Message-store conversation ids are specific to SMS/message-store threads and are not the same as Team Messaging (Glip) chat ids.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -126,7 +126,7 @@ Returns the raw RingCentral message-store list response.
 
 Lists RingCentral call-log records for the authenticated extension, or another extension when its id is known. Use this for recent calls, missed calls, inbound/outbound history, or call history filtered by date range or phone number. It does not return SMS, voicemail, or Team Messaging posts.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -192,7 +192,7 @@ Returns the raw RingCentral call-log response.
 
 Sends an SMS text message through the RingCentral message store. Use it when the recipient phone number and message text are both known. This does not send Team Messaging/Glip posts, and it should not be used to list or search existing SMS records.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Write
 
 ---
@@ -255,7 +255,7 @@ Returns the raw RingCentral SMS send response.
 
 Retrieves account information for a RingCentral account. Use it when the account id is known (or defaults to the current authenticated account) and no narrower, more specific tool applies.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -311,7 +311,7 @@ Returns the raw RingCentral response for `getAccountInfoV2`.
 
 Lists the RingCentral sites that a given extension administers. Use it when the account/extension ids are known (or default to the current authenticated context) and you need the list of sites the current user manages.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -368,7 +368,7 @@ Returns the raw RingCentral response for `listAdministeredSites`.
 
 Lists the call handling (answering) rules configured for a RingCentral extension. Use it when the account/extension ids are known (or default to the current authenticated context) and you need to inspect how incoming calls are routed.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -423,7 +423,7 @@ Returns the raw RingCentral response for call handling (answering) rules.
 
 Lists entries in a RingCentral extension's personal address book. Use it when the account/extension ids are known (or default to the current authenticated context) and you need the user's saved contacts.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -483,7 +483,7 @@ Returns the raw RingCentral personal address-book response.
 
 Retrieves the full company directory entries for a RingCentral account. Use it when you need a bulk listing of directory entries rather than a search — for searching by name, email, or extension, use [`search_directory_entries`](#search_directory_entries) instead.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -543,7 +543,7 @@ Returns the raw RingCentral company directory entries response.
 
 Lists the phone numbers assigned to a RingCentral extension. Use it when the account/extension ids are known (or default to the current authenticated context) and you need to see which numbers are associated with the extension.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -604,7 +604,7 @@ Returns the raw RingCentral response for `listExtensionPhoneNumbers`.
 
 Lists the contacts a RingCentral extension has marked as favorites. Use it when the account/extension ids are known (or default to the current authenticated context) and you need the user's favorited contacts.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -661,7 +661,7 @@ Returns the raw RingCentral response for `listFavoriteContacts`.
 
 Fetches the actual audio content of a RingCentral call recording by its recording id. Use [`platform_read_call_recording`](#platform_read_call_recording) first if you only have call metadata and need to find the recording id.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -717,7 +717,7 @@ Returns raw call recording audio content. Binary content is returned as base64 w
 
 Retrieves metadata for a specific RingCentral call recording by its recording id. To retrieve the actual recorded audio, use [`platform_read_call_recording_content`](#platform_read_call_recording_content).
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -776,7 +776,7 @@ Returns the raw RingCentral response for `readCallRecording`.
 
 Retrieves one entry from a RingCentral extension's personal address book by contact id. Use [`platform_list_contacts`](#platform_list_contacts) first if you only have a name and need to find the contact id.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -836,7 +836,7 @@ Returns the raw RingCentral response for `readContact`.
 
 Retrieves one entry from the RingCentral company directory by its entry id. Use [`search_directory_entries`](#search_directory_entries) first if you only have a name or other free-form selector and need to find the entry id.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -896,7 +896,7 @@ Returns the raw RingCentral response for `readDirectoryEntry`.
 
 Retrieves a single RingCentral call-log record for an extension by its call record id. Use [`list_user_call_log`](#list_user_call_log) first to find the id of the specific call you want details for.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -957,7 +957,7 @@ Returns the raw RingCentral response for `readUserCallRecord`.
 
 Retrieves the presence status for a RingCentral extension — available, busy, on a call, do-not-disturb, and related telephony state. Account and extension context default to the current authenticated user when not specified.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1012,7 +1012,7 @@ Returns the raw RingCentral presence status response.
 
 Reads RingCentral AI-generated notes and transcript details for a specific call, identified by its telephony session id. Requires the telephony session id from a call-log record — if you only have a phone number or a broad call-history request, use [`list_user_call_log`](#list_user_call_log) first to find it.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1071,7 +1071,7 @@ Returns raw AI notes and transcript data for the call, when available.
 
 Reads RingCentral extension profile details for the authenticated extension, or another extension when its id is known. If you only have a free-form name, run a directory search first to resolve the extension id.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1129,7 +1129,7 @@ Returns the raw RingCentral extension profile response.
 
 Fetches attachment content from a RingCentral message-store record — voicemail audio, transcripts, fax content, or other attachments. Requires both a message id and an attachment id; if you only have a message id (for example, a voicemail id), read the message-store record first with [`read_message_store_record`](#read_message_store_record) to find the attachment id. This does not fetch Team Messaging file content.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1193,7 +1193,7 @@ Returns raw message-store attachment content. Binary content is returned as base
 
 Reads one RingCentral message-store record by message id, returning its metadata. Use it when you have an SMS, voicemail, fax, or pager message-store id and need its details — for example, before fetching voicemail attachment content when only the voicemail id is known. The message id must come from RingCentral message-store APIs, not from a Team Messaging chat or post id; if a user just says "message 123" without other context, clarify whether they mean a message-store message or a Team Messaging post.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1253,7 +1253,7 @@ Returns raw metadata for one message-store record.
 
 Reads RingCentral unified presence for the authenticated extension, or another extension when its id is known — whether the user is available, busy, on a call, or in do-not-disturb. If you only have a free-form name or email, run a directory search first to resolve the extension id.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1314,7 +1314,7 @@ Returns the raw RingCentral unified presence response.
 
 Searches RingCentral company directory entries by name, extension number, email, or other selector. Use this to resolve a RingCentral user or extension id from a free-form selector — if the exact extension id needed by another tool is already known, this lookup is unnecessary. The search may return multiple candidates; do not guess when more than one person matches a request.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---
@@ -1377,7 +1377,7 @@ Returns raw directory search results.
 
 Retrieves a known RingCentral Team Messaging person by their Team Messaging person id. Use this when the request specifically references a Team Messaging person id (for example, "Get Team Messaging person 1021461048") — not for reading a RingCentral extension profile (use [`read_extension_profile`](#read_extension_profile) instead), and not when only a free-form name is given (run a directory search first). The `personId` is a Team Messaging person id, and it should not be treated as an extension id even if the numeric value looks similar.
 
-**Server:** [RingEx Phone](../servers/ringex-phone.md)  
+**Server:** [RingEX Phone](../servers/ringex-phone.md)  
 **Access:** Read-only
 
 ---

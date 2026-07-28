@@ -1,14 +1,14 @@
-# RingEx Chat — Tools Reference
+# RingEX Chat — Tools Reference
 
-Full reference for every tool available on the [RingEx Chat](../servers/ringex-chat.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
+Full reference for every tool available on the [RingEX Chat](../servers/ringex-chat.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
 
 ---
 
 ## about_ringcentral_mcp_tools
 
-Call this first when you want to know what a RingEx MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
+Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
 
-**Available on:** [RingEx Phone](../servers/ringex-phone.md) · [RingEx Chat](../servers/ringex-chat.md) · [RingEx Admin](../servers/ringex-admin.md)  
+**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md)  
 **Access:** Read-only
 
 ---
@@ -54,7 +54,7 @@ This tool takes no parameters.
 ---
 
 !!! tip "Start here"
-    Run this tool right after connecting a new RingEx server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
+    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
 
 ---
 
@@ -62,7 +62,7 @@ This tool takes no parameters.
 
 Opens (or creates) a direct RingCentral Team Messaging conversation with one or more known users, returning a chat id that can be used as a destination for posts or files. This tool only opens/creates the conversation — it does not send a message. It should not be used to check whether a historical conversation already exists, since it may create one; list conversations instead for that purpose. Member names must already be resolved to a user id or email before calling this tool.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -120,7 +120,7 @@ Returns the raw Team Messaging conversation response. Use the returned chat id a
 
 Sends a new post to an existing RingCentral Team Messaging chat. The sender is always the authenticated user — there is no way to send as someone else. The target must be a Team Messaging chat id, not an SMS conversation id. You can supply text, one or more attachment objects (from prior Team Messaging file uploads), or both, and optionally reply under a specific thread.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -183,7 +183,7 @@ Returns the raw Team Messaging post response.
 
 Activates an existing RingCentral Team Messaging webhook by its id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -241,7 +241,7 @@ Returns the raw RingCentral response for the webhook activation.
 
 Adds a known Team Messaging chat to the authenticated user's favorites list.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -299,7 +299,7 @@ Returns the raw RingCentral response for the favorite operation.
 
 Adds one or more already-resolved RingCentral users to an existing Team Messaging team. Free-form names should be resolved to a user id or email (e.g. via a directory search) before calling this tool.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -357,7 +357,7 @@ Returns the raw Team Messaging team member add response.
 
 Archives an existing Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -415,7 +415,7 @@ Returns the raw RingCentral response for the archive operation.
 
 Marks a known Team Messaging task as complete.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -475,7 +475,7 @@ Returns the raw RingCentral response for the complete-task operation.
 
 Creates an adaptive card in a known Team Messaging chat. Only include card fields that were requested by the user or required by the adaptive card schema — avoid adding empty body content just to satisfy the shape.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -538,7 +538,7 @@ Returns the raw Team Messaging adaptive card response.
 
 Creates a Team Messaging data export task.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -596,7 +596,7 @@ Returns the raw RingCentral response for the create-data-export-task operation.
 
 Creates a new Team Messaging event scoped to a specific group (chat).
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -660,7 +660,7 @@ Returns the raw RingCentral response for the create-event-by-group operation.
 
 Creates a new Team Messaging event.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -722,7 +722,7 @@ Returns the raw RingCentral response for the create-event operation.
 
 Creates a note inside a known Team Messaging chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -785,7 +785,7 @@ Returns the raw RingCentral response for the create-note operation.
 
 Creates a task inside a known Team Messaging chat. The request must include a subject and the assignees required by the task schema — when no assignee is specified and the current user is known, the task should default to being assigned to the current user rather than left unassigned.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -848,7 +848,7 @@ Returns the raw Team Messaging task response.
 
 Creates a new Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -908,7 +908,7 @@ Returns the raw RingCentral response for the create-team operation.
 
 Creates a webhook in a known Team Messaging group.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -966,7 +966,7 @@ Returns the raw RingCentral response for the create-webhook-in-group operation.
 
 Deletes a known Team Messaging adaptive card.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1024,7 +1024,7 @@ Returns the raw RingCentral response for the delete-adaptive-card operation.
 
 Deletes a known Team Messaging event.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1082,7 +1082,7 @@ Returns the raw RingCentral response for the delete-event operation.
 
 Deletes a known Team Messaging note.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1140,7 +1140,7 @@ Returns the raw RingCentral response for the delete-note operation.
 
 Deletes a known post from a known Team Messaging chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1200,7 +1200,7 @@ Returns the raw RingCentral response for the delete-post operation.
 
 Deletes a known Team Messaging task.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1258,7 +1258,7 @@ Returns the raw RingCentral response for the delete-task operation.
 
 Deletes an existing Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1316,7 +1316,7 @@ Returns the raw RingCentral response for the delete-team operation.
 
 Deletes an existing Team Messaging webhook.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -1374,7 +1374,7 @@ Returns the raw RingCentral response for the delete-webhook operation.
 
 Reads a known Team Messaging adaptive card by id. To read multiple cards in one call, pass a single comma-separated string of ids rather than an array.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1432,7 +1432,7 @@ Returns the raw Team Messaging adaptive card response.
 
 Reads a known Team Messaging chat by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1490,7 +1490,7 @@ Returns the raw RingCentral response for the get-chat operation.
 
 Gets Team Messaging company information for a known company id. This is distinct from RingCentral platform account information — use this only for Team Messaging company-level data.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1544,7 +1544,7 @@ Returns the raw Team Messaging company information.
 
 Reads a known Team Messaging conversation by chat id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1602,7 +1602,7 @@ Returns the raw RingCentral response for the get-conversation operation.
 
 Reads a known Team Messaging data export task by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1660,7 +1660,7 @@ Returns the raw RingCentral response for the get-data-export-task operation.
 
 Reads a known Team Messaging event by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1721,7 +1721,7 @@ Returns the raw Team Messaging event response.
 
 Gets the company-wide "Everyone" Team Messaging chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1775,7 +1775,7 @@ Returns the raw RingCentral response for the get-everyone-chat operation.
 
 Reads a known Team Messaging note by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1833,7 +1833,7 @@ Returns the raw RingCentral response for the get-note operation.
 
 Reads a single known post from a known Team Messaging chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1893,7 +1893,7 @@ Returns the raw RingCentral response for the get-post operation.
 
 Reads a single known Team Messaging task by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -1947,7 +1947,7 @@ Returns the raw Team Messaging task response.
 
 Reads a known Team Messaging team by its team chat id. Use this rather than the generic chat or conversation reader when the user explicitly asks about a team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2005,7 +2005,7 @@ Returns the raw Team Messaging team response.
 
 Reads a known Team Messaging webhook by id.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2063,7 +2063,7 @@ Returns the raw Team Messaging webhook response.
 
 Joins the authenticated user to a known Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -2121,7 +2121,7 @@ Returns the raw RingCentral response for the join-team operation.
 
 Removes the authenticated user from a known Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -2179,7 +2179,7 @@ Returns the raw RingCentral response for the leave-team operation.
 
 Lists tasks in a known Team Messaging chat, optionally filtered by status, assignee, creator, or creation time. A request for "pending tasks" maps to a status filter of `["Pending"]`.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2243,7 +2243,7 @@ Returns the raw Team Messaging task records for the chat.
 
 Lists Team Messaging chats, optionally filtered by type (Direct, Personal, Group, Team, or Everyone). Not for SMS/message-store conversations.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2304,7 +2304,7 @@ Returns the raw Team Messaging chat records.
 
 Lists Team Messaging conversations for the authenticated user. This is also the right tool to check whether the user has had recent or past conversations with a named person — resolve the person first, then compare their id/email against the returned conversation members. There is no date-range filter on this endpoint, so filtering by a specific period (e.g. "last week") must be done client-side against the returned timestamps after fetching enough records.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2366,7 +2366,7 @@ Returns the raw Team Messaging conversation records for the authenticated user.
 
 Lists Team Messaging data export tasks.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2424,7 +2424,7 @@ Returns the raw RingCentral response for the list-data-export-tasks operation.
 
 Lists the authenticated user's favorited Team Messaging chats.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2480,7 +2480,7 @@ Returns the raw RingCentral response for the list-favorite-chats operation.
 
 Lists Team Messaging events that belong to a known group. Use `team_messaging_list_user_events` instead when the request is about the authenticated user's own events rather than a specific group's events.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2534,7 +2534,7 @@ Returns the raw Team Messaging group event records.
 
 Lists notes in a known Team Messaging chat, with optional filters for creation time, creator, and status.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2598,7 +2598,7 @@ Returns the raw RingCentral response for the list-notes operation.
 
 Lists posts in a known Team Messaging chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2659,7 +2659,7 @@ Returns the raw RingCentral response for the list-posts operation.
 
 Lists the authenticated user's recent Team Messaging chats.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2718,7 +2718,7 @@ Returns the raw RingCentral response for the list-recent-chats operation.
 
 Lists Team Messaging teams.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2775,7 +2775,7 @@ Returns the raw RingCentral response for the list-teams operation.
 
 Lists Team Messaging events for the authenticated user. Use `team_messaging_list_group_events` instead for events scoped to a specific group.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2830,7 +2830,7 @@ Returns the raw Team Messaging user event records.
 
 Lists Team Messaging webhooks in a known group. Use `team_messaging_list_webhooks` instead when the request is about all of the authenticated user's webhooks rather than one group's webhooks.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2884,7 +2884,7 @@ Returns the raw Team Messaging group webhook records.
 
 Lists Team Messaging webhooks for the authenticated user. Use `team_messaging_list_webhooks_in_group` instead for webhooks scoped to a specific group.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Read-only
 
 ---
@@ -2934,7 +2934,7 @@ Returns the raw Team Messaging webhook records.
 
 Locks a known Team Messaging note, preventing further edits.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -2992,7 +2992,7 @@ Returns the raw RingCentral response for the lock-note operation.
 
 Publishes a known Team Messaging note, sharing it with the chat.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3050,7 +3050,7 @@ Returns the raw RingCentral response for the publish-note operation.
 
 Removes an existing Team Messaging chat from the authenticated user's favorites. This only changes favorite status — it does not delete the chat or team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3108,7 +3108,7 @@ Returns the raw unfavorite response.
 
 Removes one or more known users from a known Team Messaging team. This only removes specific members — use `team_messaging_archive_team` or `team_messaging_delete_team` to remove the whole team, and resolve any free-form names to a user id or email before calling this tool.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3166,7 +3166,7 @@ Returns the raw Team Messaging team member remove response.
 
 Suspends an active Team Messaging webhook.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3224,7 +3224,7 @@ Returns the raw RingCentral response for the suspend-webhook operation.
 
 Unarchives a previously archived Team Messaging team.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3282,7 +3282,7 @@ Returns the raw RingCentral response for the unarchive-team operation.
 
 Unlocks a previously locked Team Messaging note, allowing edits again.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3340,7 +3340,7 @@ Returns the raw RingCentral response for the unlock-note operation.
 
 Updates a known Team Messaging adaptive card. Include only the fields being changed or required by the schema — avoid adding empty optional body content just to satisfy the shape.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3403,7 +3403,7 @@ Returns the raw Team Messaging adaptive card response.
 
 Updates a known Team Messaging event. The update body uses the same schema as event creation and requires `title`, `startTime`, and `endTime` — when only changing the title/subject of an event, its existing start and end times should be preserved rather than omitted.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3467,7 +3467,7 @@ Returns the raw Team Messaging event response.
 
 Updates display settings (such as the display name) for the company-wide "Everyone" Team Messaging chat. At least one display setting must be included — an empty body is not accepted.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3527,7 +3527,7 @@ Returns the raw everyone chat update response.
 
 Updates a known Team Messaging note. Optionally release the note's edit lock as part of the update.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3590,7 +3590,7 @@ Returns the raw RingCentral response for the update-note operation.
 
 Updates the text or body of a known Team Messaging post in a known chat. Both the chat id and post id are required.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3650,7 +3650,7 @@ Returns the raw Team Messaging post update response.
 
 Updates fields of a known Team Messaging task, such as its subject. Use `team_messaging_complete_task` instead to mark a task as complete.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3708,7 +3708,7 @@ Returns the raw Team Messaging task update response.
 
 Updates settings for a known Team Messaging team, including renaming it. Use `team_messaging_join_team`, `team_messaging_leave_team`, `team_messaging_archive_team`, or `team_messaging_delete_team` for those specific actions instead, and use `team_messaging_update_everyone_chat` to update the Everyone chat's display settings.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---
@@ -3766,7 +3766,7 @@ Returns the raw RingCentral response for the update-team operation.
 
 Uploads a file to RingCentral Team Messaging — for example a generated image, PDF, or other document. This uploads file content only; it does not create a post. If the file should appear in a chat, use the returned file information as an attachment on a subsequent call to `send_team_messaging_post`.
 
-**Server:** [RingEx Chat](../servers/ringex-chat.md)  
+**Server:** [RingEX Chat](../servers/ringex-chat.md)  
 **Access:** Write
 
 ---

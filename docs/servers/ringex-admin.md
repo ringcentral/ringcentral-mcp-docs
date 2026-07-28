@@ -1,4 +1,4 @@
-# RingEx Admin
+# RingEX Admin
 
 **Endpoint:** `https://mcp.labs.ringcentral.com/ringex/admin`  
 **Status:** 🟡 Labs / Beta · New  
@@ -8,30 +8,18 @@
 
 ## About
 
-RingEx Admin gives your AI assistant access to account and extension administration: account info, extensions, roles and permissions, call analytics, directory/contacts, and presence. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
+RingEX Admin gives your AI assistant access to account and extension administration: account info, extensions, roles and permissions, call analytics, directory/contacts, and presence. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
 
 Run `about_ringcentral_mcp_tools` to see a full summary of supported tools and permissions.
 
 !!! warning "Labs status"
     This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
 
-!!! info "Migrating from RingCentral MCP"
-    If you previously used any account or admin tool on the deprecated RingCentral MCP server, point your client at this endpoint instead. Tool names changed during the split — the generic dispatch tools (`gatekeeper_select_tool`, `platform_call_get_operation`, `platform_call_post_operation`, `platform_list_get_operations`, `platform_list_post_operations`) were removed in favor of dedicated, purpose-named tools. Common renames:
-
-    | Old tool | New tool |
-    |------|------|
-    | `platform_get_capabilities` | `about_ringcentral_mcp_tools` |
-    | `platform_read_unified_presence` | `platform_read_user_presence_status` |
-    | `platform_search_directory_entries` | `platform_list_directory_entries` |
-    | `platform_read_ai_notes` | `read_call_ai_notes` |
-
-    Run `about_ringcentral_mcp_tools` for the authoritative current list.
-
 ---
 
 ## Connecting
 
-See the [RingEx Admin Setup guide](ringex-admin-setup.md) for step-by-step instructions for Claude, ChatGPT, and Codex.
+See the [RingEX Admin Setup guide](ringex-admin-setup.md) for step-by-step instructions for Claude, ChatGPT, and Codex.
 
 For other MCP clients (Cursor, etc.), add this server the same way you'd add any remote MCP server, using the endpoint above.
 
@@ -76,7 +64,7 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 1. **Connect** — Add the server URL above to your AI client.
 2. **Verify** — Run `platform_get_account_info_v2` to confirm your RingCentral identity is resolved.
-3. **Use** — Ask your AI assistant to look up a colleague in the directory, check presence, review call analytics, or inspect account/extension settings. Tool names differ from the deprecated server — see the migration note above.
+3. **Use** — Ask your AI assistant to look up a colleague in the directory, check presence, review call analytics, or inspect account/extension settings.
 
 ---
 
