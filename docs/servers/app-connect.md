@@ -26,10 +26,15 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 This server uses a **two-layer auth** model:
 
-1. **RingCentral identity** — required for all tools. Uses OAuth 2.0 / SSO via your RingCentral account.
-2. **CRM connection** — required for tools marked ⚠️ **REQUIRES CRM CONNECTION**. Users must link their CRM account via the App Connect portal.
+1. **RingCentral identity** — required for all tools. Uses OAuth 2.0 / SSO via your RingCentral account, established when you add the server to your AI client.
+2. **CRM connection** — required for tools marked ⚠️ **REQUIRES CRM CONNECTION**. Linked separately via the **App Connect Chrome extension**, not inside the AI client. Once linked, App Connect remembers the session and any connected AI client auto-detects it.
 
-See the [Setup guide](app-connect-setup.md) for step-by-step connection instructions.
+Only **one CRM can be connected at a time** per RingCentral account — App Connect intermediates that connection, so switching CRMs requires disconnecting the current one first.
+
+See the [Setup guide](app-connect-setup.md) for step-by-step connection instructions, including the recommended order of operations.
+
+!!! tip "Already have a CRM-specific MCP server?"
+    Some CRMs publish their own dedicated MCP servers with deeper, CRM-specific functionality. App Connect is most valuable when your CRM doesn't yet support MCP natively — evaluate both if your CRM has a dedicated option.
 
 ---
 
