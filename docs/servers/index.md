@@ -64,8 +64,8 @@ RingCentral currently publishes four active MCP servers. All implement the [Mode
 
 | Server | URL | Status | Tools |
 |--------|-----|--------|-------|
-| RingEX Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟡 Labs / Beta · New | 24 |
-| RingEX Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟡 Labs / Beta · New | 65 |
+| RingEX Phone | `https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone` | 🟡 Labs / Beta · Updated | 12 |
+| RingEX Chat | `https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat` | 🟡 Labs / Beta · Updated | 9 |
 | RingEX Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🟡 Labs / Beta · New | 26 |
 | App Connect | `https://unified-crm-extension.labs.ringcentral.com/mcp` | 🟢 Available | 9 |
 

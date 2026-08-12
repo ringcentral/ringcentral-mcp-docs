@@ -5,7 +5,7 @@ description: Connect the RingEX Chat MCP server to ChatGPT, Claude, or Codex.
 
 # RingEX Chat Setup
 
-**Server URL:** `https://mcp.labs.ringcentral.com/ringex/team-chat`
+**Server URL:** `https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat`
 
 ---
 

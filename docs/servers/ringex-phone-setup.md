@@ -5,7 +5,7 @@ description: Connect the RingEX Phone MCP server to ChatGPT, Claude, or Codex.
 
 # RingEX Phone Setup
 
-**Server URL:** `https://mcp.labs.ringcentral.com/ringex/phone`
+**Server URL:** `https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone`
 
 ---
 
