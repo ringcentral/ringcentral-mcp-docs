@@ -37,7 +37,7 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     </span>
     <div class="rc-sol__num">03</div>
     <div class="rc-sol__title">Customer Engagement</div>
-    <p class="rc-sol__desc">Initiate calls via RingOut, automate SMS interactions, access and prioritize voicemails.</p>
+    <p class="rc-sol__desc">Automate SMS interactions, access and prioritize voicemails.</p>
     <span class="rc-sol__link">View examples →</span>
   </a>
 

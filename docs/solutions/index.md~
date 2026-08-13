@@ -11,14 +11,6 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
 
 <div class="grid cards" markdown>
 
--   :material-contacts:{ .lg .middle } __CRM Enrichment__
-
-    ---
-
-    Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.
-
-    [View examples →](crm-enrichment.md)
-
 -   :material-chart-bar:{ .lg .middle } __Communication Analytics__
 
     ---
@@ -39,7 +31,7 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
 
     ---
 
-    Initiate calls via RingOut, automate SMS interactions, access and prioritize voicemails.
+    Automate SMS interactions, access and prioritize voicemails.
 
     [View examples →](customer-engagement.md)
 
@@ -58,6 +50,14 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     Search internal message history, send messages, and maintain context across team channels and direct conversations.
 
     [View examples →](team-collaboration.md)
+
+-   :material-contacts:{ .lg .middle } __CRM Enrichment__
+
+    ---
+
+    Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.
+
+    [View examples →](crm-enrichment.md)
 
 </div>
 

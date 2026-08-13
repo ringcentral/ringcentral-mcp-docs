@@ -91,11 +91,11 @@ nav:
   - Home: index.md
   - Solutions:
     - Overview: solutions/index.md
-    - CRM Enrichment: solutions/crm-enrichment.md
     - Communication Analytics: solutions/communication-analytics.md
     - Coaching & Insights: solutions/coaching-insights.md
     - Customer Engagement: solutions/customer-engagement.md
     - Team Collaboration: solutions/team-collaboration.md
+    - CRM Enrichment: solutions/crm-enrichment.md
   - Skill Library:
     - Overview: skills/index.md
     - Daily Communications Digest: skills/daily-communications-digest.md
