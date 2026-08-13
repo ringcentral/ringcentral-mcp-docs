@@ -23,17 +23,27 @@ Focus on what needs attention, not on exhaustively listing every record.
 
 ## Workflow
 
-1. Use the past 24 hours by default unless the user gives a different time range.
-2. Call `list_user_call_log` for recent inbound, outbound, and missed calls.
-3. Call `list_message_store_records` with SMS-focused filters for recent text messages.
-4. Call `list_message_store_records` with voicemail-focused filters for recent voicemail records.
-5. Use `read_message_store_record` and `read_message_store_content` when voicemail or message
-   details are needed to understand the action item.
-6. Use `search_directory_entries`, `platform_list_contacts`, `platform_read_contact`,
-   `read_extension_profile`, or `team_messaging_get_person` only when useful to identify people.
-7. Use `read_user_presence` or `platform_read_user_presence_status` only when presence helps decide
-   whether to call, text, or defer.
-8. Summarize patterns across all records before writing the report.
+1. Use the past 24 hours by default unless the user gives a different time range. Convert the
+   window to ISO-8601 date-times with offset for `dateFrom`/`dateTo`.
+2. Call `get_my_call_activity` (`dateFrom`, `dateTo`) for recent inbound, outbound, and missed
+   calls, total talk time, and outstanding callbacks.
+3. Call `get_my_communication_inbox` (`dateFrom`, `dateTo`, `messageTypes: ["SMS"]`) for recent
+   text messages.
+4. Call `get_my_communication_inbox` (`dateFrom`, `dateTo`, `messageTypes: ["VoiceMail"]`) for
+   recent voicemail records.
+5. Use `get_my_message_detail` (`messageId`) when a specific SMS or voicemail needs its full body
+   or verified transcription to understand the action item. Use `get_my_sms_thread` (`messageId`,
+   `dateFrom`, `dateTo`) when the full back-and-forth of a text conversation is needed for context.
+6. Use `resolve_directory_person` (company directory, by name/department/role) or
+   `search_my_contacts` (personal address book, by name/phone number) only when useful to identify
+   a caller or contact. For Team Chat person resolution, use RingEX Chat's `find_person` instead —
+   `team_messaging_get_person` no longer exists.
+7. Use `get_my_phone` only when the user's own presence, business hours, or call-handling rules
+   help decide whether to call, text, or defer.
+8. Optionally use `get_my_call_insight` (`callId`) for AI notes/transcript on a specific call, or
+   `get_my_call_recording_metadata` (`callId`) to check whether a call was recorded, when the call
+   log alone doesn't give enough context.
+9. Summarize patterns across all records before writing the report.
 
 ## What to identify
 

@@ -99,6 +99,14 @@ nav:
   - Skill Library:
     - Overview: skills/index.md
     - Daily Communications Digest: skills/daily-communications-digest.md
+    - Send SMS: skills/send-sms.md
+    - SMS Inbox: skills/sms-inbox.md
+    - Voicemail Inbox: skills/voicemail-inbox.md
+    - Fax Inbox: skills/fax-inbox.md
+    - Call Recap: skills/call-recap.md
+    - Colleague Lookup: skills/colleague-lookup.md
+    - Send Post: skills/send-post.md
+    - Read Team Chat: skills/read-team-chat.md
   - Servers:
     - Overview: servers/index.md
     - RingEX Phone:

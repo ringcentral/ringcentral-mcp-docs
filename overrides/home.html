@@ -20,9 +20,9 @@
       </div>
       <div class="rc-chat-window" aria-hidden="true">
         <div class="rc-chat-header">
-          <div class="rc-chat-avatar">C</div>
+          <div class="rc-chat-avatar">AI</div>
           <div class="rc-chat-header__info">
-            <div class="rc-chat-header__name">Claude</div>
+            <div class="rc-chat-header__name">AI Assistant</div>
             <div class="rc-chat-header__status"><span class="rc-status-dot"></span>RingCentral MCP connected</div>
           </div>
         </div>
@@ -389,7 +389,7 @@
       addUser(m1);
       clearInput();
       await sleep(540);
-      const h1 = addThinking(['platform_read_user_call_log', 'platform_read_ai_notes']);
+      const h1 = addThinking(['get_my_call_activity', 'get_my_communication_inbox']);
       await sleep(1950);
       await streamAI(h1, S1_A1);
 
@@ -399,7 +399,7 @@
       addUser(m2);
       clearInput();
       await sleep(520);
-      const h2 = addThinking(['platform_read_message']);
+      const h2 = addThinking(['get_my_message_detail']);
       await sleep(1600);
       await streamAI(h2, S1_A2);
 
@@ -409,7 +409,7 @@
       addUser(m3);
       clearInput();
       await sleep(520);
-      const h3 = addThinking(['platform_call_post_operation']);
+      const h3 = addThinking(['send_sms']);
       await sleep(1250);
       await streamAI(h3, S1_A3);
     }
@@ -450,7 +450,7 @@
       addUser(m1);
       clearInput();
       await sleep(500);
-      const h1 = addThinking(['platform_list_glip_chats_new', 'platform_read_glip_posts_new']);
+      const h1 = addThinking(['read_team_chat']);
       await sleep(1800);
       await streamAI(h1, S2_A1);
 
@@ -472,7 +472,7 @@
       addUser(m3);
       clearInput();
       await sleep(520);
-      const h3 = addThinking(['platform_create_glip_post_new']);
+      const h3 = addThinking(['send_post']);
       await sleep(1300);
       await streamAI(h3, S2_A3);
     }

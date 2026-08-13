@@ -949,6 +949,20 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-sol__link:hover { opacity: 0.75; color: var(--rc-orange); }
 
+/* Server-dependency meta label on skill cards */
+.rc-sol__meta {
+  display: block;
+  font-family: var(--rc-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--rc-ink-mid);
+  opacity: 0.75;
+  margin: 6px 0 10px;
+}
+.md-typeset .rc-sol__meta { color: var(--md-default-fg-color--light); }
+
 /* Solutions index page — override colours for md-typeset context */
 .md-typeset .rc-sol-card {
   background: var(--md-code-bg-color);
