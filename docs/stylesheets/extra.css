@@ -1356,3 +1356,143 @@ body[data-page="home"] .md-content__inner {
   .rc-chat__bubble--user,
   .rc-chat__bubble--ai { max-width: 88%; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   ADMONITION TITLE CONTRAST FIX — dark mode
+   The brand stylesheet (_rc/ringcentral.css) sets a dark title text color
+   for each admonition type (e.g. tip → #CC5500, info → #005B99) but only
+   swaps the *background* tint for slate/dark mode — it never re-asserts
+   the title text color, so dark-on-dark text becomes illegible. This
+   file loads after _rc/ringcentral.css, so plain (non-!important) color
+   overrides here win the cascade at equal specificity.
+   ══════════════════════════════════════════════════════════════════════ */
+[data-md-color-scheme="slate"] .md-typeset .note     > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .note     > summary { color: #9DB6E8; }
+
+[data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .abstract > summary,
+[data-md-color-scheme="slate"] .md-typeset .summary  > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .summary  > summary,
+[data-md-color-scheme="slate"] .md-typeset .tldr     > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .tldr     > summary { color: #A6C8F0; }
+
+[data-md-color-scheme="slate"] .md-typeset .info > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .info > summary,
+[data-md-color-scheme="slate"] .md-typeset .todo > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .todo > summary { color: #6CB8FF; }
+
+[data-md-color-scheme="slate"] .md-typeset .tip       > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .tip       > summary,
+[data-md-color-scheme="slate"] .md-typeset .hint      > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .hint      > summary,
+[data-md-color-scheme="slate"] .md-typeset .important > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .important > summary { color: #FFB067; }
+
+[data-md-color-scheme="slate"] .md-typeset .success > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .success > summary,
+[data-md-color-scheme="slate"] .md-typeset .check   > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .check   > summary,
+[data-md-color-scheme="slate"] .md-typeset .done    > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .done    > summary { color: #7ADB9E; }
+
+[data-md-color-scheme="slate"] .md-typeset .question > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .question > summary,
+[data-md-color-scheme="slate"] .md-typeset .help     > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .help     > summary,
+[data-md-color-scheme="slate"] .md-typeset .faq      > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .faq      > summary { color: #5FD4E8; }
+
+[data-md-color-scheme="slate"] .md-typeset .warning   > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .warning   > summary,
+[data-md-color-scheme="slate"] .md-typeset .caution   > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .caution   > summary,
+[data-md-color-scheme="slate"] .md-typeset .attention > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .attention > summary { color: #FFB259; }
+
+[data-md-color-scheme="slate"] .md-typeset .failure > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .failure > summary,
+[data-md-color-scheme="slate"] .md-typeset .fail    > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .fail    > summary,
+[data-md-color-scheme="slate"] .md-typeset .missing > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .missing > summary { color: #FF8FA0; }
+
+[data-md-color-scheme="slate"] .md-typeset .danger > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .danger > summary,
+[data-md-color-scheme="slate"] .md-typeset .error  > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .error  > summary { color: #FF8080; }
+
+[data-md-color-scheme="slate"] .md-typeset .bug > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .bug > summary { color: #FF9578; }
+
+[data-md-color-scheme="slate"] .md-typeset .example > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .example > summary { color: #C4A6F5; }
+
+[data-md-color-scheme="slate"] .md-typeset .quote > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .quote > summary,
+[data-md-color-scheme="slate"] .md-typeset .cite  > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .cite  > summary { color: #AEB8CC; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   ADMONITION BODY BACKGROUND FIX — dark mode
+   ringcentral.css sets a light per-type background (e.g. .admonition.tip
+   { background: #FFF8F0 }) with the SAME specificity as its own
+   [data-md-color-scheme="slate"] .md-typeset .admonition dark override,
+   and it's declared later in the file — so in dark mode the light
+   background wins the tie and light body text sits on a light box.
+   These selectors add the scheme attribute to the per-type selector so
+   they outrank the light rule regardless of source order.
+   ══════════════════════════════════════════════════════════════════════ */
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note,
+[data-md-color-scheme="slate"] .md-typeset .admonition.abstract,
+[data-md-color-scheme="slate"] .md-typeset details.abstract,
+[data-md-color-scheme="slate"] .md-typeset .admonition.summary,
+[data-md-color-scheme="slate"] .md-typeset details.summary,
+[data-md-color-scheme="slate"] .md-typeset .admonition.tldr,
+[data-md-color-scheme="slate"] .md-typeset details.tldr,
+[data-md-color-scheme="slate"] .md-typeset .admonition.info,
+[data-md-color-scheme="slate"] .md-typeset details.info,
+[data-md-color-scheme="slate"] .md-typeset .admonition.todo,
+[data-md-color-scheme="slate"] .md-typeset details.todo,
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip,
+[data-md-color-scheme="slate"] .md-typeset details.tip,
+[data-md-color-scheme="slate"] .md-typeset .admonition.hint,
+[data-md-color-scheme="slate"] .md-typeset details.hint,
+[data-md-color-scheme="slate"] .md-typeset .admonition.important,
+[data-md-color-scheme="slate"] .md-typeset details.important,
+[data-md-color-scheme="slate"] .md-typeset .admonition.success,
+[data-md-color-scheme="slate"] .md-typeset details.success,
+[data-md-color-scheme="slate"] .md-typeset .admonition.check,
+[data-md-color-scheme="slate"] .md-typeset details.check,
+[data-md-color-scheme="slate"] .md-typeset .admonition.done,
+[data-md-color-scheme="slate"] .md-typeset details.done,
+[data-md-color-scheme="slate"] .md-typeset .admonition.question,
+[data-md-color-scheme="slate"] .md-typeset details.question,
+[data-md-color-scheme="slate"] .md-typeset .admonition.help,
+[data-md-color-scheme="slate"] .md-typeset details.help,
+[data-md-color-scheme="slate"] .md-typeset .admonition.faq,
+[data-md-color-scheme="slate"] .md-typeset details.faq,
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning,
+[data-md-color-scheme="slate"] .md-typeset details.warning,
+[data-md-color-scheme="slate"] .md-typeset .admonition.caution,
+[data-md-color-scheme="slate"] .md-typeset details.caution,
+[data-md-color-scheme="slate"] .md-typeset .admonition.attention,
+[data-md-color-scheme="slate"] .md-typeset details.attention,
+[data-md-color-scheme="slate"] .md-typeset .admonition.failure,
+[data-md-color-scheme="slate"] .md-typeset details.failure,
+[data-md-color-scheme="slate"] .md-typeset .admonition.fail,
+[data-md-color-scheme="slate"] .md-typeset details.fail,
+[data-md-color-scheme="slate"] .md-typeset .admonition.missing,
+[data-md-color-scheme="slate"] .md-typeset details.missing,
+[data-md-color-scheme="slate"] .md-typeset .admonition.danger,
+[data-md-color-scheme="slate"] .md-typeset details.danger,
+[data-md-color-scheme="slate"] .md-typeset .admonition.error,
+[data-md-color-scheme="slate"] .md-typeset details.error,
+[data-md-color-scheme="slate"] .md-typeset .admonition.bug,
+[data-md-color-scheme="slate"] .md-typeset details.bug,
+[data-md-color-scheme="slate"] .md-typeset .admonition.example,
+[data-md-color-scheme="slate"] .md-typeset details.example,
+[data-md-color-scheme="slate"] .md-typeset .admonition.quote,
+[data-md-color-scheme="slate"] .md-typeset details.quote,
+[data-md-color-scheme="slate"] .md-typeset .admonition.cite,
+[data-md-color-scheme="slate"] .md-typeset details.cite { background: #181D2A; }
