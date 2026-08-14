@@ -5,6 +5,8 @@ description: Produces a daily RingEX Phone communications digest from recent cal
 
 # Daily Communications Digest
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/daily-communications-digest.md.txt){ .md-button .md-button--primary download="daily-communications-digest-SKILL.md" }
+
 **Skill ID:** `daily-communications-digest`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

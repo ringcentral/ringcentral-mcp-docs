@@ -5,6 +5,8 @@ description: Browse recent SMS/MMS conversations on RingEX Phone and view any th
 
 # SMS Inbox
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/sms-inbox.md.txt){ .md-button .md-button--primary download="sms-inbox-SKILL.md" }
+
 **Skill ID:** `sms-inbox`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

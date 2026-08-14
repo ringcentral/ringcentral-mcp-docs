@@ -5,6 +5,8 @@ description: Sends a person-to-person SMS via RingEX Phone, with sender disambig
 
 # Send SMS
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/send-sms.md.txt){ .md-button .md-button--primary download="send-sms-SKILL.md" }
+
 **Skill ID:** `send-sms`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

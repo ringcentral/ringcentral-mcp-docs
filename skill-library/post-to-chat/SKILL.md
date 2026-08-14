@@ -1,10 +1,10 @@
 ---
-name: send-post
+name: post-to-chat
 description: Sends a single RingCentral Team Chat post to a resolved person or a known chat/channel on behalf of the authenticated RingEX Chat user, with destination resolution and a mandatory preview/confirm step before posting. Use when the user asks to post in a channel, message someone on Team Chat/Glip, reply in a thread, or send an update to a team — not for SMS/text messages.
 ---
 
 <!-- --8<-- [start:body] -->
-# Send Post
+# Post to Chat
 
 ## Goal
 

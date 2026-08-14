@@ -5,6 +5,8 @@ description: Browse recent voicemail on RingEX Phone and read back a selected me
 
 # Voicemail Inbox
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/voicemail-inbox.md.txt){ .md-button .md-button--primary download="voicemail-inbox-SKILL.md" }
+
 **Skill ID:** `voicemail-inbox`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

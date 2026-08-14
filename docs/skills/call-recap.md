@@ -5,6 +5,8 @@ description: Find a specific call in your RingEX Phone call history and recap it
 
 # Call Recap
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/call-recap.md.txt){ .md-button .md-button--primary download="call-recap-SKILL.md" }
+
 **Skill ID:** `call-recap`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

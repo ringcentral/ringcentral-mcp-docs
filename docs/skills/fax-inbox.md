@@ -5,6 +5,8 @@ description: Browse recent faxes on RingEX Phone and read back a selected fax's 
 
 # Fax Inbox
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/fax-inbox.md.txt){ .md-button .md-button--primary download="fax-inbox-SKILL.md" }
+
 **Skill ID:** `fax-inbox`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

@@ -1,6 +1,10 @@
 # MkDocs build output
 site/
 
+# Generated at build time by hooks/skill_downloads.py
+docs/assets/skill-downloads/
+
 # Python cache files
 __pycache__/
 *.py[cod]
+.DS_Store

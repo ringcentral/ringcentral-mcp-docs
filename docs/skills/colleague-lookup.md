@@ -5,6 +5,8 @@ description: Look up a colleague by name, department, job title, or phone number
 
 # Colleague Lookup
 
+[:material-download: Download SKILL.md](../assets/skill-downloads/colleague-lookup.md.txt){ .md-button .md-button--primary download="colleague-lookup-SKILL.md" }
+
 **Skill ID:** `colleague-lookup`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)
 

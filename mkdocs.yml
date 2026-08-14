@@ -7,6 +7,7 @@ edit_uri: ""
 docs_dir: docs
 hooks:
   - hooks/fix_ringcentral_redirect.py
+  - hooks/skill_downloads.py
 
 theme:
   name: material
@@ -105,7 +106,7 @@ nav:
     - Fax Inbox: skills/fax-inbox.md
     - Call Recap: skills/call-recap.md
     - Colleague Lookup: skills/colleague-lookup.md
-    - Send Post: skills/send-post.md
+    - Post to Chat: skills/post-to-chat.md
     - Read Team Chat: skills/read-team-chat.md
   - Servers:
     - Overview: servers/index.md
