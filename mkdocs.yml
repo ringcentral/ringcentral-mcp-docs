@@ -75,7 +75,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets:
       base_path:
-        - skill-library
+        - skills
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:

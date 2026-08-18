@@ -1,0 +1,22 @@
+{
+  "name": "ringcentral",
+  "version": "0.1.0",
+  "description": "Work with your RingCentral phone and Team Chat (Glip) account from Claude: check calls, voicemail, SMS, and faxes, look up colleagues, and read or post Team Chat messages.",
+  "author": {
+    "name": "Byrne Reese",
+    "email": "byrne.reese@ringcentral.com"
+  },
+  "homepage": "https://github.com/ringcentral/claude-plugin",
+  "repository": "https://github.com/ringcentral/claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "ringcentral",
+    "ringex",
+    "phone",
+    "team-chat",
+    "glip",
+    "voip",
+    "sms",
+    "voicemail"
+  ]
+}
