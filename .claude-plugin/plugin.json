@@ -1,7 +1,7 @@
 {
   "name": "ringcentral",
-  "version": "0.1.0",
-  "description": "Work with your RingCentral phone and Team Chat (Glip) account from Claude: check calls, voicemail, SMS, and faxes, look up colleagues, and read or post Team Chat messages.",
+  "version": "0.2.0",
+  "description": "Work with your RingCentral phone and Team Chat (Glip) account from Claude: check calls, voicemail, SMS, and faxes, look up colleagues, read or post Team Chat messages, and manage Team Chat tasks.",
   "author": {
     "name": "Byrne Reese",
     "email": "byrne.reese@ringcentral.com"

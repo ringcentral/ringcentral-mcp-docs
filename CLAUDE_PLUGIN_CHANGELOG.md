@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Added skill: `manage-tasks` — find, create, update, complete/reopen, or delete a RingCentral Team Chat task.
+
 ## 0.1.0
 
 Initial release.
