@@ -132,6 +132,17 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__link">View skill →</span>
   </a>
 
+  <a href="manage-tasks/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h2v2H3V5zm4 0h14v2H7V5zM3 11h2v2H3v-2zm4 0h14v2H7v-2zM3 17h2v2H3v-2zm4 0h14v2H7v-2z"/></svg>
+    </span>
+    <div class="rc-sol__num">10</div>
+    <div class="rc-sol__title">Manage Tasks</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Find, create, update, complete/reopen, or delete a Team Chat task, with chat/assignee resolution and completion verification.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
 </div>
 
 ---
