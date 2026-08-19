@@ -1,6 +1,6 @@
 ---
 title: Post to Chat
-description: Send a single Team Chat post to a resolved person or channel on RingEX Chat, with destination resolution and a mandatory preview/confirm step.
+description: Send, edit, or delete a Team Chat post — to a resolved person or channel, with thread replies and file attachments — on RingEX Chat, with destination resolution and a mandatory preview/confirm step before any write.
 ---
 
 # Post to Chat
@@ -10,7 +10,7 @@ description: Send a single Team Chat post to a resolved person or channel on Rin
 **Skill ID:** `post-to-chat`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)
 
-Sends one Team Chat post — to a person or a channel — with the destination resolved and the exact text confirmed before anything is posted. Mirrors the confirmation discipline of `send-sms`, applied to Team Chat instead of SMS. The full skill source below is pulled directly from its `SKILL.md` file, so it always reflects the current version.
+Sends, edits, or deletes one Team Chat post — to a person or a channel — with the destination resolved and the exact text or target post confirmed before anything is written. Covers thread replies and file/image attachments. Mirrors the confirmation discipline of `send-sms`, applied to Team Chat instead of SMS. The full skill source below is pulled directly from its `SKILL.md` file, so it always reflects the current version.
 
 ---
 

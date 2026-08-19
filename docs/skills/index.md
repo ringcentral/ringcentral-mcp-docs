@@ -143,6 +143,61 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__link">View skill →</span>
   </a>
 
+  <a href="manage-notes/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V7h3.5L14 3.5zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0 3h5v1.5H8V18z"/></svg>
+    </span>
+    <div class="rc-sol__num">11</div>
+    <div class="rc-sol__title">Manage Notes</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Find, create, update, publish, lock/unlock, or delete a Team Chat note, with chat resolution and confirmation before anything destructive.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
+  <a href="manage-events/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3V2zm-2 8v10h14V10H5zm2 3h4v4H7v-4z"/></svg>
+    </span>
+    <div class="rc-sol__num">12</div>
+    <div class="rc-sol__title">Manage Events</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Find, create, update, or delete a Team Chat event, with chat resolution and confirmation before deleting.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
+  <a href="manage-teams/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+    </span>
+    <div class="rc-sol__num">13</div>
+    <div class="rc-sol__title">Manage Teams</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Create, update, archive/unarchive, or delete a Team Chat team, manage membership and favorites, and update the Everyone chat — with confirmation before anything destructive.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
+  <a href="manage-webhooks/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5c0 1.9 1.08 3.54 2.66 4.35l-1.2 2.08a1 1 0 0 0 .37 1.37 1 1 0 0 0 1.36-.37l1.2-2.08a5 5 0 0 0 1.62 0l1.2 2.08a1 1 0 0 0 1.36.37 1 1 0 0 0 .37-1.37l-1.2-2.08A5 5 0 0 0 17 7a5 5 0 0 0-5-5zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-6.5 12a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm13 0a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
+    </span>
+    <div class="rc-sol__num">14</div>
+    <div class="rc-sol__title">Manage Webhooks</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Create, activate, suspend, or delete a Team Chat incoming webhook for a group, with confirmation before suspending or deleting one.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
+  <a href="manage-adaptive-cards/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM4 8V6h16v2H4zm0 2h16v8H4v-8zm2 2v2h5v-2H6z"/></svg>
+    </span>
+    <div class="rc-sol__num">15</div>
+    <div class="rc-sol__title">Manage Adaptive Cards</div>
+    <span class="rc-sol__meta">Server: RingEX Chat</span>
+    <p class="rc-sol__desc">Compose, post, update, or delete a Team Chat Adaptive Card within the supported contract (v1.3, OpenUrl/Submit only), refusing anything outside it.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
 </div>
 
 ---

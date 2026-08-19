@@ -109,6 +109,11 @@ nav:
     - Post to Chat: skills/post-to-chat.md
     - Read Team Chat: skills/read-team-chat.md
     - Manage Tasks: skills/manage-tasks.md
+    - Manage Notes: skills/manage-notes.md
+    - Manage Events: skills/manage-events.md
+    - Manage Teams: skills/manage-teams.md
+    - Manage Webhooks: skills/manage-webhooks.md
+    - Manage Adaptive Cards: skills/manage-adaptive-cards.md
   - Servers:
     - Overview: servers/index.md
     - RingEX Phone:
