@@ -247,14 +247,15 @@ body[data-page="home"] .md-content__inner {
   display: flex;
   flex-direction: column;
   height: 460px;
-  /* Dark glass card floating on the light pastel hero */
-  background: rgba(33, 30, 26, 0.78);
-  border: 1px solid rgba(255,255,255,0.12);
+  /* Cool lavender frost — light glass card floating on the pastel hero,
+     picks up the blue/lavender wash from the top of the hero image */
+  background: rgba(247, 246, 252, 0.9);
+  border: 1px solid rgba(111,168,220,0.22);
   border-radius: 16px;
   box-shadow:
-    0 32px 80px rgba(43,41,38,0.22),
-    0 0 0 1px rgba(255,255,255,0.05) inset,
-    0 1px 0 rgba(255,255,255,0.1) inset;
+    0 32px 80px rgba(43,41,38,0.14),
+    0 0 0 1px rgba(255,255,255,0.4) inset,
+    0 1px 0 rgba(255,255,255,0.6) inset;
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -265,8 +266,8 @@ body[data-page="home"] .md-content__inner {
   align-items: center;
   gap: 10px;
   padding: 13px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(111,168,220,0.18);
+  background: rgba(233,228,242,0.45);
   flex-shrink: 0;
 }
 .rc-chat-avatar {
@@ -287,7 +288,7 @@ body[data-page="home"] .md-content__inner {
 .rc-chat-header__name {
   font-weight: 600;
   font-size: 13px;
-  color: #fff;
+  color: var(--rc-ink);
   font-family: var(--rc-font);
   line-height: 1.2;
 }
@@ -296,7 +297,7 @@ body[data-page="home"] .md-content__inner {
   align-items: center;
   gap: 5px;
   font-size: 11px;
-  color: rgba(255,255,255,0.45);
+  color: var(--rc-ink-muted);
   font-family: var(--rc-font);
 }
 .rc-status-dot {
@@ -335,9 +336,9 @@ body[data-page="home"] .md-content__inner {
   border-bottom-right-radius: 4px;
 }
 .rc-chat-msg--ai .rc-chat-bubble {
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.88);
+  background: rgba(111,168,220,0.10);
+  border: 1px solid rgba(111,168,220,0.22);
+  color: var(--rc-ink);
   border-bottom-left-radius: 4px;
 }
 .rc-chat-tools { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
@@ -345,13 +346,13 @@ body[data-page="home"] .md-content__inner {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(255,140,0,0.1);
-  border: 1px solid rgba(255,140,0,0.25);
+  background: rgba(111,168,220,0.14);
+  border: 1px solid rgba(111,168,220,0.3);
   border-radius: 100px;
   padding: 3px 9px;
   font-size: 10.5px;
   font-family: var(--md-code-font, monospace);
-  color: #FFB060;
+  color: #3D6FA8;
   white-space: nowrap;
   animation: rc-fadeSlideIn 0.25s ease both;
 }
@@ -360,7 +361,7 @@ body[data-page="home"] .md-content__inner {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #FF8000;
+  background: #6FA8DC;
   flex-shrink: 0;
   animation: rc-pulse 1.3s ease-in-out infinite;
 }
@@ -371,8 +372,8 @@ body[data-page="home"] .md-content__inner {
   align-items: center;
   gap: 4px;
   padding: 10px 14px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(111,168,220,0.10);
+  border: 1px solid rgba(111,168,220,0.2);
   border-radius: 14px;
   border-bottom-left-radius: 4px;
   width: 52px;
@@ -381,7 +382,7 @@ body[data-page="home"] .md-content__inner {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.45);
+  background: rgba(43,41,38,0.35);
   animation: rc-thinking 1.4s ease-in-out infinite;
 }
 .rc-chat-thinking span:nth-child(2) { animation-delay: 0.2s; }
@@ -392,20 +393,20 @@ body[data-page="home"] .md-content__inner {
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(111,168,220,0.18);
+  background: rgba(255,255,255,0.35);
   flex-shrink: 0;
 }
 .rc-chat-input-field {
   flex: 1;
   height: 34px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(111,168,220,0.2);
   border-radius: 8px;
   padding: 0 11px;
   font-size: 12.5px;
   font-family: var(--rc-font);
-  color: rgba(255,255,255,0.75);
+  color: var(--rc-ink-mid);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -415,7 +416,7 @@ body[data-page="home"] .md-content__inner {
   display: inline-block;
   width: 1.5px;
   height: 14px;
-  background: rgba(255,255,255,0.55);
+  background: rgba(43,41,38,0.5);
   margin-left: 1px;
   vertical-align: text-bottom;
   animation: rc-cursor-blink 1s step-end infinite;
