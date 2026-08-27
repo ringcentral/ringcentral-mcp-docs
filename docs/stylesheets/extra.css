@@ -16,31 +16,147 @@
   --md-typeset-a-color:         #FF8C3A;
 }
 
-/* Nav tabs — deep indigo to complement the hero, with high-contrast white text */
+/* ── HEADER (masthead) ──
+   The shared mkdocs-material-ringcentral plugin paints .md-header with a
+   loud coral→orange→lavender→sky gradient and white text/icons. Override
+   with a flat cream bar + dark ink text/icons to match the reference
+   site's calm white header. Must reset the shorthand `background` (not
+   just background-color) or the plugin's background-image gradient keeps
+   painting over a color-only override. */
+.md-header {
+  background: #FFFFFF;
+  box-shadow: 0 1px 0 rgba(43,41,38,0.08);
+  color: var(--rc-ink);
+}
+.md-header__title,
+.md-header__button {
+  color: var(--rc-ink) !important;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  filter: none;
+}
+.md-search__form {
+  background: rgba(43,41,38,0.05);
+  border: 0.5px solid rgba(43,41,38,0.14);
+}
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background: rgba(43,41,38,0.08);
+  border-color: rgba(43,41,38,0.22);
+}
+.md-search__input {
+  color: var(--rc-ink);
+}
+.md-search__input::placeholder {
+  color: rgba(43,41,38,0.5);
+}
+/* The shared plugin paints the magnifying-glass icon white for the old
+   gradient header; on our white header that made it invisible. */
+.md-search__icon svg {
+  fill: rgba(43,41,38,0.55);
+}
+
+/* Nav tabs — light cream bar with pill-shaped active tab (warm-ink fill),
+   echoing the App Connect developer portal's white header + pill nav. */
 .md-tabs {
-  background-color: #0C0A2C;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(43,41,38,0.08);
+  box-shadow: none;
+}
+.md-tabs__list {
+  gap: 2px;
 }
 /* Override Material's default tab link colour (which uses primary = orange) */
 .md-tabs__link {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(43, 41, 38, 0.62) !important;
   opacity: 1 !important;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  transition: color 0.18s;
+  font-size: 0.85rem;
+  letter-spacing: normal;
+  border-radius: 999px;
+  padding: 7px 18px !important;
+  margin: 10px 2px !important;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 .md-tabs__link:hover,
 .md-tabs__link:focus {
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: #2B2926 !important;
+  background-color: rgba(43, 41, 38, 0.06);
 }
 .md-tabs__link--active {
   color: #fff !important;
-  font-weight: 700;
+  background-color: #2B2926;
+  font-weight: 600;
 }
-/* Active tab underline — amber to echo the sunrise */
+.md-tabs__link--active:hover {
+  background-color: #2B2926;
+}
+/* Active state is a filled pill, not an underline */
 .md-tabs__indicator {
-  background-color: #FFB020 !important;
-  height: 2px;
+  display: none;
+}
+
+/* ── Dark mode header + nav ──
+   The rules above hard-coded a white header/tabs bar for every scheme.
+   Give slate its own dark bar (reusing the footer's --rc-dark-bg) instead
+   of forcing white in dark mode, with the tab-pill colours inverted to
+   match the light-mode "dark-invert" pattern used elsewhere on the site. */
+[data-md-color-scheme="slate"] .md-header {
+  background: var(--rc-dark-bg);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+}
+[data-md-color-scheme="slate"] .md-header__title,
+[data-md-color-scheme="slate"] .md-header__button {
+  color: rgba(255,255,255,0.92) !important;
+}
+[data-md-color-scheme="slate"] .md-search__form {
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.14);
+}
+[data-md-color-scheme="slate"] .md-search__form:hover,
+[data-md-color-scheme="slate"] .md-search__form:focus-within {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.24);
+}
+[data-md-color-scheme="slate"] .md-search__input {
+  color: rgba(255,255,255,0.92);
+}
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+[data-md-color-scheme="slate"] .md-search__icon svg {
+  fill: rgba(255,255,255,0.55);
+}
+[data-md-color-scheme="slate"] .md-tabs {
+  background: var(--rc-dark-bg);
+  border-bottom: 1px solid var(--rc-dark-border);
+}
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: rgba(255,255,255,0.62) !important;
+}
+[data-md-color-scheme="slate"] .md-tabs__link:hover,
+[data-md-color-scheme="slate"] .md-tabs__link:focus {
+  color: #fff !important;
+  background-color: rgba(255,255,255,0.1);
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: var(--rc-dark-bg) !important;
+  background-color: #fff;
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active:hover {
+  background-color: #fff;
+}
+
+/* ── Legibility: bump regular body copy up from Material's 0.8rem default ── */
+.md-typeset {
+  font-size: 0.9rem;
+}
+.md-typeset p,
+.md-typeset li,
+.md-typeset dd {
+  line-height: 1.7;
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -48,23 +164,44 @@
    All selectors are prefixed rc- to avoid collisions with Material theme.
    ══════════════════════════════════════════════════════════════════════ */
 
-/* ── Design tokens ── */
+/* ── Design tokens ──
+   Retuned to echo developers.ringcentral.com/app-connect: warm charcoal
+   ink instead of pure black/white, soft cream/peach/blush gradients
+   instead of a saturated diagonal, and a golden orange→pink accent
+   gradient for callouts. Content/copy is unchanged — only the palette,
+   shapes and hover behavior shift toward the reference site. */
 :root {
   --rc-orange:      #FF8800;
   --rc-orange-warm: #FF7A35;
-  --rc-ink:         #1A1A1A;
-  --rc-ink-mid:     #444444;
-  --rc-ink-muted:   #888888;
-  --rc-dark-bg:     #1B2A4A;
+  --rc-ink:         #2B2926;
+  --rc-ink-mid:     #55524C;
+  --rc-ink-muted:   #8A867E;
+  --rc-dark-bg:     #211E1A;
   --rc-dark-border: rgba(255,255,255,0.12);
-  --rc-g-warm-1:    #FF7A35;
-  --rc-g-warm-2:    #FFB347;
-  --rc-g-warm-3:    #D4A5C9;
-  --rc-g-warm-4:    #A8C8E8;
-  --rc-g-light-1:   #FFF0E8;
-  --rc-g-light-2:   #F5EAF5;
-  --rc-g-light-3:   #EAF0FA;
-  --rc-font:        'Inter Tight', 'Inter', sans-serif;
+  /* Hero — soft pastel wash (was a saturated warm diagonal) */
+  --rc-g-warm-1:    #FFEFE3;
+  --rc-g-warm-2:    #FFDCC0;
+  --rc-g-warm-3:    #FCE3D7;
+  --rc-g-warm-4:    #E9E4F2;
+  /* Content sections — cream/blush, matching the reference's pink-gradient token */
+  --rc-g-light-1:   #FEF2ED;
+  --rc-g-light-2:   #FFF3E3;
+  --rc-g-light-3:   #FFE3CD;
+  /* Saturated version of the hero's blue→orange wash, for icon badges that
+     need enough contrast to carry a white glyph */
+  --rc-icon-gradient: linear-gradient(135deg, #6FA8DC 0%, #F17FB0 50%, #FF8A42 100%);
+  /* Golden accent gradient — mirrors the reference's gradiented-text--golden */
+  --rc-golden:      linear-gradient(89deg, #FF7238 0.47%, #FF8800 13.11%, #FCB972 25.74%, #FF9876 38.38%, #FFA1B7 51.02%, #ECA7B0 63.66%);
+  --rc-footer-bg:   #F6F5F1;
+  --rc-pill:        999px;
+  /* Reference site (developers.ringcentral.com/app-connect) declares
+     "neue_haas_grotesk_display_pro" first, but that font never actually
+     loads for visitors (it's not served anywhere on the page) — every
+     real browser silently falls back to Helvetica/Arial. Match what
+     people actually see, not the unreachable font-family declaration. */
+  --rc-font:        Helvetica, Arial, sans-serif;
+  --md-text-font:   Helvetica, Arial, sans-serif;
+  --md-code-font:   ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 /* Make the Material content wrapper transparent on the home page */
@@ -86,8 +223,7 @@ body[data-page="home"] .md-content__inner {
   display: flex;
   flex-direction: column;
   /* Height is driven by content — no min-height so copy+window dictate it */
-  background: linear-gradient(135deg, var(--rc-g-warm-1) 0%, var(--rc-g-warm-2) 45%,
-                                var(--rc-g-warm-3) 75%, var(--rc-g-warm-4) 100%);
+  background: url('../img/soft_blue_orange_bg.png') center/cover no-repeat;
 }
 #heroCanvas { display: none; }
 .rc-hero__inner {
@@ -111,12 +247,12 @@ body[data-page="home"] .md-content__inner {
   display: flex;
   flex-direction: column;
   height: 460px;
-  /* Dark glass on the indigo hero */
-  background: rgba(8, 6, 32, 0.72);
+  /* Dark glass card floating on the light pastel hero */
+  background: rgba(33, 30, 26, 0.78);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   box-shadow:
-    0 32px 80px rgba(0,0,0,0.5),
+    0 32px 80px rgba(43,41,38,0.22),
     0 0 0 1px rgba(255,255,255,0.05) inset,
     0 1px 0 rgba(255,255,255,0.1) inset;
   overflow: hidden;
@@ -308,15 +444,15 @@ body[data-page="home"] .md-content__inner {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(43,41,38,0.06);
+  border: 1px solid rgba(43,41,38,0.16);
   border-radius: 100px;
   padding: 6px 16px;
   margin-bottom: 24px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.75);
+  color: var(--rc-ink);
   text-transform: uppercase;
   font-family: var(--rc-font);
 }
@@ -324,8 +460,8 @@ body[data-page="home"] .md-content__inner {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  /* Amber dot matches the sunrise palette */
-  background: #FFB020;
+  /* Golden-orange dot matches the reference's accent gradient */
+  background: var(--rc-orange);
   animation: rc-blink 2.5s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -334,67 +470,82 @@ body[data-page="home"] .md-content__inner {
   font-family: var(--rc-font);
   /* Slightly smaller so copy column height ≈ 460px chat window */
   font-size: clamp(42px, 4.8vw, 64px);
-  font-weight: 900;
-  line-height: 0.97;
-  letter-spacing: -2.5px;
-  color: #fff;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  color: var(--rc-ink);
   margin-bottom: 18px;
   border: none !important;
 }
-/* "AI" in the headline picks up the sunrise gradient */
+/* "AI" in the headline picks up the reference's golden gradient */
 .rc-hero__accent {
-  background: linear-gradient(135deg, #FFB020 0%, #FF6010 60%, #FF3060 100%);
+  background: var(--rc-golden);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .rc-hero__sub {
   font-family: var(--rc-font);
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 400;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.72);
-  max-width: 360px;
+  line-height: 1.6;
+  color: rgba(43,41,38,0.75);
+  max-width: 400px;
   margin-bottom: 32px;
 }
-.rc-hero__sub strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+.rc-hero__sub strong { color: var(--rc-ink); font-weight: 600; }
 .rc-hero__btns { display: flex; gap: 12px; flex-wrap: wrap; }
 .rc-btn {
   font-family: var(--rc-font);
-  padding: 13px 28px;
-  border-radius: 6px;
+  padding: 14px 30px;
+  border-radius: var(--rc-pill);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: opacity 0.2s, transform 0.15s;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   border: none;
   cursor: pointer;
 }
-/* Primary CTA — warm sunrise gradient */
+/* Primary CTA — matches the reference: white pill, no border, ink text,
+   just enough shadow to read on both the photographic hero and the
+   white promo-banner background. Inverts to solid ink on hover. */
 .rc-btn--sunrise {
-  background: linear-gradient(135deg, #FF9D00 0%, #FF5A00 100%);
-  color: #fff;
-  box-shadow: 0 4px 24px rgba(255,110,0,0.4);
+  background: #fff;
+  color: var(--rc-ink);
+  border: none;
+  box-shadow: 0 1px 3px rgba(43,41,38,0.18), 0 1px 2px rgba(43,41,38,0.1);
 }
-.rc-btn--sunrise:hover { opacity: 0.9; transform: translateY(-1px); color: #fff; }
-/* Secondary — ghost / translucent */
+.rc-btn--sunrise:hover { background: var(--rc-ink); color: #fff; box-shadow: none; }
+/* Secondary — plain text link with a trailing arrow, matching the
+   reference's link-style secondary CTA (no pill, no border, no fill). */
 .rc-btn--ghost {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.2) !important;
+  background: transparent;
+  color: var(--rc-ink);
+  border: none !important;
+  padding: 14px 0;
+  font-weight: 500;
 }
-.rc-btn--ghost:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.rc-btn--ghost::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.rc-btn--ghost:hover {
+  background: transparent;
+  color: var(--rc-orange);
+}
+.rc-btn--ghost:hover::after { transform: translateX(3px); }
 /* Keep old names working (backwards compat with any other pages) */
-.rc-btn--white  { background: #fff; color: var(--rc-orange-warm); }
-.rc-btn--white:hover  { opacity: 0.88; color: var(--rc-orange-warm); }
+.rc-btn--white  { background: #fff; color: var(--rc-ink); }
+.rc-btn--white:hover  { background: var(--rc-ink); color: #fff; }
 .rc-btn--outline {
-  background: transparent; color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.45) !important;
+  background: transparent; color: var(--rc-ink);
+  border: 1.5px solid rgba(43,41,38,0.35) !important;
 }
-.rc-btn--outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.75) !important; color: #fff; }
+.rc-btn--outline:hover { background: var(--rc-ink); border-color: var(--rc-ink) !important; color: #fff; }
 
 /* ── STATS BAR ── */
 .rc-stats-bar {
@@ -410,7 +561,7 @@ body[data-page="home"] .md-content__inner {
 .rc-stat {
   flex: 1;
   padding: 0 36px;
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(43,41,38,0.16);
 }
 .rc-stat:first-child { padding-left: 0; }
 .rc-stat:last-child  { border-right: none; }
@@ -421,7 +572,7 @@ body[data-page="home"] .md-content__inner {
   letter-spacing: -1.5px;
   line-height: 1;
   margin-bottom: 4px;
-  color: #fff;
+  color: var(--rc-ink);
 }
 .rc-stat__label {
   font-family: var(--rc-font);
@@ -429,7 +580,7 @@ body[data-page="home"] .md-content__inner {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(43,41,38,0.55);
 }
 
 /* ── CHATGPT PLUGIN PROMO BAND ── */
@@ -437,7 +588,7 @@ body[data-page="home"] .md-content__inner {
   position: relative;
   z-index: 2;
   background: #fff;
-  border-bottom: 1px solid rgba(26,26,26,0.08);
+  border-bottom: 1px solid rgba(43,41,38,0.08);
   padding: 28px 48px;
 }
 .rc-promo__inner {
@@ -513,10 +664,10 @@ body[data-page="home"] .md-content__inner {
 .rc-section--light {
   background: linear-gradient(135deg, var(--rc-g-light-1) 0%, var(--rc-g-light-2) 60%, var(--rc-g-light-3) 100%);
 }
-/* Deep indigo dark section — used for the compat/LLM section */
+/* Warm charcoal dark section — used for the compat/LLM section */
 .rc-section--dark {
-  background: #0D0B30;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  background: var(--rc-dark-bg);
+  border-top: 1px solid var(--rc-dark-border);
 }
 .rc-section--no-top { padding-top: 0; }
 
@@ -640,13 +791,13 @@ body[data-page="home"] .md-content__inner {
   padding-bottom: 2px;
   transition: opacity 0.2s;
 }
-.rc-pivot__cta:hover { opacity: 0.7; color: var(--rc-orange); }
+.rc-pivot__cta:hover { opacity: 1; color: var(--rc-ink); border-color: var(--rc-ink); }
 
 /* ── STACK ROWS ── */
 .rc-stack { display: flex; flex-direction: column; gap: 8px; }
 .rc-stack__row {
   background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid rgba(43,41,38,0.1);
   border-radius: 10px;
   padding: 16px 20px;
   display: flex;
@@ -674,7 +825,7 @@ body[data-page="home"] .md-content__inner {
   height: 38px;
   border-radius: 9px;
   background: linear-gradient(135deg, var(--rc-g-light-1), var(--rc-g-light-3));
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid rgba(43,41,38,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -715,7 +866,7 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-server-card {
   background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid rgba(43,41,38,0.1);
   border-radius: 14px;
   padding: 36px;
   transition: all 0.3s;
@@ -735,7 +886,7 @@ body[data-page="home"] .md-content__inner {
   transition: opacity 0.3s;
   border-radius: 14px 14px 0 0;
 }
-.rc-server-card:hover { box-shadow: 0 12px 48px rgba(26,26,26,0.1); transform: translateY(-3px); }
+.rc-server-card:hover { box-shadow: 0 12px 48px rgba(43,41,38,0.1); transform: translateY(-3px); }
 .rc-server-card:hover::after { opacity: 1; }
 .rc-sc__header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
 .rc-sc__icon {
@@ -812,7 +963,7 @@ body[data-page="home"] .md-content__inner {
   transition: opacity 0.2s;
   display: inline-block;
 }
-.rc-sc__link:hover { opacity: 0.7; color: var(--rc-orange); }
+.rc-sc__link:hover { opacity: 1; color: var(--rc-ink); border-color: var(--rc-ink); }
 
 /* ── LLM COMPAT ── */
 .rc-compat__title {
@@ -899,18 +1050,25 @@ body[data-page="home"] .md-content__inner {
   height: 28px;
   fill: currentColor;
 }
+/* FontAwesome <i> icons dropped into the same slot as the inline SVGs above
+   (used on the Claude/ChatGPT connector & plugin cards) */
+.rc-sol__icon i {
+  display: block;
+  font-size: 22px;
+  line-height: 28px;
+}
 
 /* Homepage card (sits on the gradient section — light background) */
 .rc-sol-card {
   background: rgba(255,255,255,0.8);
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid rgba(43,41,38,0.1);
   border-radius: 12px;
   padding: 28px;
   transition: all 0.25s;
   text-decoration: none;
   display: block;
 }
-.rc-sol-card:hover { box-shadow: 0 8px 32px rgba(26,26,26,0.08); transform: translateY(-2px); text-decoration: none; }
+.rc-sol-card:hover { box-shadow: 0 8px 32px rgba(43,41,38,0.08); transform: translateY(-2px); text-decoration: none; }
 .rc-sol-card:hover * { text-decoration: none; }
 .rc-sol__num {
   font-family: var(--rc-font);
@@ -942,12 +1100,32 @@ body[data-page="home"] .md-content__inner {
   gap: 6px;
   font-family: var(--rc-font);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--rc-orange);
   text-decoration: none;
   margin-top: 16px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.rc-sol__link:hover { opacity: 0.75; color: var(--rc-orange); }
+.rc-sol__link:hover { opacity: 0.75; color: var(--rc-orange); transform: translateX(3px); }
+/* Muted, non-interactive state for "coming soon" cards */
+.rc-sol__link--disabled {
+  color: var(--rc-ink-mid);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.rc-sol__link--disabled:hover { opacity: 0.6; transform: none; }
+.md-typeset .rc-sol__link--disabled { color: var(--md-default-fg-color--light); }
+/* Non-link card variant for items with no active destination yet */
+.rc-sol-card--disabled { cursor: default; }
+.rc-sol-card--disabled:hover,
+.md-typeset .rc-sol-card--disabled:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: rgba(43,41,38,0.1);
+}
+[data-md-color-scheme="default"] .md-typeset .rc-sol-card--disabled:hover {
+  border-color: rgba(43,41,38,0.1);
+}
 
 /* Server-dependency meta label on skill cards */
 .rc-sol__meta {
@@ -968,6 +1146,15 @@ body[data-page="home"] .md-content__inner {
   background: var(--md-code-bg-color);
   border-color: var(--md-default-fg-color--lightest);
   color: var(--md-default-fg-color);
+}
+/* Light mode: white card face reads cleaner than the code-block grey,
+   for both the accent-bar (skills) and editorial (solutions) variants. */
+[data-md-color-scheme="default"] .md-typeset .rc-sol-card {
+  background: #FFFFFF;
+  border-color: rgba(43,41,38,0.1);
+}
+[data-md-color-scheme="default"] .md-typeset .rc-sol-card:hover {
+  border-color: var(--md-primary-fg-color);
 }
 .md-typeset .rc-sol-card:hover {
   border-color: var(--md-primary-fg-color);
@@ -1000,7 +1187,7 @@ body[data-page="home"] .md-content__inner {
   border-radius: 50%;
   background: #fff;
   border: 1.5px solid rgba(255,136,0,0.35);
-  box-shadow: 0 3px 10px rgba(26,26,26,0.12);
+  box-shadow: 0 3px 10px rgba(43,41,38,0.12);
   color: var(--rc-ink);
   z-index: 2;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -1014,7 +1201,7 @@ body[data-page="home"] .md-content__inner {
 .rc-sol-card__badge:hover {
   transform: scale(1.1);
   border-color: var(--rc-orange);
-  box-shadow: 0 6px 16px rgba(26,26,26,0.18);
+  box-shadow: 0 6px 16px rgba(43,41,38,0.18);
 }
 .md-typeset .rc-sol-card__badge {
   background: var(--md-code-bg-color);
@@ -1022,6 +1209,93 @@ body[data-page="home"] .md-content__inner {
   color: var(--md-default-fg-color);
 }
 
+
+/* ── SKILL LIBRARY — accent-bar minimal card variant ──
+   Applied via .rc-solutions-grid--accent wrapper (skills/index.md only).
+   Drops the icon + number, adds a thin colour-coded bar keyed to the
+   server dependency (RingEX Phone = coral, RingEX Chat = pink). */
+.rc-solutions-grid--accent .rc-sol-card {
+  position: relative;
+  padding-left: 34px;
+  overflow: hidden;
+}
+.rc-solutions-grid--accent .rc-sol__icon,
+.rc-solutions-grid--accent .rc-sol__num {
+  display: none;
+}
+.rc-sol-card--phone::before,
+.rc-sol-card--chat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+.rc-sol-card--phone::before { background: #D85A30; }
+.rc-sol-card--chat::before  { background: #D4537E; }
+
+/* ── SOLUTIONS LANDING — editorial watermark-number card variant ──
+   Applied via .rc-solutions-grid--editorial wrapper (solutions/index.md only).
+   Keeps the icon, replaces the bold orange number with a large, low-opacity
+   numeral tucked in the corner as a quiet editorial mark. */
+.rc-solutions-grid--editorial .rc-sol-card {
+  position: relative;
+  overflow: hidden;
+}
+.rc-solutions-grid--editorial .rc-sol__num {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: var(--rc-ink);
+  opacity: 0.07;
+  margin: 0;
+}
+.md-typeset .rc-solutions-grid--editorial .rc-sol__num {
+  color: var(--md-default-fg-color);
+  opacity: 0.09;
+}
+
+/* ── CONNECTOR/PLUGIN CARDS — icon-badge variant ──
+   Applied via .rc-solutions-grid--iconbadge wrapper (Claude/ChatGPT solution
+   pages only). No number, a round gradient badge (echoing the hero's
+   blue→orange wash) with a white icon, and a bumped-up type scale since
+   these cards carry more copy than the compact solutions-grid tiles. */
+.rc-solutions-grid--iconbadge {
+  grid-template-columns: repeat(2, 1fr);
+}
+.rc-solutions-grid--iconbadge .rc-sol__num {
+  display: none;
+}
+.rc-solutions-grid--iconbadge .rc-sol__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--rc-icon-gradient);
+  color: #fff;
+  margin-bottom: 18px;
+}
+.rc-solutions-grid--iconbadge .rc-sol__icon i {
+  font-size: 22px;
+  color: #fff;
+  line-height: 1;
+}
+.rc-solutions-grid--iconbadge .rc-sol__title {
+  font-size: 19px;
+}
+.rc-solutions-grid--iconbadge .rc-sol__desc {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.rc-solutions-grid--iconbadge .rc-sol__link {
+  font-size: 13px;
+}
 
 /* ── MERGED DATA + SOLUTIONS GRID ── */
 .rc-pivot-grid--solutions {
@@ -1036,7 +1310,7 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-sol-merge-card {
   background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid rgba(43,41,38,0.1);
   border-radius: 10px;
   padding: 22px 24px;
   text-decoration: none;
@@ -1054,7 +1328,7 @@ body[data-page="home"] .md-content__inner {
   opacity: 0;
   transition: opacity 0.25s;
 }
-.rc-sol-merge-card:hover { box-shadow: 0 6px 24px rgba(26,26,26,0.09); transform: translateY(-2px); text-decoration: none; }
+.rc-sol-merge-card:hover { box-shadow: 0 6px 24px rgba(43,41,38,0.09); transform: translateY(-2px); text-decoration: none; }
 .rc-sol-merge-card:hover::after { opacity: 1; }
 .rc-sol-merge__num {
   font-size: 12px;
@@ -1083,9 +1357,9 @@ body[data-page="home"] .md-content__inner {
 
 /* ── FOOTER ── */
 .rc-footer {
-  background: var(--rc-dark-bg);
+  background: var(--rc-footer-bg);
   padding: 40px 48px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(43,41,38,0.08);
 }
 .rc-footer__inner {
   max-width: 1280px;
@@ -1100,7 +1374,7 @@ body[data-page="home"] .md-content__inner {
   font-family: var(--rc-font);
   font-size: 15px;
   font-weight: 700;
-  color: #fff;
+  color: var(--rc-ink);
   letter-spacing: -0.3px;
 }
 .rc-footer__links {
@@ -1114,16 +1388,16 @@ body[data-page="home"] .md-content__inner {
   font-family: var(--rc-font);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,0.4);
+  color: rgba(43,41,38,0.5);
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
-.rc-footer__links a:hover { color: rgba(255,255,255,0.85); }
+.rc-footer__links a:hover { color: var(--rc-ink); }
 .rc-footer__copy {
   font-family: var(--rc-font);
   font-size: 11px;
-  color: rgba(255,255,255,0.25);
+  color: rgba(43,41,38,0.35);
   letter-spacing: 0.04em;
 }
 
@@ -1355,6 +1629,158 @@ body[data-page="home"] .md-content__inner {
 @media (max-width: 480px) {
   .rc-chat__bubble--user,
   .rc-chat__bubble--ai { max-width: 88%; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   INSTALL CARDS — setup pages, one-click plugin install per AI client
+   ══════════════════════════════════════════════════════════════════════ */
+.md-typeset .rc-install-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 1.5rem 0 2rem;
+}
+.md-typeset .rc-install-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 14px;
+  padding: 32px 28px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.md-typeset .rc-install-card:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.rc-install-card__logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 22px;
+  margin-bottom: 4px;
+}
+.rc-install-card__logo {
+  height: 28px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+}
+.md-typeset .rc-install-card p {
+  margin: 0;
+}
+.md-typeset .rc-install-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .rc-install-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+  max-width: 280px;
+}
+.md-typeset .rc-install-card .rc-install-card__cta {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+/* Matches the hero/promo primary CTA: white pill, no border, ink text,
+   subtle shadow for definition on the card's own background. */
+.md-typeset .rc-install-card__cta--primary {
+  background: #fff;
+  color: var(--rc-ink) !important;
+  box-shadow: 0 1px 3px rgba(43,41,38,0.18), 0 1px 2px rgba(43,41,38,0.1);
+}
+.md-typeset .rc-install-card__cta--primary:hover {
+  background: var(--rc-ink);
+  color: #fff !important;
+  box-shadow: none;
+}
+.md-typeset .rc-install-card__cta--disabled {
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light) !important;
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+/* FontAwesome replacement for the old emoji glyphs in the logo-wrap box */
+.rc-install-card__icon {
+  font-size: 28px;
+  line-height: 1;
+  color: var(--rc-ink);
+}
+@media (max-width: 640px) {
+  .md-typeset .rc-install-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   BUTTON-STYLE TABS — replace Material's underline tabs with pill buttons.
+   Applies globally: pymdownx.tabbed (alternate style) is used for setup
+   instructions (ChatGPT/Claude/Codex) and tool examples across the site,
+   and the default sliding-underline style reads as broken/low-contrast.
+   Supports up to 5 tabs per set via positional nth-of-type matching,
+   since CSS can't cross-reference an input's id to a label's for value.
+   ══════════════════════════════════════════════════════════════════════ */
+.md-typeset .tabbed-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  box-shadow: none;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+.md-typeset .tabbed-labels::before {
+  display: none;
+}
+.md-typeset .tabbed-labels > label {
+  width: auto;
+  border-radius: 100px;
+  border: 1.5px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  padding: 0.55rem 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--md-default-fg-color--light);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+.md-typeset .tabbed-labels:focus-within {
+  box-shadow: 0 0 0 2px var(--md-accent-fg-color);
+  border-radius: 100px;
+}
+.md-typeset .tabbed-set > input:nth-of-type(1):checked ~ .tabbed-labels > label:nth-of-type(1),
+.md-typeset .tabbed-set > input:nth-of-type(2):checked ~ .tabbed-labels > label:nth-of-type(2),
+.md-typeset .tabbed-set > input:nth-of-type(3):checked ~ .tabbed-labels > label:nth-of-type(3),
+.md-typeset .tabbed-set > input:nth-of-type(4):checked ~ .tabbed-labels > label:nth-of-type(4),
+.md-typeset .tabbed-set > input:nth-of-type(5):checked ~ .tabbed-labels > label:nth-of-type(5) {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: #fff;
+}
+.md-typeset .tabbed-content {
+  border-top: none;
+}
+.md-typeset .tabbed-block {
+  padding-top: 0.25rem;
 }
 
 /* ══════════════════════════════════════════════════════════════════════

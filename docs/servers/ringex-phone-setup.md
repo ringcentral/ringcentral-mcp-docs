@@ -9,30 +9,51 @@ description: Connect the RingEX Phone MCP server to ChatGPT, Claude, or Codex.
 
 ---
 
-=== "ChatGPT"
+## Install the plugin
 
-    The recommended way to connect RingEX Phone to ChatGPT is the official **RingCentral Phone plugin** — it handles server configuration for you, so there's nothing to side-load manually.
+The fastest way to connect RingEX Phone is an official plugin — it handles server configuration for you, so there's nothing to side-load manually.
+
+<div class="rc-install-grid">
+
+<div class="rc-install-card">
+<span class="rc-install-card__logo-wrap"><img src="../../assets/logo-claude.png" alt="Claude" class="rc-install-card__logo"></span>
+<p class="rc-install-card__name">Claude</p>
+<p class="rc-install-card__desc">A dedicated Claude plugin for RingEX Phone is on the way.</p>
+<span class="rc-install-card__cta rc-install-card__cta--disabled">Coming soon</span>
+</div>
+
+<div class="rc-install-card">
+<span class="rc-install-card__logo-wrap"><img src="../../img/chatgpt-logo-png-transparent.png" alt="ChatGPT" class="rc-install-card__logo"></span>
+<p class="rc-install-card__name">ChatGPT</p>
+<p class="rc-install-card__desc">Install the official RingCentral Phone plugin — no manual setup required.</p>
+<a href="https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →</a>
+</div>
+
+</div>
+
+!!! note "Prefer to install from within ChatGPT?"
+    Open the [RingCentral Phone plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral) page, click **Try now**, then complete the RingCentral OAuth flow. Open a new chat, click the **+** icon or tools menu, and select RingCentral Phone — or mention it by name in your prompt. Verify with "Show me my call logs from today."
 
     ![RingCentral Phone plugin listing in the ChatGPT plugin store](../img/chatgpt-plugin.png)
 
-    1. Open the [RingCentral Phone plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral) page.
-    2. Click **Try now** to install it, then complete the RingCentral OAuth flow: sign in with your RingCentral account and authorize the integration.
-    3. Open a new chat, click the **+** icon or tools menu, and select RingCentral Phone — or mention it by name in your prompt.
-    4. Verify: ask "Show me my call logs from today."
+---
 
-    ??? note "Advanced: side-load the server manually"
-        Use this if plugin installs aren't available to you (e.g. some Business/Enterprise workspaces) or you'd rather add the MCP server directly.
+## Installing the MCP server manually
 
-        ChatGPT calls this an **App** (renamed from "Connector" in December 2025). Connecting a server that can call tools — not just read/fetch — requires Developer Mode.
+No plugin for your client, or you'd rather add the server directly? Follow the steps below.
 
-        1. **Business/Enterprise/Edu workspaces:** a workspace admin enables Developer Mode via **Workspace Settings → Permissions & Roles → Connected Data**. **Individual Enterprise/Edu accounts, or Pro (read/fetch-only):** go to **Settings → Apps → Advanced Settings** and toggle **Developer mode** on.
-        2. In **Settings → Apps**, click **Create**, enter the URL above as the MCP Server URL, name it (e.g. `RingEX Phone`), click **Scan Tools**, then **Save**.
-        3. Complete the RingCentral OAuth flow when prompted.
-        4. Open a new chat, click the **+** icon or tools menu, and select RingEX Phone — or mention it by name in your prompt.
-        5. Verify: ask "Show me my call logs from today."
+=== "ChatGPT"
 
-        !!! note "Pro users"
-            With read/fetch-only Developer Mode, you can read call log and message data but can't use any write-type tools.
+    ChatGPT calls this an **App** (renamed from "Connector" in December 2025). Connecting a server that can call tools — not just read/fetch — requires Developer Mode.
+
+    1. **Business/Enterprise/Edu workspaces:** a workspace admin enables Developer Mode via **Workspace Settings → Permissions & Roles → Connected Data**. **Individual Enterprise/Edu accounts, or Pro (read/fetch-only):** go to **Settings → Apps → Advanced Settings** and toggle **Developer mode** on.
+    2. In **Settings → Apps**, click **Create**, enter the URL above as the MCP Server URL, name it (e.g. `RingEX Phone`), click **Scan Tools**, then **Save**.
+    3. Complete the RingCentral OAuth flow when prompted.
+    4. Open a new chat, click the **+** icon or tools menu, and select RingEX Phone — or mention it by name in your prompt.
+    5. Verify: ask "Show me my call logs from today."
+
+    !!! note "Pro users"
+        With read/fetch-only Developer Mode, you can read call log and message data but can't use any write-type tools.
 
 === "Claude"
 
@@ -47,10 +68,19 @@ description: Connect the RingEX Phone MCP server to ChatGPT, Claude, or Codex.
 
 === "Codex"
 
-    1. Open the Codex app → click the **Settings** gear (bottom left) → **MCP Servers** → **Add server**.
-    2. Enter a name (e.g. `RingEX Phone`), set Type to **Streamable HTTP**, and enter the URL above.
-    3. Click **Save**, then select **Restart** so Codex picks up the new server.
-    4. Authenticate with your RingCentral account in the browser window that opens.
+    1. Open the Codex app, click **Settings**, then under **Integrations** click **Plugins**.
+
+        ![Codex Settings panel with Integrations > Plugins highlighted](../img/chatgpt-settings.png)
+
+    2. Click the **MCP** tab, then click **Add → Add MCP server**.
+
+        ![Codex Add menu with Add MCP server highlighted](../img/chatgpt-add-server.png)
+
+    3. Enter a name (e.g. `RingEX Phone`), set Type to **Streamable HTTP**, and enter the Server URL above.
+
+        ![Codex Connect to a custom MCP form with Name, Type, and URL fields](../img/chatgpt-server-details.png)
+
+    4. Save, then authenticate with your RingCentral account in the browser window that opens.
     5. Codex has no connector picker — mention "RingCentral" explicitly in your prompt, e.g. "Using RingCentral, show me my call logs from today."
 
 ---

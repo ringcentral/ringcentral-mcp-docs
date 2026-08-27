@@ -1,4 +1,4 @@
-site_name: RingCentral MCP
+site_name: MCP
 site_description: Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.
 site_author: RingCentral Labs
 site_url: https://mcp.labs.ringcentral.com/docs/
@@ -29,9 +29,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-  font:
-    text: Inter
-    code: JetBrains Mono
+  font: false
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -50,6 +48,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
 
 extra:
   social:
@@ -97,6 +96,9 @@ nav:
     - Customer Engagement: solutions/customer-engagement.md
     - Team Collaboration: solutions/team-collaboration.md
     - CRM Enrichment: solutions/crm-enrichment.md
+    - AI Assistants:
+      - Claude: solutions/claude.md
+      - ChatGPT: solutions/chatgpt.md
   - Skill Library:
     - Overview: skills/index.md
     - Daily Communications Digest: skills/daily-communications-digest.md
