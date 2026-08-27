@@ -29,14 +29,14 @@ This page is the resource center for using RingCentral with Claude — every con
     <span class="rc-sol__link rc-sol__link--disabled">Coming soon</span>
   </div>
 
-  <a href="#" class="rc-sol-card">
+  <a href="../downloads/ringcentral-plugin.zip" download class="rc-sol-card">
     <span class="rc-sol__icon"><i class="fa-solid fa-puzzle-piece"></i></span>
     <div class="rc-sol__title">RingCentral Plugin</div>
-    <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more. Coming soon.</p>
+    <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more.</p>
     <span class="rc-sol__link">Download →</span>
   </a>
 
-  <a href="#" class="rc-sol-card">
+  <a href="../downloads/appconnect-connector-skills.zip" download class="rc-sol-card">
     <span class="rc-sol__icon"><i class="fa-solid fa-plug"></i></span>
     <div class="rc-sol__title">App Connect Developer Plugin</div>
     <p class="rc-sol__desc">Skills for building your own App Connect CRM connector — scaffolding, auth, contact matching, call logging, and deploy.</p>
@@ -44,9 +44,6 @@ This page is the resource center for using RingCentral with Claude — every con
   </a>
 
 </div>
-
-!!! info "Download links pending"
-    The RingCentral Plugin and App Connect Developer Plugin aren't published as downloadable release artifacts yet — the buttons above are placeholders. Update the links in `docs/solutions/claude.md` once release zips are available.
 
 ## Installing a plugin manually
 
