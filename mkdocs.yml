@@ -118,6 +118,7 @@ nav:
     - Manage Teams: skills/manage-teams.md
     - Manage Webhooks: skills/manage-webhooks.md
     - Manage Adaptive Cards: skills/manage-adaptive-cards.md
+    - Call Follow-Up Email: skills/call-followup-email.md
   - Servers:
     - Overview: servers/index.md
     - RingEX Phone:

@@ -198,6 +198,17 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__link">View skill →</span>
   </a>
 
+  <a href="call-followup-email/" class="rc-sol-card rc-sol-card--phone">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </span>
+    <div class="rc-sol__num">16</div>
+    <div class="rc-sol__title">Call Follow-Up Email</div>
+    <span class="rc-sol__meta">Server: RingEX Phone</span>
+    <p class="rc-sol__desc">Turn a recent call into a drafted, call-specific follow-up email — sent through whatever email tool is connected, or handed back as a ready-to-paste draft.</p>
+    <span class="rc-sol__link">View skill →</span>
+  </a>
+
 </div>
 
 ---
