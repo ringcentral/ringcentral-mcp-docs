@@ -7,4 +7,8 @@
   <!-- Same favicon used on ringcentral.com, served directly from their asset host -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://www.ringcentral.com/content/dam/rc-www/en_us/images/favicon/ringcentral_2.0_icon_favicon.png">
   <link rel="shortcut icon" href="https://www.ringcentral.com/content/dam/rc-www/en_us/images/favicon/ringcentral_2.0_icon_favicon.ico">
+  <!-- Explicit social/link-preview image, so unfurlers don't fall back to scraping the first <img> on the page -->
+  <meta property="og:image" content="{{ config.site_url }}img/ai-sparkle-mark.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ config.site_url }}img/ai-sparkle-mark.png">
 {% endblock %}
