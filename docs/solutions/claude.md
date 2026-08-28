@@ -1,9 +1,9 @@
 ---
-title: Claude
+title: Claude solutions for RingCentral
 description: RingCentral resource center for Claude — connectors, plugins, and setup guides.
 ---
 
-# Claude
+# Claude solutions for RingCentral
 
 <p align="center">
   <img src="../../assets/logo-claude.png" alt="Claude logo" style="height:56px;width:auto;margin:1.5rem 0 2rem;">

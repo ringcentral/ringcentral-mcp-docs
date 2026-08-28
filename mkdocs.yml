@@ -13,7 +13,6 @@ theme:
   name: material
   custom_dir: overrides
   logo: assets/logo.png
-  favicon: assets/favicon.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -49,6 +48,9 @@ theme:
 extra_css:
   - stylesheets/extra.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
+
+extra_javascript:
+  - javascripts/tab-deeplink.js
 
 extra:
   social:

@@ -1101,21 +1101,31 @@ body[data-page="home"] .md-content__inner {
   gap: 6px;
   font-family: var(--rc-font);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--rc-orange);
+  background: #fff;
+  border: 1.5px solid var(--rc-orange);
   text-decoration: none;
   margin-top: 16px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  padding: 7.5px 18px;
+  border-radius: 100px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
-.rc-sol__link:hover { opacity: 0.75; color: var(--rc-orange); transform: translateX(3px); }
+.rc-sol__link:hover {
+  color: #fff;
+  background: var(--rc-orange);
+  transform: translateY(-1px);
+}
 /* Muted, non-interactive state for "coming soon" cards */
 .rc-sol__link--disabled {
   color: var(--rc-ink-mid);
-  opacity: 0.6;
+  background: #fff;
+  border-color: var(--md-default-fg-color--lightest);
+  opacity: 0.7;
   pointer-events: none;
 }
-.rc-sol__link--disabled:hover { opacity: 0.6; transform: none; }
-.md-typeset .rc-sol__link--disabled { color: var(--md-default-fg-color--light); }
+.rc-sol__link--disabled:hover { opacity: 0.7; transform: none; background: #fff; color: var(--rc-ink-mid); }
+.md-typeset .rc-sol__link--disabled { color: var(--md-default-fg-color--light); border-color: var(--md-default-fg-color--lightest); }
 /* Non-link card variant for items with no active destination yet */
 .rc-sol-card--disabled { cursor: default; }
 .rc-sol-card--disabled:hover,
@@ -1745,15 +1755,16 @@ body[data-page="home"] .md-content__inner {
   border-bottom: none;
   margin-bottom: 1rem;
 }
-.md-typeset .tabbed-labels::before {
-  display: none;
+.md-typeset .tabbed-labels::before,
+.md-typeset .tabbed-labels::after {
+  display: none !important;
 }
 .md-typeset .tabbed-labels > label {
   width: auto;
   border-radius: 100px;
   border: 1.5px solid var(--md-default-fg-color--lightest);
   background: var(--md-default-bg-color);
-  padding: 0.55rem 1.25rem;
+  padding: 0.4rem 1rem;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1764,9 +1775,13 @@ body[data-page="home"] .md-content__inner {
   color: var(--md-primary-fg-color);
   border-color: var(--md-primary-fg-color);
 }
-.md-typeset .tabbed-labels:focus-within {
-  box-shadow: 0 0 0 2px var(--md-accent-fg-color);
-  border-radius: 100px;
+/* Neither the resting nor the active/checked state should show Material's
+   default per-label underline indicator (it renders as a stray bar under
+   the pill on the checked tab) — the filled pill background above is
+   the only "active" affordance we want. */
+.md-typeset .tabbed-labels > label::before,
+.md-typeset .tabbed-labels > label::after {
+  display: none !important;
 }
 .md-typeset .tabbed-set > input:nth-of-type(1):checked ~ .tabbed-labels > label:nth-of-type(1),
 .md-typeset .tabbed-set > input:nth-of-type(2):checked ~ .tabbed-labels > label:nth-of-type(2),
@@ -1776,6 +1791,8 @@ body[data-page="home"] .md-content__inner {
   background: var(--md-primary-fg-color);
   border-color: var(--md-primary-fg-color);
   color: #fff;
+  box-shadow: none;
+  text-decoration: none;
 }
 .md-typeset .tabbed-content {
   border-top: none;

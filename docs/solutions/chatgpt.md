@@ -1,9 +1,9 @@
 ---
-title: ChatGPT
+title: ChatGPT solutions for RingCentral
 description: RingCentral resource center for ChatGPT — plugins, quotes, and setup guides.
 ---
 
-# ChatGPT
+# ChatGPT solutions for RingCentral
 
 <p align="center">
   <img src="../../img/chatgpt-logo-png-transparent.png" alt="ChatGPT logo" style="height:56px;width:auto;margin:1.5rem 0 2rem;">
