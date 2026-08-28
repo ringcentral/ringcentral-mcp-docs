@@ -103,22 +103,22 @@ nav:
       - ChatGPT: solutions/chatgpt.md
   - Skill Library:
     - Overview: skills/index.md
+    - Call Follow-Up Email: skills/call-followup-email.md
+    - Call Recap: skills/call-recap.md
+    - Colleague Lookup: skills/colleague-lookup.md
     - Daily Communications Digest: skills/daily-communications-digest.md
+    - Fax Inbox: skills/fax-inbox.md
+    - Manage Adaptive Cards: skills/manage-adaptive-cards.md
+    - Manage Events: skills/manage-events.md
+    - Manage Notes: skills/manage-notes.md
+    - Manage Tasks: skills/manage-tasks.md
+    - Manage Teams: skills/manage-teams.md
+    - Manage Webhooks: skills/manage-webhooks.md
+    - Post to Chat: skills/post-to-chat.md
+    - Read Team Chat: skills/read-team-chat.md
     - Send SMS: skills/send-sms.md
     - SMS Inbox: skills/sms-inbox.md
     - Voicemail Inbox: skills/voicemail-inbox.md
-    - Fax Inbox: skills/fax-inbox.md
-    - Call Recap: skills/call-recap.md
-    - Colleague Lookup: skills/colleague-lookup.md
-    - Post to Chat: skills/post-to-chat.md
-    - Read Team Chat: skills/read-team-chat.md
-    - Manage Tasks: skills/manage-tasks.md
-    - Manage Notes: skills/manage-notes.md
-    - Manage Events: skills/manage-events.md
-    - Manage Teams: skills/manage-teams.md
-    - Manage Webhooks: skills/manage-webhooks.md
-    - Manage Adaptive Cards: skills/manage-adaptive-cards.md
-    - Call Follow-Up Email: skills/call-followup-email.md
   - Servers:
     - Overview: servers/index.md
     - RingEX Phone:
