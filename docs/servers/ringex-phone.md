@@ -1,8 +1,11 @@
 # RingEX Phone
 
-**Endpoint:** `https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone`  
-**Status:** 🟡 Labs / Beta · Updated  
-**Transport:** SSE over HTTPS
+<div class="rc-spec-sheet">
+<div class="rc-spec-row"><span class="rc-spec-row__label">Endpoint</span><span class="rc-spec-row__value"><code>https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone</code><button class="rc-copy" data-copy="https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone" aria-label="Copy endpoint URL" title="Copy endpoint URL"><svg class="rc-copy__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><svg class="rc-copy__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></button></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Status</span><span class="rc-spec-row__value"><span class="rc-status rc-status--preview">Preview</span></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Transport</span><span class="rc-spec-row__value">SSE over HTTPS</span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Auth</span><span class="rc-spec-row__value">OAuth2</span></div>
+</div>
 
 ---
 
@@ -10,11 +13,7 @@
 
 RingEX Phone gives your AI assistant access to telephony data: call activity and AI-generated call insights, messages (SMS, voicemail, and fax) from the message store, directory/contact lookup, and the user's own phone profile. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers the phone and messaging side.
 
-!!! info "v1.1.0 — tool surface consolidated"
-    This server's 24 fine-grained `platform_*`/`read_*`/`list_*` tools have been replaced with 12 workflow-oriented, personal-scope tools: `get_my_phone`, `resolve_directory_person`, `search_my_contacts`, `get_my_call_activity`, `get_my_call_insight`, `get_my_call_recording_metadata`, `search_my_call_insights`, `get_my_communication_inbox`, `get_my_message_detail`, `get_my_sms_thread`, `send_sms`, plus `about_ringcentral_mcp_tools`. Every tool is scoped to the authenticated user only — account, extension, and pagination selectors are no longer exposed as parameters.
-
-!!! warning "Labs status"
-    This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
+See the [Changelog](../changelog.md) for what's changed across versions.
 
 ---
 

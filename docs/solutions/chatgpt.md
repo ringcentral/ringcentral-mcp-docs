@@ -25,17 +25,17 @@ This page is the resource center for using RingCentral with ChatGPT — availabl
     <span class="rc-sol__link">Install plugin →</span>
   </a>
 
-  <div class="rc-sol-card rc-sol-card--disabled">
+  <a href="https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94" class="rc-sol-card" target="_blank" rel="noopener">
     <span class="rc-sol__icon"><i class="fa-solid fa-comment-dots"></i></span>
     <div class="rc-sol__title">RingCentral Chat plugin</div>
     <p class="rc-sol__desc">Team messaging in ChatGPT — catch up on chats, search history, and post updates on your behalf.</p>
-    <span class="rc-sol__link rc-sol__link--disabled">Coming soon</span>
-  </div>
+    <span class="rc-sol__link">Install plugin →</span>
+  </a>
 
 </div>
 
 ## More resources
 
 - [RingEX Phone setup guide](../servers/ringex-phone-setup.md) — full walkthrough for installing the plugin or adding the MCP server manually.
-- [RingEX Chat setup guide](../servers/ringex-chat-setup.md) — server details for when the Chat plugin ships.
+- [RingEX Chat setup guide](../servers/ringex-chat-setup.md) — full walkthrough for installing the plugin or adding the MCP server manually.
 - [Solutions overview](index.md) — browse all use cases powered by RingCentral's MCP servers.

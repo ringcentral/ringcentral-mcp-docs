@@ -640,15 +640,23 @@ body[data-page="home"] .md-content__inner {
   margin: 0;
   max-width: 640px;
 }
+.rc-promo__ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  flex-shrink: 0;
+}
 .rc-promo__cta {
   flex-shrink: 0;
   white-space: nowrap;
+  justify-content: center;
 }
 @media (max-width: 780px) {
   .rc-promo { padding: 24px; }
   .rc-promo__inner { flex-wrap: wrap; }
   .rc-promo__logo { width: 100px; }
-  .rc-promo__cta { width: 100%; justify-content: center; }
+  .rc-promo__ctas { width: 100%; }
 }
 
 /* ── SECTIONS ── */
@@ -1177,6 +1185,7 @@ body[data-page="home"] .md-content__inner {
 .md-typeset .rc-sol__desc  { color: var(--md-default-fg-color--light); }
 .md-typeset .rc-sol__num   { color: var(--md-primary-fg-color); }
 .md-typeset .rc-sol__link  { color: var(--md-primary-fg-color); }
+.md-typeset .rc-sol__link:hover { color: #fff; }
 .md-typeset .rc-sol__icon  { color: var(--md-primary-fg-color); }
 
 /* Card wrapper + ChatGPT plugin badge (sibling links, avoids nested <a>) */
@@ -1218,6 +1227,16 @@ body[data-page="home"] .md-content__inner {
   background: var(--md-code-bg-color);
   border-color: var(--md-default-fg-color--lightest);
   color: var(--md-default-fg-color);
+}
+.rc-sol-card__badge img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+/* Second badge on a card (e.g. Claude alongside ChatGPT) sits left of the first */
+.rc-sol-card__badge + .rc-sol-card__badge {
+  right: 62px;
 }
 
 
@@ -1268,6 +1287,29 @@ body[data-page="home"] .md-content__inner {
 .md-typeset .rc-solutions-grid--editorial .rc-sol__num {
   color: var(--md-default-fg-color);
   opacity: 0.09;
+}
+
+/* ── AI PLATFORM LOGO CARDS — solutions landing top promo ──
+   Applied via .rc-solutions-grid--logohero wrapper (solutions/index.md only).
+   Two-column, logo-forward cards pointing to the Claude/ChatGPT resource
+   pages — the logo does the talking, so it's sized up and given more
+   breathing room than the compact icon slot used elsewhere. */
+.rc-solutions-grid--logohero {
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 28px;
+}
+.rc-solutions-grid--logohero .rc-sol-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+}
+.rc-sol__logo {
+  height: 50px !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
 
 /* ── CONNECTOR/PLUGIN CARDS — icon-badge variant ──
@@ -1684,6 +1726,19 @@ body[data-page="home"] .md-content__inner {
   object-fit: contain;
   display: block;
 }
+/* Image-only variant — logo-wrap keeps its background transparent instead
+   of the default white chip, used where the card drops the text name
+   label and relies on the logo alone. */
+.rc-install-card__logo-wrap--transparent {
+  background: transparent;
+  padding: 0;
+}
+/* Fixed, shared height so two logos of differing native proportions
+   (e.g. a tightly-cropped mark vs. one with internal padding) render at
+   the same visual size side by side. */
+.rc-install-card__logo--even {
+  height: 32px;
+}
 .md-typeset .rc-install-card p {
   margin: 0;
 }
@@ -1763,7 +1818,7 @@ body[data-page="home"] .md-content__inner {
   width: auto;
   border-radius: 100px;
   border: 1.5px solid var(--md-default-fg-color--lightest);
-  background: var(--md-default-bg-color);
+  background: transparent;
   padding: 0.4rem 1rem;
   font-size: 0.72rem;
   font-weight: 700;
@@ -1940,3 +1995,104 @@ body[data-page="home"] .md-content__inner {
 [data-md-color-scheme="slate"] .md-typeset details.quote,
 [data-md-color-scheme="slate"] .md-typeset .admonition.cite,
 [data-md-color-scheme="slate"] .md-typeset details.cite { background: #181D2A; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   SERVER SPEC SHEET — Endpoint / Status / Transport / Auth
+   Top-of-page property block on each MCP server overview page
+   (docs/servers/*.md), matching the "Option 3 — spec sheet" mockup:
+   a bordered card, label/value rows in a flex layout (label left, value
+   flush right), thin dividers between rows. Built from plain <div>s
+   rather than a <table> — a table forces the value into a left-aligned
+   table cell instead of the flush-right flex alignment the design calls
+   for, and there's no clean way to get an HTML class onto a markdown
+   pipe table's <table> tag anyway (plain attr_list doesn't support it).
+   ══════════════════════════════════════════════════════════════════════ */
+.md-typeset .rc-spec-sheet {
+  margin: 1.5rem 0;
+  padding: 0.25rem 1.125rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  background: var(--md-default-bg-color);
+}
+.rc-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  font-family: var(--rc-font, inherit);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+.rc-spec-row:not(:last-child) {
+  border-bottom: 0.05rem solid var(--md-default-fg-color--lightest);
+}
+.rc-spec-row__label {
+  flex: none;
+  color: var(--md-default-fg-color--light);
+}
+.rc-spec-row__value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  color: var(--md-default-fg-color);
+}
+.rc-spec-row__value code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+/* Status cell — colored dot + label. Color encodes release stage,
+   not decoration: green = Preview, amber = Beta. */
+.rc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+}
+.rc-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+.rc-status--preview::before { background: #2E9E4F; }
+.rc-status--beta::before    { background: #D9A404; }
+
+/* Copy-to-clipboard button next to an endpoint URL. Toggles to a
+   checkmark for ~1.4s after a successful copy via .rc-copy--copied,
+   set by javascripts/rc-copy.js. */
+.rc-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-left: 0.4rem;
+  padding: 0;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+}
+.rc-copy:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+.rc-copy svg {
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.rc-copy__icon--check { display: none; }
+.rc-copy.rc-copy--copied .rc-copy__icon--copy  { display: none; }
+.rc-copy.rc-copy--copied .rc-copy__icon--check { display: inline; }
+.rc-copy.rc-copy--copied {
+  border-color: #2E9E4F;
+  color: #2E9E4F;
+}

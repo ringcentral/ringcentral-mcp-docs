@@ -16,25 +16,18 @@ The fastest way to connect RingEX Phone is an official plugin — it handles ser
 <div class="rc-install-grid">
 
 <div class="rc-install-card">
-<span class="rc-install-card__logo-wrap"><img src="../../assets/logo-claude.png" alt="Claude" class="rc-install-card__logo"></span>
-<p class="rc-install-card__name">Claude</p>
+<span class="rc-install-card__logo-wrap rc-install-card__logo-wrap--transparent"><img src="../../assets/logo-claude.png" alt="Claude" class="rc-install-card__logo rc-install-card__logo--even"></span>
 <p class="rc-install-card__desc">A dedicated Claude plugin for RingEX Phone is on the way.</p>
 <span class="rc-install-card__cta rc-install-card__cta--disabled">Coming soon</span>
 </div>
 
 <div class="rc-install-card">
-<span class="rc-install-card__logo-wrap"><img src="../../img/chatgpt-logo-png-transparent.png" alt="ChatGPT" class="rc-install-card__logo"></span>
-<p class="rc-install-card__name">ChatGPT</p>
+<span class="rc-install-card__logo-wrap rc-install-card__logo-wrap--transparent"><img src="../../img/chatgpt-logo-mark.png" alt="ChatGPT" class="rc-install-card__logo rc-install-card__logo--even"></span>
 <p class="rc-install-card__desc">Install the official RingCentral Phone plugin — no manual setup required.</p>
 <a href="https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →</a>
 </div>
 
 </div>
-
-!!! note "Prefer to install from within ChatGPT?"
-    Open the [RingCentral Phone plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral) page, click **Try now**, then complete the RingCentral OAuth flow. Open a new chat, click the **+** icon or tools menu, and select RingCentral Phone — or mention it by name in your prompt. Verify with "Show me my call logs from today."
-
-    ![RingCentral Phone plugin listing in the ChatGPT plugin store](../img/chatgpt-plugin.png)
 
 ---
 

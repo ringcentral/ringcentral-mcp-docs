@@ -1,8 +1,11 @@
 # RingEX Chat
 
-**Endpoint:** `https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat`  
-**Status:** 🟡 Labs / Beta · Updated  
-**Transport:** SSE over HTTPS
+<div class="rc-spec-sheet">
+<div class="rc-spec-row"><span class="rc-spec-row__label">Endpoint</span><span class="rc-spec-row__value"><code>https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat</code><button class="rc-copy" data-copy="https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat" aria-label="Copy endpoint URL" title="Copy endpoint URL"><svg class="rc-copy__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><svg class="rc-copy__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></button></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Status</span><span class="rc-spec-row__value"><span class="rc-status rc-status--preview">Preview</span></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Transport</span><span class="rc-spec-row__value">SSE over HTTPS</span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Auth</span><span class="rc-spec-row__value">OAuth2</span></div>
+</div>
 
 ---
 
@@ -10,11 +13,7 @@
 
 RingEX Chat gives your AI assistant access to RingCentral Team Messaging (Glip): chats, direct and group conversations, teams, and posts. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers team collaboration.
 
-!!! info "v1.1.0 — tool surface consolidated"
-    This server's 65 fine-grained `team_messaging_*` tools have been replaced with 9 workflow-oriented tools (`find_person`, `read_team_chat`, `send_post`, `manage_post`, `manage_adaptive_card`, `manage_team`, `manage_chat_item`, `manage_incoming_webhook`, plus `about_ringcentral_mcp_tools`). Each write tool now takes a `resource`/`action` (or `action`-only) discriminator instead of exposing a separate tool per operation. Team Chat data-export tools moved to [RingEX Admin](ringex-admin.md), since bulk export is an account-sensitive administrative workflow.
-
-!!! warning "Labs status"
-    This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
+See the [Changelog](../changelog.md) for what's changed across versions — including the v1.1.0 tool-surface consolidation (65 tools down to 9) and the move of Team Chat data-export tools to [RingEX Admin](ringex-admin.md).
 
 ---
 

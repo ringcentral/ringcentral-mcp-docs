@@ -15,7 +15,7 @@ This page is the resource center for using RingCentral with Claude — every con
 
 <div class="rc-solutions-grid rc-solutions-grid--iconbadge">
 
-  <a href="../../servers/ringex-chat-setup/" class="rc-sol-card">
+  <a href="https://claude.ai/directory/ringcentral-chat" class="rc-sol-card" target="_blank" rel="noopener">
     <span class="rc-sol__icon"><i class="fa-solid fa-comment-dots"></i></span>
     <div class="rc-sol__title">RingCentral Chat connector</div>
     <p class="rc-sol__desc">Team messaging in Claude — catch up on chats, search history, and post updates on your behalf.</p>

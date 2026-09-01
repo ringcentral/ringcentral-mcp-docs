@@ -1,8 +1,11 @@
 # RingEX Admin
 
-**Endpoint:** `https://mcp.labs.ringcentral.com/ringex/admin`  
-**Status:** 🟡 Labs / Beta · New  
-**Transport:** SSE over HTTPS
+<div class="rc-spec-sheet">
+<div class="rc-spec-row"><span class="rc-spec-row__label">Endpoint</span><span class="rc-spec-row__value"><code>https://mcp.labs.ringcentral.com/ringex/admin</code><button class="rc-copy" data-copy="https://mcp.labs.ringcentral.com/ringex/admin" aria-label="Copy endpoint URL" title="Copy endpoint URL"><svg class="rc-copy__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><svg class="rc-copy__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></button></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Status</span><span class="rc-spec-row__value"><span class="rc-status rc-status--preview">Preview</span></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Transport</span><span class="rc-spec-row__value">SSE over HTTPS</span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Auth</span><span class="rc-spec-row__value">OAuth2</span></div>
+</div>
 
 ---
 
@@ -11,9 +14,6 @@
 RingEX Admin gives your AI assistant access to account and extension administration: account info, extensions, roles and permissions, call analytics, directory/contacts, and presence. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
 
 Run `about_ringcentral_mcp_tools` to see a full summary of supported tools and permissions.
-
-!!! warning "Labs status"
-    This server is part of RingCentral Labs and is not covered by RingCentral's standard SLA. Tools may be renamed, modified, or removed without prior notice. Use in production environments with caution.
 
 ---
 

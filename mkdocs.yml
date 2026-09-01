@@ -1,6 +1,6 @@
 site_name: MCP
 site_description: Developer documentation for RingCentral Model Context Protocol (MCP) servers — tool references, integration guides, and quickstarts.
-site_author: RingCentral Labs
+site_author: RingCentral
 site_url: https://mcp.labs.ringcentral.com/docs/
 
 edit_uri: ""
@@ -51,6 +51,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/tab-deeplink.js
+  - javascripts/rc-copy.js
 
 extra:
   social:
@@ -121,6 +122,7 @@ nav:
     - Voicemail Inbox: skills/voicemail-inbox.md
   - Servers:
     - Overview: servers/index.md
+    - Changelog: changelog.md
     - RingEX Phone:
       - Overview: servers/ringex-phone.md
       - Setup: servers/ringex-phone-setup.md
@@ -137,4 +139,3 @@ nav:
       - Overview: servers/app-connect.md
       - Setup: servers/app-connect-setup.md
       - Tools: tools/app-connect.md
-    - Changelog: changelog.md

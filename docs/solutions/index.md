@@ -9,6 +9,24 @@ hide:
 
 Real-world use cases powered by RingCentral's MCP servers. Browse by capability to see example prompts, expected responses, and which tools are called under the hood.
 
+<div class="rc-solutions-grid rc-solutions-grid--logohero">
+
+  <a href="chatgpt/" class="rc-sol-card">
+    <img class="rc-sol__logo" src="../img/chatgpt-logo-mark.png" alt="ChatGPT logo">
+    <p class="rc-sol__desc">Plugins for using RingCentral with ChatGPT — install guides, and what OpenAI has to say about it.</p>
+    <span class="rc-sol__link">View resources →</span>
+  </a>
+
+  <a href="claude/" class="rc-sol-card">
+    <img class="rc-sol__logo" src="../assets/logo-claude.png" alt="Claude logo">
+    <p class="rc-sol__desc">Connectors and plugins for using RingCentral with Claude — setup guides and what's coming next.</p>
+    <span class="rc-sol__link">View resources →</span>
+  </a>
+
+</div>
+
+## Use cases
+
 <div class="rc-solutions-grid rc-solutions-grid--editorial">
 
   <a href="communication-analytics/" class="rc-sol-card">
@@ -59,32 +77,6 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <div class="rc-sol__title">CRM Enrichment</div>
     <p class="rc-sol__desc">Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.</p>
     <span class="rc-sol__link">View examples →</span>
-  </a>
-
-</div>
-
-## AI Assistants
-
-<div class="rc-solutions-grid rc-solutions-grid--editorial">
-
-  <a href="claude/" class="rc-sol-card">
-    <span class="rc-sol__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zM11.5 9.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>
-    </span>
-    <div class="rc-sol__num">06</div>
-    <div class="rc-sol__title">Claude</div>
-    <p class="rc-sol__desc">Connectors and plugins for using RingCentral with Claude — setup guides and what's coming next.</p>
-    <span class="rc-sol__link">View resources →</span>
-  </a>
-
-  <a href="chatgpt/" class="rc-sol-card">
-    <span class="rc-sol__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zM11.5 9.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>
-    </span>
-    <div class="rc-sol__num">07</div>
-    <div class="rc-sol__title">ChatGPT</div>
-    <p class="rc-sol__desc">Plugins for using RingCentral with ChatGPT — install guides, and what OpenAI has to say about it.</p>
-    <span class="rc-sol__link">View resources →</span>
   </a>
 
 </div>
