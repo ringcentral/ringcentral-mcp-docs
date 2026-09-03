@@ -11,9 +11,6 @@ description: RingCentral resource center for ChatGPT — plugins, quotes, and se
 
 This page is the resource center for using RingCentral with ChatGPT — available plugins, what's coming next, and what OpenAI has to say about it.
 
-!!! quote "Denise Dresser, Chief Revenue Officer at OpenAI"
-    "AI-native companies aren't defined by how many engineers they have - they're defined by how many people can turn ideas into working software. RingCentral shows what's possible when AI development is put in the hands of an entire organization. With ChatGPT Work and Codex, employees across the business are building, shipping, and learning by doing - helping create a culture where product development becomes a capability for everyone, not just engineering teams."
-
 ## Plugins
 
 <div class="rc-solutions-grid rc-solutions-grid--iconbadge">
@@ -33,6 +30,9 @@ This page is the resource center for using RingCentral with ChatGPT — availabl
   </a>
 
 </div>
+
+!!! quote "Denise Dresser, Chief Revenue Officer at OpenAI"
+    "AI-native companies aren't defined by how many engineers they have - they're defined by how many people can turn ideas into working software. RingCentral shows what's possible when AI development is put in the hands of an entire organization. With ChatGPT Work and Codex, employees across the business are building, shipping, and learning by doing - helping create a culture where product development becomes a capability for everyone, not just engineering teams."
 
 ## More resources
 
