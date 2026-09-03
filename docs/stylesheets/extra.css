@@ -243,10 +243,11 @@ body[data-page="home"] .md-content__inner {
 
 /* ── Chat window demo ──────────────────────────────────────────────── */
 .rc-chat-window {
-  flex: 0 0 460px;
+  flex: 0 0 560px;      /* widened from 460px for legibility */
+  width: 560px;
   display: flex;
   flex-direction: column;
-  height: 460px;
+  height: 420px;
   /* Cool lavender frost — light glass card floating on the pastel hero,
      picks up the blue/lavender wash from the top of the hero image */
   background: rgba(247, 246, 252, 0.9);
@@ -261,61 +262,20 @@ body[data-page="home"] .md-content__inner {
   z-index: 2;
   backdrop-filter: blur(16px);
 }
-.rc-chat-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 16px;
-  border-bottom: 1px solid rgba(111,168,220,0.18);
-  background: rgba(233,228,242,0.45);
-  flex-shrink: 0;
-}
-.rc-chat-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FF8000 0%, #FF4040 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 13px;
-  font-family: var(--rc-font);
-  flex-shrink: 0;
-}
-.rc-chat-header__info { flex: 1; min-width: 0; }
-.rc-chat-header__name {
-  font-weight: 600;
-  font-size: 13px;
-  color: var(--rc-ink);
-  font-family: var(--rc-font);
-  line-height: 1.2;
-}
-.rc-chat-header__status {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--rc-ink-muted);
-  font-family: var(--rc-font);
-}
-.rc-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  flex-shrink: 0;
-  animation: rc-blink 2.8s ease-in-out infinite;
-}
+/* No header element at all — rc-chat-msgs owns the full top edge. The
+   mask fades content to transparent over the first ~60px so messages
+   appear to dissolve into the glass rather than being clipped by a
+   hard edge or a header bar. */
 .rc-chat-msgs {
   flex: 1;
   overflow-y: auto;
-  padding: 14px;
+  padding: 28px 20px 18px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   scroll-behavior: smooth;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 4px, black 60px);
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 4px, black 60px);
 }
 .rc-chat-msgs::-webkit-scrollbar { width: 0; }
 .rc-chat-msg { display: flex; flex-direction: column; animation: rc-fadeSlideUp 0.2s ease both; }
@@ -324,33 +284,33 @@ body[data-page="home"] .md-content__inner {
 @keyframes rc-fadeSlideUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .rc-chat-bubble {
   max-width: 88%;
-  padding: 9px 13px;
-  border-radius: 14px;
-  font-size: 12.5px;
-  line-height: 1.55;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-size: 19px;
+  line-height: 1.45;
   font-family: var(--rc-font);
 }
 .rc-chat-msg--user .rc-chat-bubble {
   background: linear-gradient(135deg, #FF8C00, #FF4A00);
   color: #fff;
-  border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 6px;
 }
 .rc-chat-msg--ai .rc-chat-bubble {
   background: rgba(111,168,220,0.10);
   border: 1px solid rgba(111,168,220,0.22);
   color: var(--rc-ink);
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 6px;
 }
-.rc-chat-tools { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
+.rc-chat-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .rc-chat-tool-pill {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   background: rgba(111,168,220,0.14);
   border: 1px solid rgba(111,168,220,0.3);
   border-radius: 100px;
-  padding: 3px 9px;
-  font-size: 10.5px;
+  padding: 5px 14px;
+  font-size: 15px;
   font-family: var(--md-code-font, monospace);
   color: #3D6FA8;
   white-space: nowrap;
@@ -358,8 +318,8 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-chat-tool-pill::before {
   content: '';
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #6FA8DC;
   flex-shrink: 0;
@@ -370,17 +330,17 @@ body[data-page="home"] .md-content__inner {
 .rc-chat-thinking {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 10px 14px;
+  gap: 6px;
+  padding: 15px 20px;
   background: rgba(111,168,220,0.10);
   border: 1px solid rgba(111,168,220,0.2);
-  border-radius: 14px;
-  border-bottom-left-radius: 4px;
-  width: 52px;
+  border-radius: 20px;
+  border-bottom-left-radius: 6px;
+  width: 70px;
 }
 .rc-chat-thinking span {
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: rgba(43,41,38,0.35);
   animation: rc-thinking 1.4s ease-in-out infinite;
@@ -390,41 +350,50 @@ body[data-page="home"] .md-content__inner {
 @keyframes rc-thinking { 0%,80%,100%{transform:scale(0.65);opacity:0.35} 40%{transform:scale(1);opacity:1} }
 .rc-chat-input-bar {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
+  align-items: flex-end;   /* lets the field grow downward as text wraps */
+  gap: 12px;
+  padding: 14px 18px;
   border-top: 1px solid rgba(111,168,220,0.18);
   background: rgba(255,255,255,0.35);
   flex-shrink: 0;
 }
 .rc-chat-input-field {
   flex: 1;
-  height: 34px;
+  min-height: 46px;       /* grows with content instead of a fixed height */
+  max-height: 130px;
   background: rgba(255,255,255,0.7);
   border: 1px solid rgba(111,168,220,0.2);
-  border-radius: 8px;
-  padding: 0 11px;
-  font-size: 12.5px;
+  border-radius: 12px;
+  padding: 11px 16px;
+  font-size: 20px;
+  line-height: 1.4;
   font-family: var(--rc-font);
   color: var(--rc-ink-mid);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
+  /* Deliberately NOT display:flex — plain block flow lets the typed text
+     wrap naturally and lets the caret span sit right after the last
+     character on the wrapped line, like a real input/textarea caret.
+     (flex pushes the caret to a fixed cross-axis position instead of
+     following the text flow, which was the original wrapping bug.) */
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
+.rc-chat-input-field::-webkit-scrollbar { width: 0; }
 .rc-chat-cursor {
   display: inline-block;
-  width: 1.5px;
-  height: 14px;
+  width: 2px;
+  height: 20px;
   background: rgba(43,41,38,0.5);
-  margin-left: 1px;
+  margin-left: 2px;
   vertical-align: text-bottom;
   animation: rc-cursor-blink 1s step-end infinite;
 }
 @keyframes rc-cursor-blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .rc-chat-send {
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, #FF8C00, #FF4A00);
   border: none;
@@ -435,6 +404,7 @@ body[data-page="home"] .md-content__inner {
   cursor: default;
   pointer-events: none;
 }
+.rc-chat-send svg { width: 20px; height: 20px; }
 .rc-hero__copy {
   flex: 1;
   max-width: 600px;
@@ -449,7 +419,7 @@ body[data-page="home"] .md-content__inner {
   border: 1px solid rgba(43,41,38,0.16);
   border-radius: 100px;
   padding: 6px 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -469,14 +439,12 @@ body[data-page="home"] .md-content__inner {
 @keyframes rc-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 .rc-hero__h1 {
   font-family: var(--rc-font);
-  /* Sized to fit the longer "Unlock conversations..." headline within the
-     widened copy column without wrapping mid-phrase */
-  font-size: clamp(36px, 3.6vw, 48px);
+  font-size: clamp(32px, 3.2vw, 42px);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -1px;
   color: var(--rc-ink);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   border: none !important;
 }
 /* "AI" in the headline picks up the reference's golden gradient */
@@ -488,21 +456,21 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-hero__sub {
   font-family: var(--rc-font);
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   color: rgba(43,41,38,0.75);
-  max-width: 520px;
-  margin-bottom: 32px;
+  max-width: 480px;
+  margin-bottom: 24px;
 }
 .rc-hero__sub strong { color: var(--rc-ink); font-weight: 600; }
 .rc-hero__btns { display: flex; gap: 12px; flex-wrap: wrap; }
 .rc-btn {
   font-family: var(--rc-font);
-  padding: 14px 30px;
+  padding: 13px 28px;
   border-radius: var(--rc-pill);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -527,7 +495,7 @@ body[data-page="home"] .md-content__inner {
   background: transparent;
   color: var(--rc-ink);
   border: none !important;
-  padding: 14px 0;
+  padding: 13px 0;
   font-weight: 500;
 }
 .rc-btn--ghost::after {

@@ -18,13 +18,10 @@
           <a href="#solutions" class="rc-btn rc-btn--ghost">View Solutions</a>
         </div>
       </div>
+      <!-- No header bar — rc-chat-msgs owns the full top edge and fades to
+           transparent via a mask-image gradient instead of being cut off
+           by a header bar. -->
       <div class="rc-chat-window" aria-hidden="true">
-        <div class="rc-chat-header">
-          <div class="rc-chat-header__info">
-            <div class="rc-chat-header__name">LLM</div>
-            <div class="rc-chat-header__status"><span class="rc-status-dot"></span>RingCentral MCP connected</div>
-          </div>
-        </div>
         <div class="rc-chat-msgs" id="chatMsgs"></div>
         <div class="rc-chat-input-bar">
           <div class="rc-chat-input-field" id="chatInput"><span class="rc-chat-cursor"></span></div>
@@ -274,7 +271,7 @@
       const bubble = document.createElement('div');
       bubble.className = 'rc-chat-bubble';
       wrapper.appendChild(bubble);
-      const cursor = '<span class="rc-chat-cursor" style="background:rgba(0,0,0,0.3);height:13px;"></span>';
+      const cursor = '<span class="rc-chat-cursor" style="background:rgba(0,0,0,0.3);height:18px;"></span>';
       let built = '';
       for (let i = 0; i < text.length; i++) {
         if (!$('chatMsgs')) return;
@@ -282,9 +279,10 @@
         bubble.innerHTML = esc(built).replace(/\n/g, '<br>') + cursor;
         scrollBottom();
         const ch = text[i];
-        const delay = (ch === '\n') ? 28
-                    : (ch === '.' || ch === '!' || ch === '?') ? 38
-                    : 12 + Math.random() * 10;
+        // Sped up ~2x so the reply streams faster and each demo turn takes less time.
+        const delay = (ch === '\n') ? 14
+                    : (ch === '.' || ch === '!' || ch === '?') ? 18
+                    : 5 + Math.random() * 5;
         await sleep(delay);
       }
       bubble.innerHTML = md(text);
