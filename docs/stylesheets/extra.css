@@ -1080,6 +1080,15 @@ body[data-page="home"] .md-content__inner {
   margin-top: 10px;
   letter-spacing: 0.04em;
 }
+.rc-llm-more {
+  font-family: var(--rc-font);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  margin: 24px 0 0;
+  letter-spacing: 0.01em;
+}
 
 /* ── SOLUTIONS — homepage + solutions/index.md shared grid ── */
 .rc-solutions-grid {
