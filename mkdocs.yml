@@ -95,11 +95,10 @@ nav:
   - Solutions:
     - Overview: solutions/index.md
     - Communication Analytics: solutions/communication-analytics.md
-    - Coaching & Insights: solutions/coaching-insights.md
     - Customer Engagement: solutions/customer-engagement.md
     - Team Collaboration: solutions/team-collaboration.md
     - CRM Enrichment: solutions/crm-enrichment.md
-    - AI Assistants:
+    - LLMs:
       - Claude: solutions/claude.md
       - ChatGPT: solutions/chatgpt.md
   - Skill Library:

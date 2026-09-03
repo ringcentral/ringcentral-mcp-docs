@@ -437,7 +437,7 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-hero__copy {
   flex: 1;
-  max-width: 400px;
+  max-width: 600px;
   position: relative;
   z-index: 2;
 }
@@ -469,10 +469,11 @@ body[data-page="home"] .md-content__inner {
 @keyframes rc-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 .rc-hero__h1 {
   font-family: var(--rc-font);
-  /* Slightly smaller so copy column height ≈ 460px chat window */
-  font-size: clamp(42px, 4.8vw, 64px);
+  /* Sized to fit the longer "Unlock conversations..." headline within the
+     widened copy column without wrapping mid-phrase */
+  font-size: clamp(36px, 3.6vw, 48px);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -1px;
   color: var(--rc-ink);
   margin-bottom: 18px;
@@ -491,7 +492,7 @@ body[data-page="home"] .md-content__inner {
   font-weight: 400;
   line-height: 1.6;
   color: rgba(43,41,38,0.75);
-  max-width: 400px;
+  max-width: 520px;
   margin-bottom: 32px;
 }
 .rc-hero__sub strong { color: var(--rc-ink); font-weight: 600; }
@@ -679,6 +680,9 @@ body[data-page="home"] .md-content__inner {
   border-top: 1px solid var(--rc-dark-border);
 }
 .rc-section--no-top { padding-top: 0; }
+.rc-section--paper {
+  background: #fff;
+}
 
 /* ── KICKER ── */
 .rc-kicker {
@@ -973,6 +977,78 @@ body[data-page="home"] .md-content__inner {
   display: inline-block;
 }
 .rc-sc__link:hover { opacity: 1; color: var(--rc-ink); border-color: var(--rc-ink); }
+
+/* ── TESTIMONIALS ── */
+.rc-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(43,41,38,0.08);
+  border: 1px solid rgba(43,41,38,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.rc-testimonial-card {
+  position: relative;
+  background: #fff;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.rc-testimonial__logo {
+  height: 34px;
+  max-width: 300px;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  margin-bottom: 26px;
+}
+.rc-testimonial__metric {
+  font-family: var(--rc-font);
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  background: var(--rc-golden);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 6px;
+}
+.rc-testimonial__metric-label {
+  font-family: var(--rc-font);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rc-ink-muted);
+  margin-bottom: 24px;
+}
+.rc-testimonial__text {
+  font-family: var(--rc-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--rc-ink);
+  margin: 0 0 28px;
+  flex-grow: 1;
+}
+.rc-testimonial__foot {
+  padding-top: 20px;
+  border-top: 1px solid rgba(43,41,38,0.08);
+}
+.rc-testimonial__person {
+  font-family: var(--rc-font);
+  font-size: 13px;
+  color: var(--rc-ink-mid);
+  line-height: 1.4;
+}
+.rc-testimonial__person strong {
+  color: var(--rc-ink);
+  font-size: 14px;
+  display: block;
+}
 
 /* ── LLM COMPAT ── */
 .rc-compat__title {
@@ -1359,13 +1435,13 @@ body[data-page="home"] .md-content__inner {
 .rc-sol-merge-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px;
 }
 .rc-sol-merge-card {
   background: rgba(255,255,255,0.82);
   border: 1px solid rgba(43,41,38,0.1);
   border-radius: 10px;
-  padding: 22px 24px;
+  padding: 28px 28px;
   text-decoration: none;
   display: block;
   transition: box-shadow 0.2s, transform 0.2s;
@@ -1384,24 +1460,25 @@ body[data-page="home"] .md-content__inner {
 .rc-sol-merge-card:hover { box-shadow: 0 6px 24px rgba(43,41,38,0.09); transform: translateY(-2px); text-decoration: none; }
 .rc-sol-merge-card:hover::after { opacity: 1; }
 .rc-sol-merge__num {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--rc-orange);
   letter-spacing: 0.04em;
   opacity: 0.7;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-family: var(--rc-font);
 }
 .rc-sol-merge__title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--rc-ink);
-  margin-bottom: 7px;
+  margin-bottom: 9px;
   font-family: var(--rc-font);
   letter-spacing: -0.3px;
+  line-height: 1.25;
 }
 .rc-sol-merge__desc {
-  font-size: 13.5px;
+  font-size: 15.5px;
   line-height: 1.6;
   color: var(--rc-ink-muted);
   margin: 0;
@@ -1459,6 +1536,7 @@ body[data-page="home"] .md-content__inner {
   .rc-pivot-grid { grid-template-columns: 1fr; gap: 40px; }
   .rc-pivot-grid--solutions { grid-template-columns: 1fr; }
   .rc-servers-grid { grid-template-columns: 1fr; }
+  .rc-testimonials-grid { grid-template-columns: 1fr; }
   .rc-llm-grid { grid-template-columns: repeat(2, 1fr); }
   .rc-solutions-grid { grid-template-columns: 1fr 1fr; }
 }
