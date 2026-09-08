@@ -27,6 +27,7 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">RingCentral Phone connector</div>
     <p class="rc-sol__desc">Call logs, AI call notes, SMS, fax, and voicemail — directly inside Claude.</p>
     <span class="rc-sol__link rc-sol__link--disabled">Coming soon</span>
+    <a href="../../servers/ringex-phone-setup/#tab-Claude" class="rc-sol__link">Install the connector manually →</a>
   </div>
 
   <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol-card">

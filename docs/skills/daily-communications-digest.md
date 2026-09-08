@@ -1,21 +1,12 @@
 ---
-title: Daily Communications Digest
-description: Produces a daily RingEX Phone communications digest from recent calls, SMS, voicemail, contacts, presence, and message-store data.
+title: Daily Communications Digest (moved)
+description: This skill has been renamed to Communications Brief.
 ---
 
-# Daily Communications Digest
+# Daily Communications Digest has moved
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/daily-communications-digest.md.txt){ .md-button .md-button--primary download="daily-communications-digest-SKILL.md" }
+This skill was renamed **Communications Brief** and now supports a user-selected lookback window
+(last 24 hours, last 3 days, last week, or a custom range), plus Monday weekend/holiday follow-up
+questions.
 
-**Skill ID:** `daily-communications-digest`
-**Server:** [RingEX Phone](../servers/ringex-phone.md)
-
-Reviews a user's recent RingEX Phone activity — calls, SMS, and voicemail — and turns it into a prioritized follow-up report. The full skill source below is pulled directly from its `SKILL.md` file, so it always reflects the current version.
-
----
-
---8<-- "daily-communications-digest/SKILL.md:body"
-
----
-
-[← Back to Skill Library](index.md)
+See [Communications Brief](communications-brief.md) for the current skill.

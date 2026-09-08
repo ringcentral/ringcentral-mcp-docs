@@ -62,7 +62,7 @@
             <p>Call notes, voicemails, faxes, SMS messages, and team chat history are all searchable from inside ChatGPT or Claude.</p>
             <p>Ask AI to follow up on missed calls, summarize messages, or personalize reach outs to leads, and the answer comes from what actually happened.</p>
           </div>
-          <a href="servers/" class="rc-pivot__cta">See use cases →</a>
+          <a href="solutions/" class="rc-pivot__cta">See use cases →</a>
         </div>
         <div class="rc-sol-merge-grid">
           <a href="solutions/communication-analytics/" class="rc-sol-merge-card">
@@ -183,11 +183,12 @@
         .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    // Minimal markdown: **bold**, \n\n → <br><br>
+    // Minimal markdown: **bold**, *italic*, [text](url), \n\n → <br><br>
     function md(raw) {
       let s = esc(raw);
       s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       s = s.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
       s = s.replace(/\n\n/g, '<br><br>');
       s = s.replace(/\n/g, '<br>');
       return s;
@@ -422,13 +423,74 @@
     }
 
     // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 3 — Back from PTO, catch up on messages
+    // ════════════════════════════════════════════════════════════════════════
+
+    // "hey, i just got back from pto — can you help me catch up on messages since last monday?"
+    // Typo: types "messgaes" (transposed) → pause → backspace x4 → "ages"
+    const S3_K1 = 'hey, i just got back from pto \u2014 can you help me catch up on messgaes'.split('')
+      .concat([{ pause: 400 }])
+      .concat(['\b', '\b', '\b', '\b'])
+      .concat('ages'.split(''))
+      .concat(' since last monday?'.split(''));
+
+    const S3_K2 = 'mark them as read'.split('');
+
+    const S3_A1 = "Welcome back! I went through every channel and DM since last Monday \u2014 63 messages across 28 conversations.\n\n**16 messages** don\u2019t need a reply \u2014 FYIs, automated notifications, and threads that already wrapped up on their own.\n\n**10 conversations** mentioned you, but the question got resolved while you were out (Priya confirmed the vendor invoice in #finance-ops, Diego closed the loop on the QBR deck, and a few others like it).\n\n**2 threads still need you:**\n[Acme Corp \u2014 Contract Renewal](#) \u2014 Jordan is waiting on signed pricing before Friday's renewal call.\n[#platform-incident](#) \u2014 Sarah flagged a broken webhook Wednesday and no one's picked it up yet.\n\nWant me to mark the 10 resolved mentions as read, or leave them for you to check later?";
+
+    const S3_A2 = '\u2713 Marked 10 conversations as read. The two flagged threads are still open and waiting whenever you\u2019re ready.';
+
+    async function runScript3() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks for a catch-up since last Monday
+      const m1 = await typeKeys(S3_K1);
+      await sleep(360);
+      addUser(m1);
+      clearInput();
+      await sleep(540);
+      const h1 = addThinking(['get_my_communication_inbox', 'read_team_chat']);
+      await sleep(2100);
+      await streamAI(h1, S3_A1);
+
+      // Turn 2 — user approves marking the resolved mentions as read
+      await sleep(1400);
+      const m2 = await typeKeys(S3_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking(['manage_chat_item']);
+      await sleep(1300);
+      await streamAI(h2, S3_A2);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
     // Bootstrap — pick a script at random, run once, then stop
     // ════════════════════════════════════════════════════════════════════════
 
-    const SCRIPTS = [runScript1, runScript2];
+    const SCRIPTS = [runScript1, runScript2, runScript3];
+
+    // Force a specific demo via ?h=<slug> in the URL, e.g. /?h=pto
+    // Omit the param (or use an unrecognized value) to pick one at random.
+    const SCRIPT_SLUGS = {
+      calls: runScript1,   // missed calls & voicemail follow-up
+      team:  runScript2,   // team messaging catch-up
+      pto:   runScript3    // back from PTO, catch up on messages
+    };
 
     function start() {
-      const pick = SCRIPTS[Math.floor(Math.random() * SCRIPTS.length)];
+      let forced = null;
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('h');
+        if (slug && SCRIPT_SLUGS[slug]) forced = SCRIPT_SLUGS[slug];
+      } catch (e) { /* no-op — fall back to random */ }
+      const pick = forced || SCRIPTS[Math.floor(Math.random() * SCRIPTS.length)];
       pick();
     }
 

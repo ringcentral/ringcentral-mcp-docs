@@ -301,6 +301,12 @@ body[data-page="home"] .md-content__inner {
   color: var(--rc-ink);
   border-bottom-left-radius: 6px;
 }
+.rc-chat-bubble a {
+  color: var(--rc-orange);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .rc-chat-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .rc-chat-tool-pill {
   display: inline-flex;
