@@ -1,7 +1,10 @@
-# MkDocs build output
+# MkDocs build output (includes assets/skill-downloads/, generated at
+# build time by hooks/skill_downloads.py)
 site/
 
-# Generated at build time by hooks/skill_downloads.py
+# Stale: hooks/skill_downloads.py used to copy into docs/assets/skill-downloads/
+# (moved to site/assets/skill-downloads/ to stop a serve/rebuild loop). Kept
+# ignored in case leftover copies linger on disk.
 docs/assets/skill-downloads/
 
 # Python cache files

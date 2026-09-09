@@ -2,30 +2,84 @@
 title: Support
 description: Get help with RingCentral's MCP servers — quick answers, community support, and direct assistance.
 hide:
-  - toc
+  - navigation
 ---
 
 # Support
 
 Get unstuck fast. Check the common questions below, ask the community, or reach RingCentral support directly.
 
-## Common questions
+## Get started
 
-??? faq "How do I get started with Claude?"
-    1. Turn on **Code execution and file creation** — for Free/Pro/Max, in [Settings → Capabilities](https://claude.ai/settings/capabilities); for Team/Enterprise, an Owner enables it in [Organization settings](https://claude.ai/admin-settings/skills).
-    2. Install a RingCentral connector or plugin — the RingCentral Chat connector, the Phone connector, or one of the bundled RingCentral plugins.
-    3. Sign in with your RingCentral account when prompted, then try a prompt like "What did I miss in Glip today?"
+<div class="rc-support-mini-grid">
 
-    See the full [Claude solutions page](solutions/claude.md) for every connector and plugin available, plus manual install steps.
+  <a href="../solutions/claude/" class="rc-support-mini-card">
+    <div class="rc-support-mini-card__top">
+      <img src="../assets/logo-claude.png" alt="Claude logo">
+      <span>Get started →</span>
+    </div>
+    <p>Access Claude connectors, plugins, and setup guides.</p>
+  </a>
 
-??? faq "How do I get started with ChatGPT?"
-    1. In ChatGPT, open **Plugins** in the sidebar (Business, Enterprise, Edu plans).
-    2. Install the RingCentral Phone plugin or RingCentral Chat plugin — no manual server setup required.
-    3. Sign in with your RingCentral account when prompted, then try a prompt like "Any voicemails I missed today?"
+  <a href="../solutions/chatgpt/" class="rc-support-mini-card">
+    <div class="rc-support-mini-card__top">
+      <img src="../img/chatgpt-logo-png-transparent.png" alt="ChatGPT logo">
+      <span>Get started →</span>
+    </div>
+    <p>Access ChatGPT plugins and setup guides.</p>
+  </a>
 
-    See the full [ChatGPT solutions page](solutions/chatgpt.md) for both plugins and setup details.
+</div>
 
-## Get more help
+<style>
+.rc-support-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 1rem 0 1.75rem;
+  width: 100%;
+}
+.rc-support-mini-card {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--md-default-fg-color--lightest, rgba(43,41,38,0.12));
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rc-support-mini-card:hover,
+.rc-support-mini-card:hover * {
+  border-color: var(--md-primary-fg-color, #FF8800);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  text-decoration: none;
+}
+.rc-support-mini-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.rc-support-mini-card__top img {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+.rc-support-mini-card__top span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--md-primary-fg-color, #FF8800);
+  white-space: nowrap;
+}
+.rc-support-mini-card p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light, #666);
+}
+</style>
+
+## Where to find help
 
 <div class="rc-solutions-grid rc-solutions-grid--iconbadge">
 
@@ -44,7 +98,3 @@ Get unstuck fast. Check the common questions below, ask the community, or reach 
   </a>
 
 </div>
-
-<script>
-(function(w,d,s){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://embeddable-widgets-usw2.insided.com/ringcentral-en.insided-conversational.js';f.parentNode.insertBefore(j,f);})(window,document,'script');
-</script>

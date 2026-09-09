@@ -138,4 +138,4 @@ nav:
       - Overview: servers/app-connect.md
       - Setup: servers/app-connect-setup.md
       - Tools: tools/app-connect.md
-#  - Support: support.md
+  - Support: support.md
