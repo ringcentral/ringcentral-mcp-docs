@@ -470,17 +470,113 @@
     }
 
     // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 4 — EULA addendum, generated and sent for signature via ContactSign
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S4_K1 = 'What are my outstanding action items from the call?'.split('');
+    const S4_K2 = 'Generate an EULA addendum based on what we agreed to in the call'.split('');
+    const S4_K3 = 'Send my client the EULA and addendum to sign from ContactSign'.split('');
+
+    const S4_A1 = 'You need to send **Srikumar** the contract to sign.';
+
+    const S4_A2 = "Here's the addendum based on your call:\n\n[EULA_Addendum.pdf](#)\n\nReady to send it to Srikumar for signature?";
+
+    const S4_A3 = '\u2713 Sent to Srikumar for signature via ContactSign.';
+
+    async function runScript4() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks what's outstanding from the call
+      const m1 = await typeKeys(S4_K1);
+      await sleep(350);
+      addUser(m1);
+      clearInput();
+      await sleep(520);
+      const h1 = addThinking(['get_my_call_activity', 'get_my_call_insight']);
+      await sleep(1900);
+      await streamAI(h1, S4_A1);
+
+      // Turn 2 — user asks for the addendum to be generated
+      await sleep(1300);
+      const m2 = await typeKeys(S4_K2);
+      await sleep(330);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking(['get_my_call_insight', 'contactsign_create_document']);
+      await sleep(2000);
+      await streamAI(h2, S4_A2);
+
+      // Turn 3 — user confirms sending for signature
+      await sleep(1300);
+      const m3 = await typeKeys(S4_K3);
+      await sleep(320);
+      addUser(m3);
+      clearInput();
+      await sleep(520);
+      const h3 = addThinking(['contactsign_send_for_signature']);
+      await sleep(1300);
+      await streamAI(h3, S4_A3);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 5 — Clinic appointment reminders sent via SMS
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S5_K1 = 'Pull my appointment list from the clinic calendar and send each patient an SMS reminder.'.split('');
+    const S5_K2 = 'Looks good, send them.'.split('');
+
+    const S5_A1 = "Found 14 appointments for tomorrow. Here's the reminder I'll send each patient:\n\n\"Hi [Patient Name], reminder of your appointment tomorrow at [Time]. Please arrive 10 minutes early.\"\n\nSend now, or adjust the wording first?";
+
+    const S5_A2 = '\u2713 Sent 14 reminder texts.';
+
+    async function runScript5() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks to pull appointments and draft reminders
+      const m1 = await typeKeys(S5_K1);
+      await sleep(360);
+      addUser(m1);
+      clearInput();
+      await sleep(540);
+      const h1 = addThinking(['get_my_calendar_events']);
+      await sleep(1900);
+      await streamAI(h1, S5_A1);
+
+      // Turn 2 — user approves and reminders are sent
+      await sleep(1300);
+      const m2 = await typeKeys(S5_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking(['send_sms']);
+      await sleep(1300);
+      await streamAI(h2, S5_A2);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
     // Bootstrap — pick a script at random, run once, then stop
     // ════════════════════════════════════════════════════════════════════════
 
-    const SCRIPTS = [runScript1, runScript2, runScript3];
+    const SCRIPTS = [runScript1, runScript2, runScript3, runScript4, runScript5];
 
     // Force a specific demo via ?h=<slug> in the URL, e.g. /?h=pto
     // Omit the param (or use an unrecognized value) to pick one at random.
     const SCRIPT_SLUGS = {
       calls: runScript1,   // missed calls & voicemail follow-up
       team:  runScript2,   // team messaging catch-up
-      pto:   runScript3    // back from PTO, catch up on messages
+      pto:   runScript3,   // back from PTO, catch up on messages
+      eula:  runScript4,   // EULA addendum generated & sent via ContactSign
+      appt:  runScript5    // clinic appointment reminders sent via SMS
     };
 
     function start() {
