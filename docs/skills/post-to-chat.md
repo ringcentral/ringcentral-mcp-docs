@@ -5,7 +5,7 @@ description: Send, edit, or delete a Team Chat post — to a resolved person or 
 
 # Post to Chat
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/post-to-chat.md.txt){ .md-button .md-button--primary download="post-to-chat-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/post-to-chat.md){ .md-button .md-button--primary download="post-to-chat-SKILL.md" }
 
 **Skill ID:** `post-to-chat`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

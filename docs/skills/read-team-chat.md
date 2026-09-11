@@ -5,7 +5,7 @@ description: Browse recent Team Chat chats on RingEX Chat, or jump into a named 
 
 # Read Team Chat
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/read-team-chat.md.txt){ .md-button .md-button--primary download="read-team-chat-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/read-team-chat.md){ .md-button .md-button--primary download="read-team-chat-SKILL.md" }
 
 **Skill ID:** `read-team-chat`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

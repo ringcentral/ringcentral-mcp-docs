@@ -5,7 +5,7 @@ description: Turn a recent RingEX call into a drafted, call-specific follow-up e
 
 # Call Follow-Up Email
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/call-followup-email.md.txt){ .md-button .md-button--primary download="call-followup-email-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/call-followup-email.md){ .md-button .md-button--primary download="call-followup-email-SKILL.md" }
 
 **Skill ID:** `call-followup-email`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)

@@ -5,7 +5,7 @@ description: Create, find, update, complete/reopen, or delete RingCentral Team C
 
 # Manage Tasks
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-tasks.md.txt){ .md-button .md-button--primary download="manage-tasks-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-tasks.md){ .md-button .md-button--primary download="manage-tasks-SKILL.md" }
 
 **Skill ID:** `manage-tasks`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

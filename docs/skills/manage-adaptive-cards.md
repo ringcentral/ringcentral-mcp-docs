@@ -5,7 +5,7 @@ description: Compose, post, update, or delete a RingCentral Team Chat Adaptive C
 
 # Manage Adaptive Cards
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-adaptive-cards.md.txt){ .md-button .md-button--primary download="manage-adaptive-cards-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-adaptive-cards.md){ .md-button .md-button--primary download="manage-adaptive-cards-SKILL.md" }
 
 **Skill ID:** `manage-adaptive-cards`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

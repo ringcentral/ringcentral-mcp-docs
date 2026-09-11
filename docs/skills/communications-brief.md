@@ -5,7 +5,7 @@ description: Produces a RingEX Phone communications brief from recent calls, SMS
 
 # Communications Brief
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/communications-brief.md.txt){ .md-button .md-button--primary download="communications-brief-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/communications-brief.md){ .md-button .md-button--primary download="communications-brief-SKILL.md" }
 
 **Skill ID:** `communications-brief`
 **Server:** [RingEX Phone](../servers/ringex-phone.md)

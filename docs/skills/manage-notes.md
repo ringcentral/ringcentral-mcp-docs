@@ -5,7 +5,7 @@ description: Create, find, update, publish, lock/unlock, or delete RingCentral T
 
 # Manage Notes
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-notes.md.txt){ .md-button .md-button--primary download="manage-notes-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-notes.md){ .md-button .md-button--primary download="manage-notes-SKILL.md" }
 
 **Skill ID:** `manage-notes`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

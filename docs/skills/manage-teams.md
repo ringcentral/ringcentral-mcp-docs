@@ -5,7 +5,7 @@ description: Create, update, archive/unarchive, or delete RingCentral Team Chat 
 
 # Manage Teams
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-teams.md.txt){ .md-button .md-button--primary download="manage-teams-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-teams.md){ .md-button .md-button--primary download="manage-teams-SKILL.md" }
 
 **Skill ID:** `manage-teams`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

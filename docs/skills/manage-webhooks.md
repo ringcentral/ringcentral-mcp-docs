@@ -5,7 +5,7 @@ description: Create, activate, suspend, or delete a RingCentral Team Chat incomi
 
 # Manage Webhooks
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-webhooks.md.txt){ .md-button .md-button--primary download="manage-webhooks-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-webhooks.md){ .md-button .md-button--primary download="manage-webhooks-SKILL.md" }
 
 **Skill ID:** `manage-webhooks`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)

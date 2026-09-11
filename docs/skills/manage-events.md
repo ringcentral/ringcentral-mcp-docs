@@ -5,7 +5,7 @@ description: Create, find, update, or delete RingCentral Team Chat events on Rin
 
 # Manage Events
 
-[:material-download: Download SKILL.md](../assets/skill-downloads/manage-events.md.txt){ .md-button .md-button--primary download="manage-events-SKILL.md" }
+[:material-download: Download SKILL.md](../assets/skill-downloads/manage-events.md){ .md-button .md-button--primary download="manage-events-SKILL.md" }
 
 **Skill ID:** `manage-events`
 **Server:** [RingEX Chat](../servers/ringex-chat.md)
