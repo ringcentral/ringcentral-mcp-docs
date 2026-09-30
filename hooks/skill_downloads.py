@@ -25,14 +25,17 @@ re-touch docs/assets/skill-downloads/*.md, which the watcher would see
 as a new change, triggering another rebuild, which touches those files
 again -- an infinite restart loop. Writing to site_dir after the build
 completes sidesteps that: site_dir is never watched, so these copies can
-never trigger a rebuild. Since every skill page links to this asset with a
-path that's relative to the built page (e.g.
-`../assets/skill-downloads/<skill-id>.md`), the link resolves the same
-way regardless of whether the file was copied into docs_dir pre-build or
-site_dir post-build -- so nothing else needs to change.
+never trigger a rebuild. Because MkDocs does not see these post-build files,
+it also does not rewrite their links for directory URLs. This hook therefore
+adjusts generated skill-page links from `../assets/...` to `../../assets/...`
+before the redirect hook mirrors the site under its deployment prefixes.
 """
 from pathlib import Path
 import shutil
+
+
+DOWNLOAD_HREF = 'href="../assets/skill-downloads/'
+BUILT_DOWNLOAD_HREF = 'href="../../assets/skill-downloads/'
 
 
 def on_post_build(config):
@@ -47,3 +50,14 @@ def on_post_build(config):
     for skill_md in sorted(skill_library_dir.glob("*/SKILL.md")):
         skill_id = skill_md.parent.name
         shutil.copyfile(skill_md, dest_dir / f"{skill_id}.md")
+
+    # The download assets do not exist until this post-build hook runs, so
+    # MkDocs cannot recognize and rewrite their source-relative links. With
+    # directory URLs, a skill page is served as /skills/<skill-id>/ and the
+    # unchanged ../assets link incorrectly resolves to /skills/assets. Adjust
+    # the built HTML by one level while keeping the Markdown source path valid.
+    for html_file in (Path(config["site_dir"]) / "skills").rglob("*.html"):
+        html = html_file.read_text(encoding="utf-8")
+        updated = html.replace(DOWNLOAD_HREF, BUILT_DOWNLOAD_HREF)
+        if updated != html:
+            html_file.write_text(updated, encoding="utf-8")
