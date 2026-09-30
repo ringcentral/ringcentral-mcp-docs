@@ -174,6 +174,25 @@
     'use strict';
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+    // Tool calls that hit RingCentral itself get the RC mark + a warm-orange
+    // pill so they stand out from third-party tool calls (CRM, Shopify,
+    // Asana, ContactSign, etc.) as the thread scrolls. Add a sibling
+    // {VENDOR}_TOOLS set + a `rc-chat-tool-pill--{vendor}` CSS variant
+    // (see extra.css) to do the same for another vendor once its icon
+    // asset exists.
+    const RC_ICON_URL = '{{ "img/rc-icon.png" | url }}';
+    const RC_ICON_HTML = '<img src="' + RC_ICON_URL + '" class="rc-tool-icon" alt="">';
+    const RC_TOOLS = new Set([
+      'get_my_call_activity',
+      'get_my_communication_inbox',
+      'get_my_call_insight',
+      'get_my_message_detail',
+      'send_sms',
+      'read_team_chat',
+      'send_post',
+      'manage_chat_item'
+    ]);
+
     // ── DOM helpers ──────────────────────────────────────────────────────
     function $(id) { return document.getElementById(id); }
 
@@ -231,9 +250,10 @@
         wrapper.appendChild(toolsDiv);
         tools.forEach(function(t, i) {
           setTimeout(function() {
+            const isRC = RC_TOOLS.has(t);
             const pill = document.createElement('span');
-            pill.className = 'rc-chat-tool-pill';
-            pill.textContent = t;
+            pill.className = 'rc-chat-tool-pill' + (isRC ? ' rc-chat-tool-pill--rc' : '');
+            pill.innerHTML = (isRC ? RC_ICON_HTML : '') + '<span>' + esc(t) + '</span>';
             toolsDiv.appendChild(pill);
             scrollBottom();
           }, i * 300);
@@ -564,19 +584,210 @@
     }
 
     // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 6 — Prioritize the opportunity pipeline (sales)
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S6_K1 = 'who should i be following up with today'.split('');
+    const S6_K2 = 'draft something for her'.split('');
+    const S6_K3 = 'send it'.split('');
+
+    const S6_A1 = "Looking at your open opportunities against recent call activity: **June Chen (Acme Retail)** stands out \u2014 no order in 60 days, and she asked directly about updated pricing on your last call. That's the one that's gone quiet and needs a nudge. Everything else is still moving on its own (Marcus renewed last week, Highline's waiting on their legal review).";
+
+    const S6_A2 = "Here's a draft for June:\n\n\"Hi June \u2014 following up on the pricing question from our last call. Happy to walk through the updated numbers whenever works for you this week.\"\n\nSend this, or want it adjusted?";
+
+    const S6_A3 = '\u2713 Sent to June, referencing her pricing question.';
+
+    async function runScript6() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks who to follow up with
+      const m1 = await typeKeys(S6_K1);
+      await sleep(350);
+      addUser(m1);
+      clearInput();
+      await sleep(520);
+      const h1 = addThinking(['get_pipeline_opportunities', 'get_my_call_insight']);
+      await sleep(2000);
+      await streamAI(h1, S6_A1);
+
+      // Turn 2 — user asks for a message to be drafted
+      await sleep(1300);
+      const m2 = await typeKeys(S6_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking([]);
+      await sleep(1400);
+      await streamAI(h2, S6_A2);
+
+      // Turn 3 — user approves and it's sent
+      await sleep(1300);
+      const m3 = await typeKeys(S6_K3);
+      await sleep(300);
+      addUser(m3);
+      clearInput();
+      await sleep(520);
+      const h3 = addThinking(['send_message']);
+      await sleep(1200);
+      await streamAI(h3, S6_A3);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 7 — Recover the sale while the cart is still warm (sales)
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S7_K1 = 'any carts abandoned today'.split('');
+    const S7_K2 = 'yeah send them'.split('');
+    const S7_K3 = 'That looks good. Go ahead and do the same for all three customers.'.split('');
+
+    const S7_A1 = "Three abandoned carts today, all over $75 \u2014 worth a nudge before they cool off: **Priya ($112)**, **Devon ($89)**, and **Marisol ($134)**. Want me to send reminders?";
+
+    const S7_A2 = "Here's an example \u2014 what I'd send Priya:\n\n\"Hi Priya \u2014 your cart's still waiting (2 items, $112). Complete your order in the next 24 hours and we'll cover shipping.\"\n\nSend this to all three, or want it adjusted?";
+
+    const S7_A3 = '\u2713 All three reminders sent \u2014 personalized to each cart.';
+
+    async function runScript7() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks about abandoned carts
+      const m1 = await typeKeys(S7_K1);
+      await sleep(350);
+      addUser(m1);
+      clearInput();
+      await sleep(520);
+      const h1 = addThinking(['get_shopify_abandoned_carts']);
+      await sleep(1800);
+      await streamAI(h1, S7_A1);
+
+      // Turn 2 — user asks reminders to be sent; AI previews one example
+      await sleep(1200);
+      const m2 = await typeKeys(S7_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking([]);
+      await sleep(1400);
+      await streamAI(h2, S7_A2);
+
+      // Turn 3 — user approves sending to all three
+      await sleep(1400);
+      const m3 = await typeKeys(S7_K3);
+      await sleep(300);
+      addUser(m3);
+      clearInput();
+      await sleep(520);
+      const h3 = addThinking(['send_sms']);
+      await sleep(1300);
+      await streamAI(h3, S7_A3);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 8 — Catch escalations before they get escalated (support)
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S8_K1 = '/check-support-tickets'.split('');
+    const S8_K2 = "yes, escalate it and let the account owner know".split('');
+
+    const S8_A1 = "Heads up \u2014 **ticket #482** just crossed a threshold: negative sentiment, and this is the third time the customer's reached out this week without resolution. Worth escalating before it gets worse.";
+
+    const S8_A2 = "Escalated to Tier 2 and flagged urgent. I've messaged **Priya Nair** (account owner) with a summary of the three contacts and what's still unresolved \u2014 she'll see it in her queue now.";
+
+    async function runScript8() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user invokes the /check-support-tickets skill
+      const m1 = await typeKeys(S8_K1);
+      await sleep(350);
+      addUser(m1);
+      clearInput();
+      await sleep(520);
+      const h1 = addThinking(['get_support_tickets']);
+      await sleep(1700);
+      await streamAI(h1, S8_A1);
+
+      // Turn 2 — user asks to escalate and notify the owner
+      await sleep(1300);
+      const m2 = await typeKeys(S8_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking(['update_ticket', 'notify_account_owner']);
+      await sleep(1600);
+      await streamAI(h2, S8_A2);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // SCRIPT 9 — Start your day with a to-do list based on conversations
+    // ════════════════════════════════════════════════════════════════════════
+
+    const S9_K1 = 'What do I need to do today?'.split('');
+    const S9_K2 = 'Add these to Asana.'.split('');
+
+    const S9_A1 = 'From your calls and messages: send Acme the contract, call Jane back, update the sprint ticket.';
+    const S9_A2 = 'Added, sorted by deadline.';
+
+    async function runScript9() {
+      const root = $('chatMsgs');
+      if (!root) return;
+      root.innerHTML = '';
+      clearInput();
+      await sleep(750);
+
+      // Turn 1 — user asks what needs to get done today
+      const m1 = await typeKeys(S9_K1);
+      await sleep(350);
+      addUser(m1);
+      clearInput();
+      await sleep(520);
+      const h1 = addThinking(['get_my_call_activity', 'get_my_communication_inbox']);
+      await sleep(1900);
+      await streamAI(h1, S9_A1);
+
+      // Turn 2 — user asks to push the list into Asana
+      await sleep(1300);
+      const m2 = await typeKeys(S9_K2);
+      await sleep(320);
+      addUser(m2);
+      clearInput();
+      await sleep(520);
+      const h2 = addThinking(['asana_create_tasks']);
+      await sleep(1300);
+      await streamAI(h2, S9_A2);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
     // Bootstrap — pick a script at random, run once, then stop
     // ════════════════════════════════════════════════════════════════════════
 
-    const SCRIPTS = [runScript1, runScript2, runScript3, runScript4, runScript5];
+    const SCRIPTS = [runScript1, runScript2, runScript3, runScript4, runScript5, runScript6, runScript7, runScript8, runScript9];
 
     // Force a specific demo via ?h=<slug> in the URL, e.g. /?h=pto
     // Omit the param (or use an unrecognized value) to pick one at random.
     const SCRIPT_SLUGS = {
-      calls: runScript1,   // missed calls & voicemail follow-up
-      team:  runScript2,   // team messaging catch-up
-      pto:   runScript3,   // back from PTO, catch up on messages
-      eula:  runScript4,   // EULA addendum generated & sent via ContactSign
-      appt:  runScript5    // clinic appointment reminders sent via SMS
+      calls:      runScript1,   // missed calls & voicemail follow-up
+      team:       runScript2,   // team messaging catch-up
+      pto:        runScript3,   // back from PTO, catch up on messages
+      eula:       runScript4,   // EULA addendum generated & sent via ContactSign
+      appt:       runScript5,   // clinic appointment reminders sent via SMS
+      pipeline:   runScript6,   // prioritize the opportunity pipeline
+      cart:       runScript7,   // recover abandoned Shopify carts
+      escalation: runScript8,   // catch support escalations early
+      todo:       runScript9    // daily to-do list from calls & messages
     };
 
     function start() {

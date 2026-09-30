@@ -9,6 +9,16 @@ hooks:
   - hooks/fix_ringcentral_redirect.py
   - hooks/skill_downloads.py
 
+# The skill-downloads assets (docs/skills/*.md -> ../assets/skill-downloads/<id>.md)
+# are generated post-build by hooks/skill_downloads.py, so they never exist in
+# docs_dir when MkDocs validates internal links mid-build. Silence just that
+# "not found among documentation files" warning class; it would otherwise fire
+# on all 16 skill pages every build even though the links resolve correctly at
+# runtime.
+validation:
+  links:
+    not_found: ignore
+
 theme:
   name: material
   custom_dir: overrides
@@ -99,7 +109,9 @@ nav:
     - Team Collaboration: solutions/team-collaboration.md
     - CRM Enrichment: solutions/crm-enrichment.md
     - LLMs:
-      - Claude: solutions/claude.md
+      - Claude:
+        - Overview: solutions/claude.md
+        - Claude for Small Business: solutions/claude-small-business.md
       - ChatGPT: solutions/chatgpt.md
   - Skill Library:
     - Overview: skills/index.md

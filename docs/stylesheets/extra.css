@@ -332,6 +332,23 @@ body[data-page="home"] .md-content__inner {
   animation: rc-pulse 1.3s ease-in-out infinite;
 }
 @keyframes rc-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.65)} }
+/* RingCentral-native tool calls get the RC mark instead of the generic dot,
+   and a warmer (brand-orange) tint so they stand out from third-party tools
+   as the thread scrolls. Extend with a --asana/--shopify variant per vendor
+   as those icons become available. */
+.rc-chat-tool-pill--rc {
+  background: rgba(255,136,0,0.12);
+  border-color: rgba(255,136,0,0.35);
+  color: #B35900;
+}
+.rc-chat-tool-pill--rc::before { content: none; }
+.rc-tool-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  display: block;
+}
 @keyframes rc-fadeSlideIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
 .rc-chat-thinking {
   display: flex;

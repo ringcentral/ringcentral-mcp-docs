@@ -11,6 +11,20 @@ description: RingCentral resource center for Claude — connectors, plugins, and
 
 This page is the resource center for using RingCentral with Claude — every connector and plugin available today, what's coming next, and how to install them.
 
+## Run your business in one chat
+
+<div class="rc-banner-promo" style="background: linear-gradient(135deg, #FF6B35 0%, #8B5CF6 100%); border-radius: 8px; padding: 1.5rem 2rem; margin: 2rem 0; color: white; box-shadow: 0 8px 20px rgba(255, 107, 53, 0.15);">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; font-weight: 600;">Claude for Small Business + RingCentral</h3>
+      <p style="margin: 0; font-size: 0.95rem; opacity: 0.95;">Connect your phone, team chat, and CRM—15-minute setup.</p>
+    </div>
+    <a href="/docs/solutions/claude-small-business" style="display: inline-block; background: white; color: #FF6B35; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; text-decoration: none; white-space: nowrap; margin-left: 1.5rem;">
+      Setup guide →
+    </a>
+  </div>
+</div>
+
 ## Connectors & plugins
 
 <div class="rc-solutions-grid rc-solutions-grid--iconbadge">
@@ -30,11 +44,11 @@ This page is the resource center for using RingCentral with Claude — every con
     <a href="../../servers/ringex-phone-setup/#tab-Claude" class="rc-sol__link">Install the connector manually →</a>
   </div>
 
-  <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol-card">
+  <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol-card">
     <span class="rc-sol__icon"><i class="fa-solid fa-puzzle-piece"></i></span>
     <div class="rc-sol__title">RingCentral Plugin</div>
     <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more.</p>
-    <span class="rc-sol__link">Download →</span>
+    <span class="rc-sol__link">Install →</span>
   </a>
 
   <a href="../../downloads/appconnect-connector-skills.zip" download class="rc-sol-card">
