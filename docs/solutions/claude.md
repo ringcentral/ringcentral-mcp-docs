@@ -19,7 +19,7 @@ This page is the resource center for using RingCentral with Claude — every con
       <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; font-weight: 600;">Claude for Small Business + RingCentral</h3>
       <p style="margin: 0; font-size: 0.95rem; opacity: 0.95;">Connect your phone, team chat, and CRM—15-minute setup.</p>
     </div>
-    <a href="/docs/solutions/claude-small-business" style="display: inline-block; background: white; color: #FF6B35; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; text-decoration: none; white-space: nowrap; margin-left: 1.5rem;">
+    <a href="claude-small-business/" style="display: inline-block; background: white; color: #FF6B35; padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600; text-decoration: none; white-space: nowrap; margin-left: 1.5rem;">
       Setup guide →
     </a>
   </div>
