@@ -44,12 +44,15 @@ This page is the resource center for using RingCentral with Claude — every con
     <a href="../../servers/ringex-phone-setup/#tab-Claude" class="rc-sol__link">Install the connector manually →</a>
   </div>
 
-  <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol-card">
+  <div class="rc-sol-card">
     <span class="rc-sol__icon"><i class="fa-solid fa-puzzle-piece"></i></span>
     <div class="rc-sol__title">RingCentral Plugin</div>
     <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more.</p>
-    <span class="rc-sol__link">Install →</span>
-  </a>
+    <div style="display: flex; gap: 0.75rem;">
+      <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol__link" style="flex: 1;">Install →</a>
+      <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol__link" style="flex: 1;">Download →</a>
+    </div>
+  </div>
 
   <a href="../../downloads/appconnect-connector-skills.zip" download class="rc-sol-card">
     <span class="rc-sol__icon"><i class="fa-solid fa-plug"></i></span>
