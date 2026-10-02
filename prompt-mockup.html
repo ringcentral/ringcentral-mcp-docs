@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LLM Prompt Mockup</title>
+<style>
+  :root {
+    --border: #e4e4e0;
+    --text-muted: #8a8a86;
+    --text-dark: #2c2c2a;
+    --badge-bg: #f0efe9;
+    --badge-text: #5f5e5a;
+    --send-bg: #2c2c2a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #f7f6f2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 60px 24px;
+  }
+  .app-shell {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 16px;
+    min-height: calc(100vh - 120px);
+  }
+  .chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 4px 28px;
+  }
+  .msg { display: flex; flex-direction: column; max-width: 78%; }
+  .msg-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    padding: 0 2px;
+  }
+  .msg-user { align-self: flex-end; align-items: flex-end; }
+  .msg-assistant, .msg-tool { align-self: flex-start; align-items: flex-start; }
+  .bubble {
+    background: var(--badge-bg);
+    color: var(--text-dark);
+    padding: 10px 16px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .assistant-text {
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.55;
+    padding: 0 2px;
+  }
+  .tool-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 0 2px;
+  }
+  .tool-status svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .file-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 10px 14px;
+    max-width: 280px;
+  }
+  .file-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--badge-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--badge-text);
+    flex-shrink: 0;
+  }
+  .file-icon svg { width: 18px; height: 18px; }
+  .file-meta { display: flex; flex-direction: column; }
+  .file-name { font-size: 14px; font-weight: 500; color: var(--text-dark); }
+  .file-sub { font-size: 12px; color: var(--text-muted); }
+  .prompt-bar {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    padding: 14px 16px 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .prompt-input {
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-dark);
+    background: transparent;
+    min-height: 28px;
+    padding: 4px 4px 12px;
+  }
+  .prompt-input::placeholder { color: var(--text-muted); }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .toolbar-left, .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dark);
+    padding: 0;
+  }
+  .icon-btn:hover { background: #f7f6f2; }
+  .mcp-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border-radius: 999px;
+    padding: 6px 12px 6px 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .mcp-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .send-btn {
+    background: var(--send-bg);
+    border-color: var(--send-bg);
+    color: #fff;
+  }
+  .send-btn:hover { background: #444441; }
+  .variant-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding-bottom: 16px;
+  }
+  .variant-btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .variant-btn.active {
+    background: var(--text-dark);
+    color: #fff;
+    border-color: var(--text-dark);
+  }
+  .quote-block {
+    background: var(--badge-bg);
+    border-left: 3px solid var(--border);
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+  }
+  .tool-emoji { font-size: 15px; line-height: 1; }
+  .final-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="variant-switcher">
+      <button class="variant-btn active" id="btn-eula" onclick="setVariant('eula')">EULA addendum</button>
+      <button class="variant-btn" id="btn-appt" onclick="setVariant('appt')">Appointment reminders</button>
+      <button class="variant-btn" id="btn-pipeline" onclick="setVariant('pipeline')">Pipeline follow-up</button>
+      <button class="variant-btn" id="btn-cart" onclick="setVariant('cart')">Cart recovery</button>
+      <button class="variant-btn" id="btn-escalation" onclick="setVariant('escalation')">Escalations</button>
+      <button class="variant-btn" id="btn-todo" onclick="setVariant('todo')">Daily to-do</button>
+    </div>
+    <div class="chat-area" id="chat-area-eula">
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">What are my outstanding action items from the call?</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Using ringcentral-phone...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text">You need to send Srikumar the contract to sign.</div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Generate an EULA addendum based on what we agreed to in the call</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Analyzing call transcript...
+        </div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Generating PDF...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="file-card">
+          <div class="file-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="file-meta">
+            <span class="file-name">EULA_Addendum.pdf</span>
+            <span class="file-sub">Generated just now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-area" id="chat-area-appt" style="display:none;">
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Pull my appointment list from the clinic calendar and send each patient an SMS reminder.</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📞</span>
+          Using RingCentral phone...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text">
+          Found 14 appointments for tomorrow. Here's the reminder I'll send each patient:
+          <div class="quote-block">"Hi [Patient Name], reminder of your appointment tomorrow at [Time]. Please arrive 10 minutes early."</div>
+          Send now, or adjust the wording first?
+        </div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Looks good, send them.</div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="final-status">
+          <span class="tool-emoji">✅</span>
+          Sent.
+        </div>
+      </div>
+    </div>
+    <div class="chat-area" id="chat-area-pipeline" style="display:none;">
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Who should I follow up with today?</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">🔍</span>
+          Checking pipeline &amp; call history...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text"><strong>June Chen</strong> hasn't ordered in 60 days and asked about pricing on your last call.</div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Draft a message.</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📤</span>
+          Sending message...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="final-status">
+          <span class="tool-emoji">✅</span>
+          Sent, referencing their pricing question.
+        </div>
+      </div>
+    </div>
+    <div class="chat-area" id="chat-area-cart" style="display:none;">
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Any Shopify carts abandoned today?</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">🛒</span>
+          Checking Shopify carts...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text">Three, all over $75.</div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Send reminders.</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📤</span>
+          Sending reminders...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="final-status">
+          <span class="tool-emoji">✅</span>
+          Personalized texts sent to all three.
+        </div>
+      </div>
+    </div>
+    <div class="chat-area" id="chat-area-escalation" style="display:none;">
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">🎧</span>
+          Monitoring support tickets...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text">Flagged: ticket #482, negative sentiment, third contact this week.</div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Escalate and notify the account owner.</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📣</span>
+          Escalating ticket...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="final-status">
+          <span class="tool-emoji">✅</span>
+          Ticket updated. Owner notified.
+        </div>
+      </div>
+    </div>
+    <div class="chat-area" id="chat-area-todo" style="display:none;">
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">What do I need to do today?</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📞</span>
+          Using ringcentral-phone...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <span class="msg-label">Assistant</span>
+        <div class="assistant-text">From your calls and messages: send Acme the contract, call Jane back, update the sprint ticket.</div>
+      </div>
+      <div class="msg msg-user">
+        <span class="msg-label">Jane</span>
+        <div class="bubble">Add these to Asana.</div>
+      </div>
+      <div class="msg msg-tool">
+        <div class="tool-status">
+          <span class="tool-emoji">📋</span>
+          Adding tasks to Asana...
+        </div>
+      </div>
+      <div class="msg msg-assistant">
+        <div class="final-status">
+          <span class="tool-emoji">✅</span>
+          Added, sorted by deadline.
+        </div>
+      </div>
+    </div>
+    <div class="prompt-bar">
+      <textarea class="prompt-input" id="prompt-input" rows="1" placeholder="Type / for skills">Send my client the EULA and addendum to sign from ContactSign</textarea>
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <button class="icon-btn" aria-label="Add">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="mcp-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            ringcentral-phone
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="icon-btn" aria-label="Voice input">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </button>
+          <button class="icon-btn send-btn" aria-label="Send prompt">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const textarea = document.getElementById('prompt-input');
+    const resize = () => {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    };
+    textarea.addEventListener('input', resize);
+
+    const variants = {
+      eula: {
+        chat: 'chat-area-eula',
+        btn: 'btn-eula',
+        text: 'Send my client the EULA and addendum to sign from ContactSign',
+        placeholder: 'Type / for skills'
+      },
+      appt: {
+        chat: 'chat-area-appt',
+        btn: 'btn-appt',
+        text: '',
+        placeholder: 'Type / for skills'
+      },
+      pipeline: {
+        chat: 'chat-area-pipeline',
+        btn: 'btn-pipeline',
+        text: '',
+        placeholder: 'Type / for skills'
+      },
+      cart: {
+        chat: 'chat-area-cart',
+        btn: 'btn-cart',
+        text: '',
+        placeholder: 'Type / for skills'
+      },
+      escalation: {
+        chat: 'chat-area-escalation',
+        btn: 'btn-escalation',
+        text: '',
+        placeholder: 'Type / for skills'
+      },
+      todo: {
+        chat: 'chat-area-todo',
+        btn: 'btn-todo',
+        text: '',
+        placeholder: 'Type / for skills'
+      }
+    };
+
+    function setVariant(name) {
+      Object.values(variants).forEach(v => {
+        document.getElementById(v.chat).style.display = 'none';
+        document.getElementById(v.btn).classList.remove('active');
+      });
+      const v = variants[name];
+      document.getElementById(v.chat).style.display = 'flex';
+      document.getElementById(v.btn).classList.add('active');
+      textarea.value = v.text;
+      textarea.placeholder = v.placeholder;
+      resize();
+    }
+
+    resize();
+  </script>
+</body>
+</html>
