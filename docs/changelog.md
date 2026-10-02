@@ -7,12 +7,13 @@ All notable changes to RingCentral MCP servers are documented here.
 ## [Unreleased]
 
 ### RingEX Phone — Changed (v1.1.0)
-- Endpoint moved to `https://mcp.labs.ringcentral.com/ringex/v1.1.0/phone`.
-- Tool surface consolidated from 24 tools down to 12: `about_ringcentral_mcp_tools`, `get_my_phone`, `resolve_directory_person`, `search_my_contacts`, `get_my_call_activity`, `get_my_call_insight`, `get_my_call_recording_metadata`, `search_my_call_insights`, `get_my_communication_inbox`, `get_my_message_detail`, `get_my_sms_thread`, and `send_sms`. The previous `platform_*`/`read_*`/`list_*` tools were removed.
+- Endpoint moved to `https://mcp.labs.ringcentral.com/ringex/phone` (simplified from versioned URL).
+- Tool surface consolidated from 24 tools down to 12: `about_ringcentral_mcp_tools`, `get_my_phone`, `resolve_directory_person`, `search_my_contacts`, `get_my_call_activity`, `get_my_call_insight`, `get_my_call_recording_metadata`, `search_my_call_insights`, `get_my_communication_inbox`, `get_my_message_detail`, `get_my_sms_thread`, and `send_sms`. All previous `platform_*`/`read_*`/`list_*` tools were removed.
 - Every tool is now scoped to the authenticated user only — account, extension, and pagination selectors are no longer exposed as parameters.
 - `resolve_directory_person` is new — replaces `platform_list_directory_entries`, `platform_read_directory_entry`, and `search_directory_entries` with read-only lookup/resolution scoped to finding a person to call or text.
 - `team_messaging_get_person` is no longer exposed here; use RingEX Chat's `find_person` for Team Chat person resolution.
 - `send_sms` requires host-side confirmation of sender, recipient, and exact text before sending, and rejects retries that reuse a `requestId`.
+- See the [RingEX Phone server docs](../servers/ringex-phone.md#deprecated-tools) for the complete list of deprecated tools and their replacements.
 
 ### RingEX Chat — Changed (v1.1.0)
 - Endpoint moved to `https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat`.
