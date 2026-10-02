@@ -54,8 +54,8 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">RingCentral Plugin</div>
     <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more.</p>
     <div style="display: flex; gap: 0.75rem;">
-      <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol__link" style="flex: 1;">Install →<div markdown="1" style="display: none;">
-[Claude Plugin Directory](https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory)
+      <a href="https://claude.ai/customize/plugins/id/2cc3de0a-bd3d-4a5d-8a54-98097cc05689%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol__link" style="flex: 1;">Install →<div markdown="1" style="display: none;">
+[Claude Plugin Directory](https://claude.ai/customize/plugins/id/2cc3de0a-bd3d-4a5d-8a54-98097cc05689%40anthropic-plugin-directory)
 </div></a>
       <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol__link" style="flex: 1;">Download →<div markdown="1" style="display: none;">
 [RingCentral Plugin Download](../../downloads/ringcentral-plugin.zip)
