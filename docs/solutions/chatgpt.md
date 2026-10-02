@@ -20,6 +20,9 @@ This page is the resource center for using RingCentral with ChatGPT — availabl
     <div class="rc-sol__title">RingCentral Phone plugin</div>
     <p class="rc-sol__desc">Call logs, AI call notes, SMS, fax, and voicemail — directly inside ChatGPT. No manual setup required.</p>
     <span class="rc-sol__link">Install plugin →</span>
+    <div markdown="1" style="display: none;">
+[ChatGPT Phone Plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral)
+    </div>
   </a>
 
   <a href="https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94" class="rc-sol-card" target="_blank" rel="noopener">
@@ -27,6 +30,9 @@ This page is the resource center for using RingCentral with ChatGPT — availabl
     <div class="rc-sol__title">RingCentral Chat plugin</div>
     <p class="rc-sol__desc">Team messaging in ChatGPT — catch up on chats, search history, and post updates on your behalf.</p>
     <span class="rc-sol__link">Install plugin →</span>
+    <div markdown="1" style="display: none;">
+[ChatGPT Chat Plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94)
+    </div>
   </a>
 
 </div>

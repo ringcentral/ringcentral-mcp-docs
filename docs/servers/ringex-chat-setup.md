@@ -19,14 +19,18 @@ The fastest way to connect RingEX Chat is an official plugin or connector — it
 <span class="rc-install-card__logo-wrap"><img src="../../assets/logo-claude.png" alt="Claude" class="rc-install-card__logo"></span>
 <p class="rc-install-card__name">Claude</p>
 <p class="rc-install-card__desc">Add the RingEX Chat connector to Claude.ai or Claude Desktop.</p>
-<a href="#tab-Claude" class="rc-install-card__cta rc-install-card__cta--primary">Add connector →</a>
+<a href="#tab-Claude" class="rc-install-card__cta rc-install-card__cta--primary">Add connector →<div markdown="1" style="display: none;">
+[RingEX Chat Claude](ringex-chat-setup/#tab-Claude)
+</div></a>
 </div>
 
 <div class="rc-install-card">
 <span class="rc-install-card__logo-wrap"><img src="../../img/chatgpt-logo-png-transparent.png" alt="ChatGPT" class="rc-install-card__logo"></span>
 <p class="rc-install-card__name">ChatGPT</p>
 <p class="rc-install-card__desc">Install the official RingCentral Chat plugin — no manual setup required.</p>
-<a href="https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →</a>
+<a href="https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →<div markdown="1" style="display: none;">
+[RingEX Chat ChatGPT Plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a86209c4a088191bf0b16e16fd7db94)
+</div></a>
 </div>
 
 </div>

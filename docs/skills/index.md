@@ -42,6 +42,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Turn calls, SMS, and voicemail on RingEX Phone into a prioritized follow-up report, over a lookback window you choose.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Communications Brief](communications-brief/)
+    </div>
   </a>
 
   <a href="call-followup-email/" class="rc-sol-card rc-sol-card--phone">
@@ -53,6 +56,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Turn a recent call into a drafted, call-specific follow-up email — sent through whatever email tool is connected, or handed back as a ready-to-paste draft.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Call Follow-Up Email](call-followup-email/)
+    </div>
   </a>
 
   <a href="send-sms/" class="rc-sol-card rc-sol-card--phone">
@@ -64,6 +70,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Text one person from a RingEX Phone number you own, with sender disambiguation and a mandatory send confirmation.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Send SMS](send-sms/)
+    </div>
   </a>
 
   <a href="sms-inbox/" class="rc-sol-card rc-sol-card--phone">
@@ -75,6 +84,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Browse recent SMS/MMS conversations, pick one, and read it back as a formatted text-message stream.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[SMS Inbox](sms-inbox/)
+    </div>
   </a>
 
   <a href="voicemail-inbox/" class="rc-sol-card rc-sol-card--phone">
@@ -86,6 +98,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Browse recent voicemail, pick one, and read back the caller, time, and verified transcription.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Voicemail Inbox](voicemail-inbox/)
+    </div>
   </a>
 
   <a href="fax-inbox/" class="rc-sol-card rc-sol-card--phone">
@@ -97,6 +112,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Browse recent faxes and read back the sender, time, and cover-page text when available.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Fax Inbox](fax-inbox/)
+    </div>
   </a>
 
   <a href="call-recap/" class="rc-sol-card rc-sol-card--phone">
@@ -108,6 +126,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Find a specific call and recap it with AI notes, transcript content, and recording status.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Call Recap](call-recap/)
+    </div>
   </a>
 
   <a href="colleague-lookup/" class="rc-sol-card rc-sol-card--phone">
@@ -119,6 +140,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Phone</span>
     <p class="rc-sol__desc">Find a colleague by name, department, title, or number, disambiguating when there's more than one match.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Colleague Lookup](colleague-lookup/)
+    </div>
   </a>
 
   <a href="post-to-chat/" class="rc-sol-card rc-sol-card--chat">
@@ -130,6 +154,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Send a Team Chat post to a resolved person or channel, with destination resolution and a mandatory confirm step.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Post to Chat](post-to-chat/)
+    </div>
   </a>
 
   <a href="read-team-chat/" class="rc-sol-card rc-sol-card--chat">
@@ -141,6 +168,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Browse recent chats or jump to a named channel, and read a formatted post stream or catch-up digest.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Read Team Chat](read-team-chat/)
+    </div>
   </a>
 
   <a href="manage-tasks/" class="rc-sol-card rc-sol-card--chat">
@@ -152,6 +182,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Find, create, update, complete/reopen, or delete a Team Chat task, with chat/assignee resolution and completion verification.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Tasks](manage-tasks/)
+    </div>
   </a>
 
   <a href="manage-notes/" class="rc-sol-card rc-sol-card--chat">
@@ -163,6 +196,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Find, create, update, publish, lock/unlock, or delete a Team Chat note, with chat resolution and confirmation before anything destructive.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Notes](manage-notes/)
+    </div>
   </a>
 
   <a href="manage-events/" class="rc-sol-card rc-sol-card--chat">
@@ -174,6 +210,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Find, create, update, or delete a Team Chat event, with chat resolution and confirmation before deleting.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Events](manage-events/)
+    </div>
   </a>
 
   <a href="manage-teams/" class="rc-sol-card rc-sol-card--chat">
@@ -185,6 +224,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Create, update, archive/unarchive, or delete a Team Chat team, manage membership and favorites, and update the Everyone chat — with confirmation before anything destructive.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Teams](manage-teams/)
+    </div>
   </a>
 
   <a href="manage-webhooks/" class="rc-sol-card rc-sol-card--chat">
@@ -196,6 +238,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Create, activate, suspend, or delete a Team Chat incoming webhook for a group, with confirmation before suspending or deleting one.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Webhooks](manage-webhooks/)
+    </div>
   </a>
 
   <a href="manage-adaptive-cards/" class="rc-sol-card rc-sol-card--chat">
@@ -207,6 +252,9 @@ Ready-to-use skills that give AI assistants structured workflows for common Ring
     <span class="rc-sol__meta">Server: RingEX Chat</span>
     <p class="rc-sol__desc">Compose, post, update, or delete a Team Chat Adaptive Card within the supported contract (v1.3, OpenUrl/Submit only), refusing anything outside it.</p>
     <span class="rc-sol__link">View skill →</span>
+    <div markdown="1" style="display: none;">
+[Manage Adaptive Cards](manage-adaptive-cards/)
+    </div>
   </a>
 
 </div>

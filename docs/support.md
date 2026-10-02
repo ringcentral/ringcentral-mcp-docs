@@ -19,6 +19,9 @@ Get unstuck fast. Check the common questions below, ask the community, or reach 
       <span>Get started →</span>
     </div>
     <p>Access Claude connectors, plugins, and setup guides.</p>
+    <div markdown="1" style="display: none;">
+[Claude Solutions](../solutions/claude/)
+    </div>
   </a>
 
   <a href="../solutions/chatgpt/" class="rc-support-mini-card">
@@ -27,6 +30,9 @@ Get unstuck fast. Check the common questions below, ask the community, or reach 
       <span>Get started →</span>
     </div>
     <p>Access ChatGPT plugins and setup guides.</p>
+    <div markdown="1" style="display: none;">
+[ChatGPT Solutions](../solutions/chatgpt/)
+    </div>
   </a>
 
 </div>
@@ -88,6 +94,9 @@ Get unstuck fast. Check the common questions below, ask the community, or reach 
     <div class="rc-sol__title">RingCentral Community</div>
     <p class="rc-sol__desc">Get help from community experts, and share your own skills and success stories with other builders using Claude, ChatGPT, and RingCentral's MCP servers.</p>
     <span class="rc-sol__link">Visit the community →</span>
+    <div markdown="1" style="display: none;">
+[RingCentral Community](https://community.ringcentral.com/claude-chatgpt-mcp-and-ai-assistants-43)
+    </div>
   </a>
 
   <a href="https://support.ringcentral.com" class="rc-sol-card" target="_blank" rel="noopener">
@@ -95,6 +104,9 @@ Get unstuck fast. Check the common questions below, ask the community, or reach 
     <div class="rc-sol__title">RingCentral Support</div>
     <p class="rc-sol__desc">Need help with your account, or something private you'd rather not post publicly? Get one-on-one support from the RingCentral team.</p>
     <span class="rc-sol__link">Go to support.ringcentral.com →</span>
+    <div markdown="1" style="display: none;">
+[RingCentral Support](https://support.ringcentral.com)
+    </div>
   </a>
 
 </div>

@@ -34,6 +34,9 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">RingCentral Chat connector</div>
     <p class="rc-sol__desc">Team messaging in Claude — catch up on chats, search history, and post updates on your behalf.</p>
     <span class="rc-sol__link">Set up →</span>
+    <div markdown="1" style="display: none;">
+[Claude Chat Connector](https://claude.ai/directory/ringcentral-chat)
+    </div>
   </a>
 
   <div class="rc-sol-card rc-sol-card--disabled">
@@ -41,7 +44,9 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">RingCentral Phone connector</div>
     <p class="rc-sol__desc">Call logs, AI call notes, SMS, fax, and voicemail — directly inside Claude.</p>
     <span class="rc-sol__link rc-sol__link--disabled">Coming soon</span>
-    <a href="../../servers/ringex-phone-setup/#tab-Claude" class="rc-sol__link">Install the connector manually →</a>
+    <a href="../../servers/ringex-phone-setup/#tab-Claude" class="rc-sol__link">Install the connector manually →<div markdown="1" style="display: none;">
+[RingEx Phone Setup](../../servers/ringex-phone-setup/#tab-Claude)
+</div></a>
   </div>
 
   <div class="rc-sol-card">
@@ -49,8 +54,12 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">RingCentral Plugin</div>
     <p class="rc-sol__desc">A bundled Claude Code / Cowork plugin with RingCentral skills — SMS, voicemail, call recaps, colleague lookup, and more.</p>
     <div style="display: flex; gap: 0.75rem;">
-      <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol__link" style="flex: 1;">Install →</a>
-      <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol__link" style="flex: 1;">Download →</a>
+      <a href="https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory" target="_blank" rel="noopener" class="rc-sol__link" style="flex: 1;">Install →<div markdown="1" style="display: none;">
+[Claude Plugin Directory](https://claude.ai/customize/plugins/id/bdffffc3-d774-43a4-84e8-b882fa5842d3%40anthropic-plugin-directory)
+</div></a>
+      <a href="../../downloads/ringcentral-plugin.zip" download class="rc-sol__link" style="flex: 1;">Download →<div markdown="1" style="display: none;">
+[RingCentral Plugin Download](../../downloads/ringcentral-plugin.zip)
+</div></a>
     </div>
   </div>
 
@@ -59,6 +68,9 @@ This page is the resource center for using RingCentral with Claude — every con
     <div class="rc-sol__title">App Connect Developer Plugin</div>
     <p class="rc-sol__desc">Skills for building your own App Connect CRM connector — scaffolding, auth, contact matching, call logging, and deploy.</p>
     <span class="rc-sol__link">Download →</span>
+    <div markdown="1" style="display: none;">
+[App Connect Developer Plugin](../../downloads/appconnect-connector-skills.zip)
+    </div>
   </a>
 
 </div>

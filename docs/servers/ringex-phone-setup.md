@@ -24,7 +24,9 @@ The fastest way to connect RingEX Phone is an official plugin — it handles ser
 <div class="rc-install-card">
 <span class="rc-install-card__logo-wrap rc-install-card__logo-wrap--transparent"><img src="../../img/chatgpt-logo-mark.png" alt="ChatGPT" class="rc-install-card__logo rc-install-card__logo--even"></span>
 <p class="rc-install-card__desc">Install the official RingCentral Phone plugin — no manual setup required.</p>
-<a href="https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →</a>
+<a href="https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral" class="rc-install-card__cta rc-install-card__cta--primary" target="_blank" rel="noopener">Install plugin →<div markdown="1" style="display: none;">
+[RingEX Phone ChatGPT Plugin](https://chatgpt.com/plugins/plugin_asdk_app_6a5163accce48191ab3fac53d63cb197?q=ringcentral)
+</div></a>
 </div>
 
 </div>

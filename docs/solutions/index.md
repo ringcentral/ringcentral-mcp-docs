@@ -15,12 +15,18 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <img class="rc-sol__logo" src="../img/chatgpt-logo-mark.png" alt="ChatGPT logo">
     <p class="rc-sol__desc">Plugins for using RingCentral with ChatGPT — install guides, and what OpenAI has to say about it.</p>
     <span class="rc-sol__link">View resources →</span>
+    <div markdown="1" style="display: none;">
+[ChatGPT Solutions](chatgpt/)
+    </div>
   </a>
 
   <a href="claude/" class="rc-sol-card">
     <img class="rc-sol__logo" src="../assets/logo-claude.png" alt="Claude logo">
     <p class="rc-sol__desc">Connectors and plugins for using RingCentral with Claude — setup guides and what's coming next.</p>
     <span class="rc-sol__link">View resources →</span>
+    <div markdown="1" style="display: none;">
+[Claude Solutions](claude/)
+    </div>
   </a>
 
 </div>
@@ -37,6 +43,9 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <div class="rc-sol__title">Communication Analytics</div>
     <p class="rc-sol__desc">Call volume over time, duration patterns, busiest hours, and transcript content analysis.</p>
     <span class="rc-sol__link">View examples →</span>
+    <div markdown="1" style="display: none;">
+[Communication Analytics](communication-analytics/)
+    </div>
   </a>
 
   <a href="customer-engagement/" class="rc-sol-card">
@@ -47,6 +56,9 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <div class="rc-sol__title">Customer Engagement</div>
     <p class="rc-sol__desc">Automate SMS interactions, access and prioritize voicemails.</p>
     <span class="rc-sol__link">View examples →</span>
+    <div markdown="1" style="display: none;">
+[Customer Engagement](customer-engagement/)
+    </div>
   </a>
 
   <a href="team-collaboration/" class="rc-sol-card">
@@ -57,6 +69,9 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <div class="rc-sol__title">Team Collaboration</div>
     <p class="rc-sol__desc">Search internal message history, send messages, and maintain context across team channels and direct conversations.</p>
     <span class="rc-sol__link">View examples →</span>
+    <div markdown="1" style="display: none;">
+[Team Collaboration](team-collaboration/)
+    </div>
   </a>
 
   <a href="crm-enrichment/" class="rc-sol-card">
@@ -67,6 +82,9 @@ Real-world use cases powered by RingCentral's MCP servers. Browse by capability 
     <div class="rc-sol__title">CRM Enrichment</div>
     <p class="rc-sol__desc">Log calls, capture leads, look up contacts, and attach notes — automated CRM hygiene through natural language.</p>
     <span class="rc-sol__link">View examples →</span>
+    <div markdown="1" style="display: none;">
+[CRM Enrichment](crm-enrichment/)
+    </div>
   </a>
 
 </div>
