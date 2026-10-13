@@ -2,7 +2,7 @@
 
 <div class="rc-spec-sheet">
 <div class="rc-spec-row"><span class="rc-spec-row__label">Endpoint</span><span class="rc-spec-row__value"><code>https://mcp.labs.ringcentral.com/ringex/admin</code><button class="rc-copy" data-copy="https://mcp.labs.ringcentral.com/ringex/admin" aria-label="Copy endpoint URL" title="Copy endpoint URL"><svg class="rc-copy__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><svg class="rc-copy__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></button></span></div>
-<div class="rc-spec-row"><span class="rc-spec-row__label">Status</span><span class="rc-spec-row__value"><span class="rc-status rc-status--preview">Preview</span></span></div>
+<div class="rc-spec-row"><span class="rc-spec-row__label">Status</span><span class="rc-spec-row__value"><span class="rc-status rc-status--experimental">Experimental</span></span></div>
 <div class="rc-spec-row"><span class="rc-spec-row__label">Transport</span><span class="rc-spec-row__value">SSE over HTTPS</span></div>
 <div class="rc-spec-row"><span class="rc-spec-row__label">Auth</span><span class="rc-spec-row__value">OAuth2</span></div>
 </div>
@@ -11,9 +11,17 @@
 
 ## About
 
-RingEX Admin gives your AI assistant access to account and extension administration: account info, extensions, roles and permissions, call analytics, directory/contacts, and presence. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
+!!! danger "Experimental — not for production accounts"
+    RingEX Admin is experimental. Roughly half its tools change live account configuration — users, routing, queues, phone numbers — and some paths have not been validated end to end against a live tenant. Interfaces may change without notice. Use a test account.
+
+RingEX Admin gives your AI assistant the ability to administer a RingEX account: users and extensions, roles and permissions, sites, phone numbers, call queues, IVR menus and prompts, call routing and business hours, emergency call redirect, and the admin audit log. It joins [RingEX Phone](ringex-phone.md), [RingEX Chat](ringex-chat.md), and [RingEX Meetings](ringex-meetings.md) in the RingEX family, which replaced the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
+
+Most tools are **action-based**: they take an `action` argument that selects a strict argument variant. Read tools return configuration; write tools change it.
 
 Run `about_ringcentral_mcp_tools` to see a full summary of supported tools and permissions.
+
+!!! warning "Write tools require a two-step confirmation"
+    Tools that change configuration return `status: "confirmation_required"` with a plan and a single-use `confirmationToken` on the first call, without changing anything. The assistant must show you the plan and only repeat the call — identical arguments plus the token — after you approve. Tokens expire after about five minutes.
 
 ---
 
@@ -27,44 +35,67 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-26 tools are available on this server.
+27 tools are available on this server, grouped by the area of the account they administer. See the [Tools reference](../tools/ringex-admin.md) for the full action and parameter breakdown per tool.
 
-| Tool | Requires CRM | Description |
+**Account**
+
+| Tool | Access | Description |
 |------|:---:|-------------|
-| [`about_ringcentral_mcp_tools`](../tools/ringex-admin.md#about_ringcentral_mcp_tools) | — | List all available tools and permissions for this server |
-| [`platform_analytics_calls_aggregation_fetch`](../tools/ringex-admin.md#platform_analytics_calls_aggregation_fetch) | — | Get calls aggregation data |
-| [`platform_get_account_info_v2`](../tools/ringex-admin.md#platform_get_account_info_v2) | — | Get account info |
-| [`platform_list_account_phone_numbers_v2`](../tools/ringex-admin.md#platform_list_account_phone_numbers_v2) | — | List account phone numbers |
-| [`platform_list_account_switches`](../tools/ringex-admin.md#platform_list_account_switches) | — | List account switches |
-| [`platform_list_administered_sites`](../tools/ringex-admin.md#platform_list_administered_sites) | — | List user administered sites |
-| [`platform_list_answering_rules`](../tools/ringex-admin.md#platform_list_answering_rules) | — | List call handling rules |
-| [`platform_list_contacts`](../tools/ringex-admin.md#platform_list_contacts) | — | List contacts |
-| [`platform_list_directory_entries`](../tools/ringex-admin.md#platform_list_directory_entries) | — | Get company directory entries |
-| [`platform_list_extensions`](../tools/ringex-admin.md#platform_list_extensions) | — | List extensions |
-| [`platform_list_favorite_contacts`](../tools/ringex-admin.md#platform_list_favorite_contacts) | — | List favorite contacts |
-| [`platform_read_account_phone_number`](../tools/ringex-admin.md#platform_read_account_phone_number) | — | Get a phone number |
-| [`platform_read_account_presence`](../tools/ringex-admin.md#platform_read_account_presence) | — | Get user presence status list |
-| [`platform_read_call_recording`](../tools/ringex-admin.md#platform_read_call_recording) | — | Get call recording |
-| [`platform_read_call_recording_content`](../tools/ringex-admin.md#platform_read_call_recording_content) | — | Get call recording content |
-| [`platform_read_company_call_log`](../tools/ringex-admin.md#platform_read_company_call_log) | — | List company call records |
-| [`platform_read_company_call_record`](../tools/ringex-admin.md#platform_read_company_call_record) | — | Get company call record(s) |
-| [`platform_read_contact`](../tools/ringex-admin.md#platform_read_contact) | — | Get user contact(s) |
-| [`platform_read_country`](../tools/ringex-admin.md#platform_read_country) | — | Get country |
-| [`platform_read_directory_entry`](../tools/ringex-admin.md#platform_read_directory_entry) | — | Get corporate directory entry |
-| [`platform_read_directory_federation`](../tools/ringex-admin.md#platform_read_directory_federation) | — | Get account federation |
-| [`platform_read_permission`](../tools/ringex-admin.md#platform_read_permission) | — | Get permission |
-| [`platform_read_permission_category`](../tools/ringex-admin.md#platform_read_permission_category) | — | Get permission category |
-| [`platform_read_user_role`](../tools/ringex-admin.md#platform_read_user_role) | — | Get user role |
-| [`platform_read_user_presence_status`](../tools/ringex-admin.md#platform_read_user_presence_status) | — | Get user presence status |
-| [`read_call_ai_notes`](../tools/ringex-admin.md#read_call_ai_notes) | — | Read call AI notes |
+| [`about_ringcentral_mcp_tools`](../tools/ringex-admin.md#about_ringcentral_mcp_tools) | Read | List all available tools and permissions for this server |
+| [`get_admin_setup_status`](../tools/ringex-admin.md#get_admin_setup_status) | Read | First-run checklist for a new account — site, main number, users, business hours, inbound routing |
+| [`search_admin_audit_log`](../tools/ringex-admin.md#search_admin_audit_log) | Read | Search the account's admin change history by actor, date range, and category |
+
+**Users and roles**
+
+| Tool | Access | Description |
+|------|:---:|-------------|
+| [`read_users`](../tools/ringex-admin.md#read_users) | Read | List, search, or get users and extensions, and read a user's role and group assignments |
+| [`manage_users`](../tools/ringex-admin.md#manage_users) | Write | Create, bulk-create, template-provision, or update users |
+| [`disable_user`](../tools/ringex-admin.md#disable_user) | Destructive | Disable a user extension, recording the reason |
+| [`bulk_move_users`](../tools/ringex-admin.md#bulk_move_users) | Write | Preview, execute, or check the status of a bulk move of users between sites |
+| [`read_roles`](../tools/ringex-admin.md#read_roles) | Read | List roles and permissions, get a role, or list assignable roles |
+| [`manage_roles`](../tools/ringex-admin.md#manage_roles) | Write | Create or update a role, assign it to users, or set the account default |
+| [`delete_role`](../tools/ringex-admin.md#delete_role) | Destructive | Delete a custom role, reassigning or clearing its holders |
+
+**Sites and phone numbers**
+
+| Tool | Access | Description |
+|------|:---:|-------------|
+| [`read_sites`](../tools/ringex-admin.md#read_sites) | Read | List or get sites, list members, read a site IVR, or recommend an extension prefix |
+| [`manage_sites`](../tools/ringex-admin.md#manage_sites) | Write | Create or update a site, assign members or an admin, or set the site IVR |
+| [`delete_site`](../tools/ringex-admin.md#delete_site) | Destructive | Delete a site |
+| [`read_phone_numbers`](../tools/ringex-admin.md#read_phone_numbers) | Read | List or get account phone numbers by usage type and status |
+| [`assign_phone_number`](../tools/ringex-admin.md#assign_phone_number) | Write | Assign a number to an extension or as a company number, or replace an assignment |
+| [`release_phone_number`](../tools/ringex-admin.md#release_phone_number) | Destructive | Release an unassigned number back to RingCentral |
+
+**Call queues**
+
+| Tool | Access | Description |
+|------|:---:|-------------|
+| [`read_call_queues`](../tools/ringex-admin.md#read_call_queues) | Read | List or get call queues, members, overflow settings, and agent presence |
+| [`manage_call_queues`](../tools/ringex-admin.md#manage_call_queues) | Write | Create or update a queue, set its members, overflow, or agent presence |
+| [`delete_call_queue`](../tools/ringex-admin.md#delete_call_queue) | Destructive | Delete a call queue |
+
+**IVR and call routing**
+
+| Tool | Access | Description |
+|------|:---:|-------------|
+| [`read_call_routing`](../tools/ringex-admin.md#read_call_routing) | Read | Read IVR menus, business hours, company and extension rules, forward-all, or routing for a number |
+| [`manage_routing_rules`](../tools/ringex-admin.md#manage_routing_rules) | Write | Create or update company, interaction, and state routing rules, and set business hours |
+| [`delete_routing_rule`](../tools/ringex-admin.md#delete_routing_rule) | Destructive | Delete a company or extension routing rule |
+| [`manage_ivr`](../tools/ringex-admin.md#manage_ivr) | Write | Create or update an IVR menu, add a destination, or attach a prompt |
+| [`read_ivr_media`](../tools/ringex-admin.md#read_ivr_media) | Read | List or get IVR greeting prompts |
+| [`manage_ivr_media`](../tools/ringex-admin.md#manage_ivr_media) | Write | Upload, replace, or rename an IVR prompt |
+| [`delete_ivr_prompt`](../tools/ringex-admin.md#delete_ivr_prompt) | Destructive | Delete an IVR prompt |
+| [`set_emergency_call_redirect`](../tools/ringex-admin.md#set_emergency_call_redirect) | Write | Enable or disable the account-wide emergency call redirect |
 
 ---
 
 ## Getting started
 
 1. **Connect** — Add the server URL above to your AI client.
-2. **Verify** — Run `platform_get_account_info_v2` to confirm your RingCentral identity is resolved.
-3. **Use** — Ask your AI assistant to look up a colleague in the directory, check presence, review call analytics, or inspect account/extension settings.
+2. **Verify** — Run `read_users` with `action: "list"` to confirm your RingCentral identity resolves and that you hold the admin permissions these tools require. On a brand-new account, run `get_admin_setup_status` for a first-run checklist of what still needs configuring.
+3. **Use** — Ask your AI assistant to look up a user, audit who changed what last week, add a member to a call queue, or walk an IVR menu's key actions.
 
 ---
 

@@ -2124,7 +2124,7 @@ body[data-page="home"] .md-content__inner {
 }
 
 /* Status cell — colored dot + label. Color encodes release stage,
-   not decoration: green = Preview, amber = Beta. */
+   not decoration: green = Preview, amber = Beta, red = Experimental. */
 .rc-status {
   display: inline-flex;
   align-items: center;
@@ -2138,8 +2138,9 @@ body[data-page="home"] .md-content__inner {
   border-radius: 50%;
   flex: none;
 }
-.rc-status--preview::before { background: #2E9E4F; }
-.rc-status--beta::before    { background: #D9A404; }
+.rc-status--preview::before      { background: #2E9E4F; }
+.rc-status--beta::before         { background: #D9A404; }
+.rc-status--experimental::before { background: #C4423A; }
 
 /* Copy-to-clipboard button next to an endpoint URL. Toggles to a
    checkmark for ~1.4s after a successful copy via .rc-copy--copied,

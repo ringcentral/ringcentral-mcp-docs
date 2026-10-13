@@ -6,6 +6,16 @@ All notable changes to RingCentral MCP servers are documented here.
 
 ## [Unreleased]
 
+### RingEX Meetings — Added (Experimental)
+- New experimental server published at `https://mcp.labs.ringcentral.com/ringex/video`, covering RingCentral Meetings. It joins RingEX Phone, Chat, and Admin as the fourth server in the RingEX family, split by communication mode. Note that the endpoint path is `/ringex/video`, not `/ringex/meetings`.
+- 8 tools: `about_ringcentral_mcp_tools`, `search_meeting_history`, `get_meeting_summary`, `get_meeting_transcript`, `get_meeting_chat`, `get_meeting_recording`, `create_meeting_space`, and `delete_meeting_space`.
+- All tools are scoped to the authenticated user — there are no account-wide or admin selectors on this server.
+- Reads are bounded and layered: `search_meeting_history` requires both `dateFrom` and `dateTo` and returns metadata plus artifact availability only; transcript and chat cap at 50,000 characters (default 20,000); recordings cap at 8 MiB and are returned as native MCP binary resources rather than base64 in JSON.
+- Signed URLs, access tokens, and protected media URLs are never returned — artifact tools follow trusted expiring RingCentral content links server-side and return only the content.
+- `delete_meeting_space` requires a two-step `preview` → `confirm` flow with a short-lived `confirmationToken`, and refuses PMI and non-owned spaces.
+- `create_meeting_space` creates a reusable, time-agnostic space and returns a join URL — it does not schedule a calendar event or send invitations.
+- **Experimental:** the endpoint, tool names, and input schemas may change, or the server may be withdrawn, without the 14-day notice described in the deprecation policy below. See the [RingEX Meetings server docs](servers/ringex-meetings.md).
+
 ### RingEX Phone — Changed (v1.1.0)
 - Endpoint moved to `https://mcp.labs.ringcentral.com/ringex/phone` (simplified from versioned URL).
 - Tool surface consolidated from 24 tools down to 12: `about_ringcentral_mcp_tools`, `get_my_phone`, `resolve_directory_person`, `search_my_contacts`, `get_my_call_activity`, `get_my_call_insight`, `get_my_call_recording_metadata`, `search_my_call_insights`, `get_my_communication_inbox`, `get_my_message_detail`, `get_my_sms_thread`, and `send_sms`. All previous `platform_*`/`read_*`/`list_*` tools were removed.
@@ -13,7 +23,7 @@ All notable changes to RingCentral MCP servers are documented here.
 - `resolve_directory_person` is new — replaces `platform_list_directory_entries`, `platform_read_directory_entry`, and `search_directory_entries` with read-only lookup/resolution scoped to finding a person to call or text.
 - `team_messaging_get_person` is no longer exposed here; use RingEX Chat's `find_person` for Team Chat person resolution.
 - `send_sms` requires host-side confirmation of sender, recipient, and exact text before sending, and rejects retries that reuse a `requestId`.
-- See the [RingEX Phone server docs](../servers/ringex-phone.md#deprecated-tools) for the complete list of deprecated tools and their replacements.
+- See the [RingEX Phone server docs](servers/ringex-phone.md#deprecated-tools) for the complete list of deprecated tools and their replacements.
 
 ### RingEX Chat — Changed (v1.1.0)
 - Endpoint moved to `https://mcp.labs.ringcentral.com/ringex/v1.1.0/team-chat`.

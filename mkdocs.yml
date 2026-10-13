@@ -142,6 +142,10 @@ nav:
       - Overview: servers/ringex-chat.md
       - Setup: servers/ringex-chat-setup.md
       - Tools: tools/ringex-chat.md
+    - RingEX Meetings:
+      - Overview: servers/ringex-meetings.md
+      - Setup: servers/ringex-meetings-setup.md
+      - Tools: tools/ringex-meetings.md
     - RingEX Admin:
       - Overview: servers/ringex-admin.md
       - Setup: servers/ringex-admin-setup.md

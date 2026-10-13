@@ -7,6 +7,9 @@ description: Connect the RingEX Admin MCP server to ChatGPT, Claude, or Codex.
 
 **Server URL:** `https://mcp.labs.ringcentral.com/ringex/admin`
 
+!!! danger "Experimental — connect a test account"
+    RingEX Admin is experimental. Roughly half its tools change live account configuration, and interfaces may change without notice. Authorize it with a test account rather than your production one.
+
 ---
 
 === "ChatGPT"
@@ -17,10 +20,10 @@ description: Connect the RingEX Admin MCP server to ChatGPT, Claude, or Codex.
     2. In **Settings → Apps**, click **Create**, enter the URL above as the MCP Server URL, name it (e.g. `RingEX Admin`), click **Scan Tools**, then **Save**.
     3. Complete the RingCentral OAuth flow when prompted.
     4. Open a new chat, click the **+** icon or tools menu, and select RingEX Admin — or mention it by name in your prompt.
-    5. Verify: ask "What's my RingCentral extension and presence status?"
+    5. Verify: ask "List the first few users in my RingCentral account."
 
-    !!! note "Pro users"
-        With read/fetch-only Developer Mode, most Admin tools already work since this server is largely read-oriented (extension, presence, directory, discovery).
+    !!! warning "Pro users"
+        Read/fetch-only Developer Mode covers the read tools (`read_users`, `read_roles`, `read_sites`, `read_phone_numbers`, `read_call_queues`, `read_call_routing`, `read_ivr_media`, `search_admin_audit_log`), but not the tools that change configuration. Full Developer Mode is required for those.
 
 === "Claude"
 
@@ -31,7 +34,7 @@ description: Connect the RingEX Admin MCP server to ChatGPT, Claude, or Codex.
     3. Enter a name (e.g. `RingEX Admin`) and the URL above, then click **Add**.
     4. Complete the RingCentral OAuth flow: sign in with your RingCentral account and authorize the integration.
     5. In a new conversation, click the **+** button (lower left of the chat box) → **Connectors**, and toggle RingEX Admin on.
-    6. Verify: ask "What's my RingCentral extension and presence status?"
+    6. Verify: ask "List the first few users in my RingCentral account."
 
 === "Codex"
 
@@ -39,7 +42,7 @@ description: Connect the RingEX Admin MCP server to ChatGPT, Claude, or Codex.
     2. Enter a name (e.g. `RingEX Admin`), set Type to **Streamable HTTP**, and enter the URL above.
     3. Click **Save**, then select **Restart** so Codex picks up the new server.
     4. Authenticate with your RingCentral account in the browser window that opens.
-    5. Codex has no connector picker — mention "RingCentral" explicitly in your prompt, e.g. "Using RingCentral, what's my extension and presence status?"
+    5. Codex has no connector picker — mention "RingCentral" explicitly in your prompt, e.g. "Using RingCentral, list the first few users in my account."
 
 ---
 

@@ -7,7 +7,7 @@ hide:
 
 # Servers
 
-RingCentral currently publishes four active MCP servers. All implement the [Model Context Protocol](https://modelcontextprotocol.io) specification and are reachable over HTTPS using Server-Sent Events (SSE) transport.
+RingCentral currently publishes five active MCP servers. All implement the [Model Context Protocol](https://modelcontextprotocol.io) specification and are reachable over HTTPS using Server-Sent Events (SSE) transport.
 
 <div class="rc-solutions-grid">
 
@@ -50,13 +50,26 @@ RingCentral currently publishes four active MCP servers. All implement the [Mode
     </a>
   </div>
 
+  <a href="ringex-meetings/" class="rc-sol-card">
+    <span class="rc-sol__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+    </span>
+    <div class="rc-sol__num">03</div>
+    <div class="rc-sol__title">RingEX Meetings</div>
+    <p class="rc-sol__desc">Meeting history, transcripts, chat, recordings, and reusable meeting spaces.</p>
+    <span class="rc-sol__link">View server →</span>
+    <div markdown="1" style="display: none;">
+[RingEX Meetings](ringex-meetings/)
+    </div>
+  </a>
+
   <a href="ringex-admin/" class="rc-sol-card">
     <span class="rc-sol__icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.15 7.15 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.5.5 0 0 0-.6.22L2.7 8.68a.5.5 0 0 0 .12.64l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.5.5 0 0 0-.12-.64zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg>
     </span>
-    <div class="rc-sol__num">03</div>
+    <div class="rc-sol__num">04</div>
     <div class="rc-sol__title">RingEX Admin</div>
-    <p class="rc-sol__desc">Tool discovery, generic API dispatch, extension, presence, and directory search.</p>
+    <p class="rc-sol__desc">Users and roles, sites and phone numbers, call queues, IVR, call routing, and the admin audit log.</p>
     <span class="rc-sol__link">View server →</span>
     <div markdown="1" style="display: none;">
 [RingEX Admin](ringex-admin/)
@@ -67,7 +80,7 @@ RingCentral currently publishes four active MCP servers. All implement the [Mode
     <span class="rc-sol__icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
     </span>
-    <div class="rc-sol__num">04</div>
+    <div class="rc-sol__num">05</div>
     <div class="rc-sol__title">App Connect</div>
     <p class="rc-sol__desc">Bridges RingCentral telephony with your connected CRM — contacts, call logging, and more.</p>
     <span class="rc-sol__link">View server →</span>
@@ -86,14 +99,15 @@ RingCentral currently publishes four active MCP servers. All implement the [Mode
 |--------|-----|--------|-------|
 | RingEX Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟢 Preview | 12 |
 | RingEX Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟢 Preview | 9 |
-| RingEX Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🟢 Preview | 26 |
+| RingEX Meetings | `https://mcp.labs.ringcentral.com/ringex/video` | 🔴 Experimental | 8 |
+| RingEX Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🔴 Experimental | 27 |
 | App Connect | `https://unified-crm-extension.labs.ringcentral.com/mcp` | 🟡 Beta | 9 |
 
 ---
 
 ## Transport & protocol
 
-Both servers use **SSE (Server-Sent Events)** transport over HTTPS, which is the recommended transport for remote MCP servers. Clients connect by sending an HTTP `POST` to the server URL with a JSON-RPC 2.0 body.
+All servers use **SSE (Server-Sent Events)** transport over HTTPS, which is the recommended transport for remote MCP servers. Clients connect by sending an HTTP `POST` to the server URL with a JSON-RPC 2.0 body.
 
 ```bash
 # Discover tools on any server
@@ -106,7 +120,7 @@ curl -X POST https://<server-url> \
 
 ## Authentication model
 
-- **RingEX Phone / Chat / Admin** — no authentication required for tool discovery; most tools require a valid RingCentral session.
+- **RingEX Phone / Chat / Admin / Meetings** — no authentication required for tool discovery; most tools require a valid RingCentral session.
 - **App Connect** — tools marked ⚠️ **REQUIRES CRM CONNECTION** require the user to have authenticated with both RingCentral and a supported CRM platform.
 
 ---
