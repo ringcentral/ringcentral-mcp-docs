@@ -97,10 +97,10 @@ RingCentral currently publishes five active MCP servers. All implement the [Mode
 
 | Server | URL | Status | Tools |
 |--------|-----|--------|-------|
-| RingEX Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟢 Preview | 12 |
-| RingEX Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟢 Preview | 9 |
-| RingEX Meetings | `https://mcp.labs.ringcentral.com/ringex/video` | 🔴 Experimental | 8 |
-| RingEX Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | 🔴 Experimental | 27 |
+| RingEX Phone | `https://mcp.labs.ringcentral.com/ringex/phone` | 🟢 Preview | 11 |
+| RingEX Chat | `https://mcp.labs.ringcentral.com/ringex/team-chat` | 🟢 Preview | 8 |
+| RingEX Meetings | `https://mcp.labs.ringcentral.com/ringex/video` | ⚪ Experimental | 7 |
+| RingEX Admin | `https://mcp.labs.ringcentral.com/ringex/admin` | ⚪ Experimental | 26 |
 | App Connect | `https://unified-crm-extension.labs.ringcentral.com/mcp` | 🟡 Beta | 9 |
 
 ---

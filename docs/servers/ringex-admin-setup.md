@@ -7,8 +7,7 @@ description: Connect the RingEX Admin MCP server to ChatGPT, Claude, or Codex.
 
 **Server URL:** `https://mcp.labs.ringcentral.com/ringex/admin`
 
-!!! danger "Experimental — connect a test account"
-    RingEX Admin is experimental. Roughly half its tools change live account configuration, and interfaces may change without notice. Authorize it with a test account rather than your production one.
+--8<-- "experimental.md"
 
 ---
 

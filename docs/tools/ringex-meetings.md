@@ -1,68 +1,10 @@
 # RingEX Meetings — Tools Reference
 
-Full reference for every tool available on the [RingEX Meetings](../servers/ringex-meetings.md) server. Eight tools cover meeting history, meeting artifacts (transcript, chat, recording), and reusable meeting spaces.
+Full reference for every tool available on the [RingEX Meetings](../servers/ringex-meetings.md) server. Seven tools cover meeting history, meeting artifacts (transcript, chat, recording), and reusable meeting spaces.
 
 Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
 
-!!! warning "Experimental server"
-    RingEX Meetings is experimental. Tool names and input schemas may change without the usual notice period. Treat the tables below as guidance and call `tools/list` for the authoritative schema.
-
-!!! tip "Exact schemas live in `tools/list`"
-    The tables below document every parameter and what it does, but the authoritative required/optional fields, enums, and bounds for a given tool are always visible by calling `tools/list` on the server.
-
----
-
-## about_ringcentral_mcp_tools
-
-Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
-
-**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md) · [RingEX Meetings](../servers/ringex-meetings.md)  
-**Access:** Read-only
-
----
-
-### Parameters
-
-This tool takes no parameters.
-
----
-
-### Returns
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `summary` | `string` | A short description of what the connected server can help with. On RingEX Meetings, this notes that the server exposes RingCentral Platform API meeting operations, scoped to the tools enabled for the current endpoint. |
-| `categories` | `array` | A list of capability categories, each with: `category` (name), `examples` (example use cases), and `representativeTools` (a sample of tool names in that category). RingEX Meetings returns a single category, which the server currently labels `Video`. |
-| `usageNotes` | `array` | Operational tips — e.g. that `tools/list` should be used to inspect exact tool names and input schemas, that authenticated `accountId`/`extensionId` parameters usually default to the current user, and that write tools should only be selected when the user actually asks for that side effect. |
-
----
-
-### Example
-
-=== "MCP JSON-RPC"
-
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "method": "tools/call",
-      "params": {
-        "name": "about_ringcentral_mcp_tools",
-        "arguments": {}
-      }
-    }
-    ```
-
-=== "Claude prompt"
-
-    ```
-    What can this RingCentral MCP server do?
-    ```
-
----
-
-!!! tip "Start here"
-    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
+--8<-- "experimental.md"
 
 ---
 

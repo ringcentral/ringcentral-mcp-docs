@@ -7,11 +7,10 @@ description: Connect the RingEX Meetings MCP server to ChatGPT, Claude, or Codex
 
 **Server URL:** `https://mcp.labs.ringcentral.com/ringex/video`
 
-!!! warning "Experimental server"
-    RingEX Meetings is experimental, and there is no official plugin or connector for it yet — add it manually using the steps below. The endpoint and tool surface may change without notice.
+--8<-- "experimental.md"
 
-!!! note "Endpoint path still says `video`"
-    The server is named RingEX Meetings, but it is deployed at `…/ringex/video`. Enter the URL exactly as shown above — `…/ringex/meetings` will not resolve.
+!!! note "No official plugin or connector yet"
+    There is no packaged plugin or connector for RingEX Meetings — add it manually using the steps below.
 
 ---
 

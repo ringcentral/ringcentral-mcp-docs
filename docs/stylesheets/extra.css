@@ -1873,66 +1873,12 @@ body[data-page="home"] .md-content__inner {
 }
 
 /* ══════════════════════════════════════════════════════════════════════
-   BUTTON-STYLE TABS — replace Material's underline tabs with pill buttons.
-   Applies globally: pymdownx.tabbed (alternate style) is used for setup
-   instructions (ChatGPT/Claude/Codex) and tool examples across the site,
-   and the default sliding-underline style reads as broken/low-contrast.
-   Supports up to 5 tabs per set via positional nth-of-type matching,
-   since CSS can't cross-reference an input's id to a label's for value.
+   CONTENT TABS — intentionally NOT restyled here.
+   An earlier revision replaced Material's sliding-underline tabs with
+   pill buttons; that override was removed so content tabs inherit stock
+   mkdocs-material styling. The brand stylesheet (_rc/ringcentral.css)
+   still tints tab label colors/backgrounds, which is fine.
    ══════════════════════════════════════════════════════════════════════ */
-.md-typeset .tabbed-labels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  box-shadow: none;
-  border-bottom: none;
-  margin-bottom: 1rem;
-}
-.md-typeset .tabbed-labels::before,
-.md-typeset .tabbed-labels::after {
-  display: none !important;
-}
-.md-typeset .tabbed-labels > label {
-  width: auto;
-  border-radius: 100px;
-  border: 1.5px solid var(--md-default-fg-color--lightest);
-  background: transparent;
-  padding: 0.4rem 1rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--md-default-fg-color--light);
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-}
-.md-typeset .tabbed-labels > label:hover {
-  color: var(--md-primary-fg-color);
-  border-color: var(--md-primary-fg-color);
-}
-/* Neither the resting nor the active/checked state should show Material's
-   default per-label underline indicator (it renders as a stray bar under
-   the pill on the checked tab) — the filled pill background above is
-   the only "active" affordance we want. */
-.md-typeset .tabbed-labels > label::before,
-.md-typeset .tabbed-labels > label::after {
-  display: none !important;
-}
-.md-typeset .tabbed-set > input:nth-of-type(1):checked ~ .tabbed-labels > label:nth-of-type(1),
-.md-typeset .tabbed-set > input:nth-of-type(2):checked ~ .tabbed-labels > label:nth-of-type(2),
-.md-typeset .tabbed-set > input:nth-of-type(3):checked ~ .tabbed-labels > label:nth-of-type(3),
-.md-typeset .tabbed-set > input:nth-of-type(4):checked ~ .tabbed-labels > label:nth-of-type(4),
-.md-typeset .tabbed-set > input:nth-of-type(5):checked ~ .tabbed-labels > label:nth-of-type(5) {
-  background: var(--md-primary-fg-color);
-  border-color: var(--md-primary-fg-color);
-  color: #fff;
-  box-shadow: none;
-  text-decoration: none;
-}
-.md-typeset .tabbed-content {
-  border-top: none;
-}
-.md-typeset .tabbed-block {
-  padding-top: 0.25rem;
-}
 
 /* ══════════════════════════════════════════════════════════════════════
    ADMONITION TITLE CONTRAST FIX — dark mode
@@ -2123,8 +2069,10 @@ body[data-page="home"] .md-content__inner {
   font-size: 0.85em;
 }
 
-/* Status cell — colored dot + label. Color encodes release stage,
-   not decoration: green = Preview, amber = Beta, red = Experimental. */
+/* Status cell — colored dot + label. Color encodes maturity, not
+   severity: slate = Experimental, amber = Beta, green = Preview.
+   Experimental is deliberately neutral rather than red — it marks an
+   early stage, not a failure. */
 .rc-status {
   display: inline-flex;
   align-items: center;
@@ -2140,7 +2088,7 @@ body[data-page="home"] .md-content__inner {
 }
 .rc-status--preview::before      { background: #2E9E4F; }
 .rc-status--beta::before         { background: #D9A404; }
-.rc-status--experimental::before { background: #C4423A; }
+.rc-status--experimental::before { background: #6B7280; }
 
 /* Copy-to-clipboard button next to an endpoint URL. Toggles to a
    checkmark for ~1.4s after a successful copy via .rc-copy--copied,

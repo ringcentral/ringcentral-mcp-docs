@@ -11,14 +11,11 @@
 
 ## About
 
-!!! danger "Experimental — not for production accounts"
-    RingEX Admin is experimental. Roughly half its tools change live account configuration — users, routing, queues, phone numbers — and some paths have not been validated end to end against a live tenant. Interfaces may change without notice. Use a test account.
+--8<-- "experimental.md"
 
 RingEX Admin gives your AI assistant the ability to administer a RingEX account: users and extensions, roles and permissions, sites, phone numbers, call queues, IVR menus and prompts, call routing and business hours, emergency call redirect, and the admin audit log. It joins [RingEX Phone](ringex-phone.md), [RingEX Chat](ringex-chat.md), and [RingEX Meetings](ringex-meetings.md) in the RingEX family, which replaced the original monolithic RingCentral MCP server — this one covers account- and admin-level tools.
 
 Most tools are **action-based**: they take an `action` argument that selects a strict argument variant. Read tools return configuration; write tools change it.
-
-Run `about_ringcentral_mcp_tools` to see a full summary of supported tools and permissions.
 
 !!! warning "Write tools require a two-step confirmation"
     Tools that change configuration return `status: "confirmation_required"` with a plan and a single-use `confirmationToken` on the first call, without changing anything. The assistant must show you the plan and only repeat the call — identical arguments plus the token — after you approve. Tokens expire after about five minutes.
@@ -35,13 +32,12 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-27 tools are available on this server, grouped by the area of the account they administer. See the [Tools reference](../tools/ringex-admin.md) for the full action and parameter breakdown per tool.
+26 tools are available on this server, grouped by the area of the account they administer. See the [Tools reference](../tools/ringex-admin.md) for the full action and parameter breakdown per tool.
 
 **Account**
 
 | Tool | Access | Description |
 |------|:---:|-------------|
-| [`about_ringcentral_mcp_tools`](../tools/ringex-admin.md#about_ringcentral_mcp_tools) | Read | List all available tools and permissions for this server |
 | [`get_admin_setup_status`](../tools/ringex-admin.md#get_admin_setup_status) | Read | First-run checklist for a new account — site, main number, users, business hours, inbound routing |
 | [`search_admin_audit_log`](../tools/ringex-admin.md#search_admin_audit_log) | Read | Search the account's admin change history by actor, date range, and category |
 

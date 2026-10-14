@@ -6,9 +6,13 @@ All notable changes to RingCentral MCP servers are documented here.
 
 ## [Unreleased]
 
+### All RingEX servers — Removed
+- `about_ringcentral_mcp_tools` has been removed from RingEX Phone, Chat, Meetings, and Admin. Call `tools/list` to enumerate the tools and schemas a server exposes.
+- Tool counts are now 11 (Phone), 8 (Chat), 7 (Meetings), and 26 (Admin).
+
 ### RingEX Meetings — Added (Experimental)
 - New experimental server published at `https://mcp.labs.ringcentral.com/ringex/video`, covering RingCentral Meetings. It joins RingEX Phone, Chat, and Admin as the fourth server in the RingEX family, split by communication mode. Note that the endpoint path is `/ringex/video`, not `/ringex/meetings`.
-- 8 tools: `about_ringcentral_mcp_tools`, `search_meeting_history`, `get_meeting_summary`, `get_meeting_transcript`, `get_meeting_chat`, `get_meeting_recording`, `create_meeting_space`, and `delete_meeting_space`.
+- 7 tools: `search_meeting_history`, `get_meeting_summary`, `get_meeting_transcript`, `get_meeting_chat`, `get_meeting_recording`, `create_meeting_space`, and `delete_meeting_space`.
 - All tools are scoped to the authenticated user — there are no account-wide or admin selectors on this server.
 - Reads are bounded and layered: `search_meeting_history` requires both `dateFrom` and `dateTo` and returns metadata plus artifact availability only; transcript and chat cap at 50,000 characters (default 20,000); recordings cap at 8 MiB and are returned as native MCP binary resources rather than base64 in JSON.
 - Signed URLs, access tokens, and protected media URLs are never returned — artifact tools follow trusted expiring RingCentral content links server-side and return only the content.

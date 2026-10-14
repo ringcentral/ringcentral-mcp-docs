@@ -2,67 +2,12 @@
 
 Full reference for every tool available on the [RingEX Admin](../servers/ringex-admin.md) server. Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
 
-!!! danger "Experimental — not for production accounts"
-    These tools change live account configuration and some paths have not been validated end to end against a live tenant. Interfaces may change without notice. Use a test account.
+--8<-- "experimental.md"
 
 Most admin tools are **action-based**: they take an `action` argument that selects a strict argument variant. Pick exactly one variant and don't mix fields between variants — the server rejects calls that do. The single-purpose tools (`delete_call_queue`, `delete_ivr_prompt`, `delete_site`, `get_admin_setup_status`, `search_admin_audit_log`) take no `action` argument; each tool's parameter table below is authoritative.
 
 !!! warning "Write tools require a two-step confirmation"
     Tools that change configuration return `status: "confirmation_required"` with a plan and a single-use `confirmationToken` on the first call, without changing anything. Show the plan to the user, and only after explicit approval repeat the identical arguments plus the token. Tokens expire after about five minutes and are refused if the affected objects changed in the meantime.
-
----
-
-## about_ringcentral_mcp_tools
-
-Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
-
-**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md)  
-**Access:** Read-only
-
----
-
-### Parameters
-
-This tool takes no parameters.
-
----
-
-### Returns
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `summary` | `string` | A short description of what the connected server can help with. |
-| `categories` | `array` | A list of capability categories, each with: `category` (name), `examples` (example use cases), and `representativeTools` (a sample of tool names in that category). |
-| `usageNotes` | `array` | Operational tips — e.g. that `tools/list` should be used to inspect exact tool names and input schemas, that authenticated `accountId`/`extensionId` parameters usually default to the current user, and that write tools should only be selected when the user actually asks for that side effect. |
-
----
-
-### Example
-
-=== "MCP JSON-RPC"
-
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "method": "tools/call",
-      "params": {
-        "name": "about_ringcentral_mcp_tools",
-        "arguments": {}
-      }
-    }
-    ```
-
-=== "Claude prompt"
-
-    ```
-    What can this RingCentral MCP server do?
-    ```
-
----
-
-!!! tip "Start here"
-    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
 
 ---
 

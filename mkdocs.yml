@@ -88,6 +88,7 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path:
         - skills
+        - includes
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:

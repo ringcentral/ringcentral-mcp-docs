@@ -27,11 +27,10 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-9 tools are available on this server — down from 65 prior to v1.1.0. Write tools each take a `resource`/`action` (or `action`-only) discriminator that dispatches to one of several underlying operations; see the [Tools reference](../tools/ringex-chat.md) for the full breakdown per tool.
+8 tools are available on this server — down from 65 prior to v1.1.0. Write tools each take a `resource`/`action` (or `action`-only) discriminator that dispatches to one of several underlying operations; see the [Tools reference](../tools/ringex-chat.md) for the full breakdown per tool.
 
 | Tool | Access | Description |
 |------|:---:|-------------|
-| [`about_ringcentral_mcp_tools`](../tools/ringex-chat.md#about_ringcentral_mcp_tools) | Read | List all available tools and permissions for this server |
 | [`find_person`](../tools/ringex-chat.md#find_person) | Read | Resolve a person by name, email, extension, phone number, or exact Team Chat person ID |
 | [`read_team_chat`](../tools/ringex-chat.md#read_team_chat) | Read | List or retrieve chats, posts, files, Adaptive Cards, notes, tasks, events, and incoming webhooks |
 | [`send_post`](../tools/ringex-chat.md#send_post) | Write | Send a post — or a thread reply — to a chat or resolved person, optionally with file/image attachments |

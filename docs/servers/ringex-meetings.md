@@ -7,11 +7,7 @@
 <div class="rc-spec-row"><span class="rc-spec-row__label">Auth</span><span class="rc-spec-row__value">OAuth2</span></div>
 </div>
 
-!!! warning "Experimental server"
-    RingEX Meetings is an experimental server. Its endpoint, tool names, and input schemas may change — or the server may be withdrawn — without the 14-day notice period described in the [deprecation policy](../changelog.md#deprecation-policy). Don't build production integrations against it yet. Call `tools/list` at runtime rather than hard-coding the tool surface.
-
-!!! note "Endpoint path still says `video`"
-    The server is named RingEX Meetings, but it is deployed at `…/ringex/video`. Use the endpoint exactly as shown above — `…/ringex/meetings` is not a valid URL.
+--8<-- "experimental.md"
 
 ---
 
@@ -37,11 +33,10 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-8 tools are available on this server — six read tools and two write tools. Reads are bounded: history is returned one page at a time, and transcript, chat, and recording tools each cap how much content they return per call.
+7 tools are available on this server — five read tools and two write tools. Reads are bounded: history is returned one page at a time, and transcript, chat, and recording tools each cap how much content they return per call.
 
 | Tool | Access | Description |
 |------|:---:|-------------|
-| [`about_ringcentral_mcp_tools`](../tools/ringex-meetings.md#about_ringcentral_mcp_tools) | Read | List all available tools and permissions for this server |
 | [`create_meeting_space`](../tools/ringex-meetings.md#create_meeting_space) | Write | Create a reusable, time-agnostic meeting space and return its join URL |
 | [`delete_meeting_space`](../tools/ringex-meetings.md#delete_meeting_space) | Write | Delete a meeting space you own, via a two-step preview/confirm gate |
 | [`get_meeting_chat`](../tools/ringex-meetings.md#get_meeting_chat) | Read | Get main-room chat text for one past meeting |

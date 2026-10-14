@@ -1,65 +1,8 @@
 # RingEX Chat — Tools Reference
 
-Full reference for every tool available on the [RingEX Chat](../servers/ringex-chat.md) server. As of **v1.1.0**, the 65 fine-grained `team_messaging_*` tools have been replaced with 9 workflow-oriented tools. Most write tools accept a `resource` and/or `action` discriminator instead of exposing a separate tool per operation — pick the resource/action combination for what you want to do, then supply the ids and fields that combination requires.
+Full reference for every tool available on the [RingEX Chat](../servers/ringex-chat.md) server. As of **v1.1.0**, the 65 fine-grained `team_messaging_*` tools have been replaced with 8 workflow-oriented tools. Most write tools accept a `resource` and/or `action` discriminator instead of exposing a separate tool per operation — pick the resource/action combination for what you want to do, then supply the ids and fields that combination requires.
 
 Tools are listed alphabetically — use the on-page navigation ("On this page") to jump to a specific tool.
-
-!!! tip "Exact schemas live in `tools/list`"
-    The tables below document every supported resource/action combination and what it does, but the authoritative required/optional fields for a given combination are always visible by calling `tools/list` on the server. Resource/action tables here are guidance, not a substitute for that schema.
-
----
-
-## about_ringcentral_mcp_tools
-
-Call this first when you want to know what a RingEX MCP server can do, what tools are available, or which RingCentral tasks are supported. Returns a concise overview of the available tool categories and representative tool names for the connected server.
-
-**Available on:** [RingEX Phone](../servers/ringex-phone.md) · [RingEX Chat](../servers/ringex-chat.md) · [RingEX Admin](../servers/ringex-admin.md)  
-**Access:** Read-only
-
----
-
-### Parameters
-
-This tool takes no parameters.
-
----
-
-### Returns
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `summary` | `string` | A short description of what the connected server can help with. |
-| `categories` | `array` | A list of capability categories, each with: `category` (name), `examples` (example use cases), and `representativeTools` (a sample of tool names in that category). |
-| `usageNotes` | `array` | Operational tips — e.g. that `tools/list` should be used to inspect exact tool names and input schemas, that authenticated `accountId`/`extensionId` parameters usually default to the current user, and that write tools should only be selected when the user actually asks for that side effect. |
-
----
-
-### Example
-
-=== "MCP JSON-RPC"
-
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "method": "tools/call",
-      "params": {
-        "name": "about_ringcentral_mcp_tools",
-        "arguments": {}
-      }
-    }
-    ```
-
-=== "Claude prompt"
-
-    ```
-    What can this RingCentral MCP server do?
-    ```
-
----
-
-!!! tip "Start here"
-    Run this tool right after connecting a new RingEX server to confirm which capabilities and tools are exposed, before calling `tools/list` for exact schemas.
 
 ---
 

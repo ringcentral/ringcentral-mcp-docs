@@ -29,11 +29,10 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-12 tools are available on this server — down from 24 prior to v1.1.0. All tools operate on the authenticated user's own data; see the [Tools reference](../tools/ringex-phone.md) for full parameter details.
+11 tools are available on this server — down from 24 prior to v1.1.0. All tools operate on the authenticated user's own data; see the [Tools reference](../tools/ringex-phone.md) for full parameter details.
 
 | Tool | Access | Description |
 |------|:---:|-------------|
-| [`about_ringcentral_mcp_tools`](../tools/ringex-phone.md#about_ringcentral_mcp_tools) | Read | List all available tools and permissions for this server |
 | [`get_my_phone`](../tools/ringex-phone.md#get_my_phone) | Read | Get my extension number, phone numbers, presence, business hours, and call-handling rules |
 | [`resolve_directory_person`](../tools/ringex-phone.md#resolve_directory_person) | Read | Resolve a person in the company directory by name, department, or job title |
 | [`search_my_contacts`](../tools/ringex-phone.md#search_my_contacts) | Read | Search my personal address book by name or phone number |
@@ -72,7 +71,6 @@ Some tools on this server may return deprecation warnings in their responses. Th
     - `search_directory_entries` → use `resolve_directory_person`
     - `platform_list_extension_phone_numbers` → phone numbers now in `get_my_phone`
     - `platform_read_user_presence_status` → presence now in `get_my_phone` and `resolve_directory_person`
-    - `platform_read_account_info` → use `about_ringcentral_mcp_tools`
     - `read_extension_profile` → profile info now in `get_my_phone`
     - `list_user_call_log` → use `get_my_call_activity`
     - `platform_read_user_call_record` → use `get_my_call_insight`
