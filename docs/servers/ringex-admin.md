@@ -32,7 +32,7 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 
 ## Available tools
 
-26 tools are available on this server, grouped by the area of the account they administer. See the [Tools reference](../tools/ringex-admin.md) for the full action and parameter breakdown per tool.
+31 tools are available on this server, grouped by the area of the account they administer. See the [Tools reference](../tools/ringex-admin.md) for the full action and parameter breakdown per tool.
 
 **Account**
 
@@ -63,6 +63,16 @@ For other MCP clients (Cursor, etc.), add this server the same way you'd add any
 | [`read_phone_numbers`](../tools/ringex-admin.md#read_phone_numbers) | Read | List or get account phone numbers by usage type and status |
 | [`assign_phone_number`](../tools/ringex-admin.md#assign_phone_number) | Write | Assign a number to an extension or as a company number, or replace an assignment |
 | [`release_phone_number`](../tools/ringex-admin.md#release_phone_number) | Destructive | Release an unassigned number back to RingCentral |
+
+**Company calls and recording**
+
+| Tool | Access | Description |
+|------|:---:|-------------|
+| [`read_company_call_log`](../tools/ringex-admin.md#read_company_call_log) | Read | List, get, or sync the company's call history |
+| [`read_company_active_calls`](../tools/ringex-admin.md#read_company_active_calls) | Read | Snapshot of the calls in progress across the company right now |
+| [`read_company_call_analytics`](../tools/ringex-admin.md#read_company_call_analytics) | Read | Aggregate or timeline call counts, durations, and queue service levels |
+| [`read_company_call_recordings`](../tools/ringex-admin.md#read_company_call_recordings) | Read | Get a recording's metadata or download its audio |
+| [`read_call_recording_settings`](../tools/ringex-admin.md#read_call_recording_settings) | Read | Read recording settings, auto-recorded extensions, and recording greetings |
 
 **Call queues**
 

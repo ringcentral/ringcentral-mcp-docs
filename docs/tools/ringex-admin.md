@@ -547,6 +547,7 @@ Ringing order (round robin, simultaneous, fixed order) is part of call handling 
 |-----------|:--------:|-------------|
 | `action` | ✅ | One of the actions above. |
 | `callQueueId` | ✅ (most actions) | Queue id from [`read_call_queues`](#read_call_queues). |
+| `extensionId` | ✅ (set_agent_presence) | The agent whose availability changes across the listed queues. |
 | `name` | ✅ (create) | Queue display name, up to 100 characters. |
 | `extensionNumber` | — | 2–8 digit extension number for the queue. |
 | `siteId` | — | Site that owns the queue, from [`read_sites`](#read_sites). |
@@ -556,6 +557,7 @@ Ringing order (round robin, simultaneous, fixed order) is part of call handling 
 | `editableMemberStatus` | — | Whether members may change their own queue availability. |
 | `alertTimerSeconds` | — | Seconds before queue members are notified of a queued call. |
 | `serviceLevel` | — | Object with `thresholdSeconds` and `abandonedThresholdSeconds` (0–86400), `goalPercent` (0–100), and `includeAbandonedCalls`. |
+| `enabled` | — | Whether overflow is turned on (`set_overflow`). |
 | `overflowQueueIds` | — | Queues that receive overflow calls. An empty list clears them. Up to 10. |
 | `members` | ✅ (set_presence) | Array of up to 50 `{ extensionId, acceptCurrentQueueCalls }`. |
 | `queues` | ✅ (set_agent_presence) | Array of up to 50 `{ callQueueId, acceptCalls }` for one agent. |
@@ -1187,6 +1189,65 @@ How phones ring (round robin, simultaneous, fixed order) is part of call handlin
 
 ---
 
+## read_call_recording_settings
+
+Read-only view of how call recording is configured for the account. It returns settings only, not recordings — use [`read_company_call_log`](#read_company_call_log) and [`read_company_call_recordings`](#read_company_call_recordings) for those. Never changes anything.
+
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
+**Access:** Read-only
+
+---
+
+### Actions
+
+| Action | Required | Optional | What it returns |
+|--------|----------|----------|-----------------|
+| `get_settings` | — | — | The automatic and on-demand recording settings and greeting modes. |
+| `list_extensions` | — | — | Extensions that have automatic recording turned on, and which call direction is recorded. |
+| `list_greetings` | — | `greetingType` | The recording announcement greetings, optionally by type. |
+
+---
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|:--------:|-------------|
+| `action` | ✅ | `get_settings`, `list_extensions`, or `list_greetings`. |
+| `greetingType` | — | `StartRecording`, `StopRecording`, or `AutomaticRecording`. Omit to list every type. |
+
+---
+
+### Example
+
+=== "MCP JSON-RPC"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "read_call_recording_settings",
+        "arguments": {
+          "action": "get_settings"
+        }
+      }
+    }
+    ```
+
+=== "Claude prompt"
+
+    ```
+    Is automatic call recording turned on for our account, and which extensions are recorded?
+    ```
+
+---
+
+!!! info "Permission"
+    This tool requires **read** access.
+
+---
+
 ## read_call_routing
 
 Read-only inspection of how inbound calls are routed — IVR menus, business hours, company answering rules, the forward-all override, per-extension call-handling rules, and what a given phone number actually rings.
@@ -1254,6 +1315,290 @@ It describes the configured routing; it does not simulate a call or evaluate bus
 
 !!! info "Mixed APIs"
     Company-level reads use RingCentral's legacy call-handling API because no replacement exists. Extension-level reads use the newer API, which some legacy-routing accounts may not support.
+
+---
+
+## read_company_active_calls
+
+Read-only snapshot of the calls in progress across the whole company right now, optionally filtered by direction, call type, transport, or conference type. Each call shows its parties, start time, direction, and current result. It is a point-in-time list, so call it again for fresh data. Use [`read_company_call_log`](#read_company_call_log) for completed calls and [`read_company_call_analytics`](#read_company_call_analytics) for trends. Never changes or controls any call.
+
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
+**Access:** Read-only
+
+---
+
+### Parameters
+
+This tool takes no `action` argument.
+
+| Parameter | Required | Description |
+|-----------|:--------:|-------------|
+| `view` | ✅ | `Simple` (one row per call) or `Detailed` (also returns the call legs, at most 20 per call). Defaults to `Simple`. |
+| `page` | ✅ | Page number, 1–1000. Defaults to 1. |
+| `perPage` | ✅ | Results per page, 1–100. Defaults to 50. |
+| `direction` | — | `Inbound` or `Outbound`. |
+| `callType` | — | `Voice` or `Fax`. |
+| `transport` | — | `PSTN` or `VoIP`. |
+| `conferenceType` | — | Only conference calls of this kind: `AudioConferencing` or `Meetings`. |
+
+---
+
+### Example
+
+=== "MCP JSON-RPC"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "read_company_active_calls",
+        "arguments": {
+          "view": "Simple",
+          "page": 1,
+          "perPage": 50,
+          "direction": "Inbound"
+        }
+      }
+    }
+    ```
+
+=== "Claude prompt"
+
+    ```
+    How many inbound calls are in progress across the company right now?
+    ```
+
+---
+
+!!! info "Permission"
+    This tool requires **read** access.
+
+---
+
+## read_company_call_analytics
+
+Read-only call analytics for the whole company. Use it for volume, missed-call, and queue service-level questions; use [`read_company_call_log`](#read_company_call_log) for individual calls. Never changes anything.
+
+Choose counters (for example `allCalls`, `callsByDirection`, `callsByResult`, `callsByQueueSla`) and timers (for example `allCallsDuration`), and narrow with filters such as direction, call result, queue, or extension.
+
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
+**Access:** Read-only
+
+---
+
+### Actions
+
+| Action | Required | Optional | What it returns |
+|--------|----------|----------|-----------------|
+| `aggregate` | `timeFrom`, `timeTo`, `timeZone`, `groupBy`, `page`, `perPage`, `aggregationType` | `keys`, `filters`, `counters`, `timers` | Call counts and durations over the period, grouped by company, users, queues, sites, and more. |
+| `timeline` | `timeFrom`, `timeTo`, `timeZone`, `groupBy`, `page`, `perPage`, `interval` | `keys`, `filters`, `counters`, `timers` | The same metrics as a series of Hour, Day, Week, or Month points. |
+
+---
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|:--------:|-------------|
+| `action` | ✅ | `aggregate` or `timeline`. |
+| `timeFrom` / `timeTo` | ✅ | Start and end of the analysis period (ISO 8601). |
+| `timeZone` | ✅ | IANA time zone used to bucket hours, days, and weeks. Defaults to `UTC`. |
+| `groupBy` | ✅ | `Company`, `CompanyNumbers`, `Users`, `Queues`, `IVRs`, `IVAs`, `SharedLines`, `UserGroups`, `Sites`, or `Departments`. Defaults to `Company`. |
+| `page` | ✅ | Page number, 1–1000. Defaults to 1. |
+| `perPage` | ✅ | Results per page. `aggregate`: 1–200, default 50. `timeline`: 1–20, default 10. |
+| `aggregationType` | ✅ (aggregate) | `Sum`, `Average`, `Max`, `Min`, or `Percent`. Defaults to `Sum`. Not every metric supports every type; RingCentral reports an unsupported combination. |
+| `interval` | ✅ (timeline) | `Hour`, `Day`, `Week`, or `Month`. |
+| `keys` | — | Only these groups, by id (for example specific queue or extension ids). Up to 50. Omit for all. |
+| `counters` | — | Call-count metrics, up to 13: `allCalls`, `callsByActions`, `callsByCompanyHours`, `callsByDirection`, `callsByEndingParty`, `callsByOrigin`, `callsByQueueHours`, `callsByQueueSla`, `callsByResponse`, `callsByResult`, `callsByType`, `callsSegments`, `queueOpportunities`. Defaults to `allCalls` when neither `counters` nor `timers` is given. |
+| `timers` | — | Call-duration metrics, up to 11: `allCallsDuration`, `callsDurationByCompanyHours`, `callsDurationByDirection`, `callsDurationByEndingParty`, `callsDurationByOrigin`, `callsDurationByQueueHours`, `callsDurationByQueueSla`, `callsDurationByResponse`, `callsDurationByResult`, `callsDurationByType`, `callsSegmentsDuration`. |
+| `filters` | — | Object with any of `directions`, `callTypes`, `callResults`, `callResponses`, `callActions`, `origins`, `endingParties`, `companyHours`, `queueSla`, `queueIds`, `calledNumbers`, `fromExtensionIds`, `toExtensionIds`, `minDurationSeconds`, and `maxDurationSeconds`. List filters take one or more values; see `tools/list` for the allowed values. |
+
+---
+
+### Example
+
+=== "MCP JSON-RPC"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "read_company_call_analytics",
+        "arguments": {
+          "action": "aggregate",
+          "timeFrom": "2026-10-01T00:00:00Z",
+          "timeTo": "2026-10-08T00:00:00Z",
+          "timeZone": "UTC",
+          "groupBy": "Queues",
+          "page": 1,
+          "perPage": 50,
+          "aggregationType": "Sum",
+          "counters": [
+            "allCalls",
+            "callsByResult"
+          ]
+        }
+      }
+    }
+    ```
+
+=== "Claude prompt"
+
+    ```
+    How many calls did each queue handle last week, and how many were missed?
+    ```
+
+---
+
+!!! info "Permission"
+    This tool requires **read** access.
+
+---
+
+## read_company_call_log
+
+Read-only access to the call history of the whole company. Returns a bounded, projected record per call (parties, times, direction, result, recording id). Recording audio is not returned — use [`read_company_call_recordings`](#read_company_call_recordings) with the recording id. Never changes anything.
+
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
+**Access:** Read-only
+
+---
+
+### Actions
+
+| Action | Required | Optional | What it returns |
+|--------|----------|----------|-----------------|
+| `list` | `view`, `page`, `perPage` | `dateFrom`, `dateTo`, `extensionNumber`, `phoneNumber`, `direction`, `callType`, `withRecording`, `recordingType`, `sessionId`, `telephonySessionId` | A page of calls filtered by time range, extension number, phone number, direction, call type, recording, or session id. |
+| `get` | `callRecordId`, `view` | — | One call by its record id. |
+| `sync` | `syncType`, `recordCount`, `view` | `syncToken`, `dateFrom`, `statusGroup`, `showDeleted`, `withRecording`, `recordingType` | A full (`FSync`) or incremental (`ISync`) sync of the call log using a `syncToken`. |
+
+---
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|:--------:|-------------|
+| `action` | ✅ | `list`, `get`, or `sync`. |
+| `view` | ✅ | `Simple` (one row per call) or `Detailed` (also returns the call legs, at most 20 per call). Defaults to `Simple`. |
+| `page` | ✅ (list) | Page number, 1–1000. Defaults to 1. |
+| `perPage` | ✅ (list) | Results per page, 1–100. Defaults to 50. |
+| `callRecordId` | ✅ (get) | Call record id returned by `list`. |
+| `syncType` | ✅ (sync) | `FSync` is a full sync of a date range; `ISync` returns only what changed since `syncToken`. Defaults to `FSync`. |
+| `recordCount` | ✅ (sync) | Records per sync page, 1–250. Defaults to 100. |
+| `syncToken` | ✅ (ISync) | The `syncToken` returned by a previous sync. |
+| `dateFrom` / `dateTo` | — | Time range (ISO 8601). RingCentral defaults to the last 24 hours, and `dateTo` to now. |
+| `extensionNumber` | — | Only calls handled by this extension number. |
+| `phoneNumber` | — | Only calls to or from this phone number. |
+| `direction` | — | `Inbound` or `Outbound`. |
+| `callType` | — | `Voice` or `Fax`. |
+| `withRecording` | — | `true` for only calls that have a recording. |
+| `recordingType` | — | `Automatic`, `OnDemand`, or `All`. |
+| `sessionId` / `telephonySessionId` | — | Only the call with this session id. |
+| `statusGroup` | — | `Missed` or `All` (sync). |
+| `showDeleted` | — | Include records that were deleted (sync). |
+
+---
+
+### Example
+
+=== "MCP JSON-RPC"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "read_company_call_log",
+        "arguments": {
+          "action": "list",
+          "view": "Simple",
+          "page": 1,
+          "perPage": 50,
+          "dateFrom": "2026-10-27T00:00:00Z",
+          "direction": "Inbound",
+          "withRecording": true
+        }
+      }
+    }
+    ```
+
+=== "Claude prompt"
+
+    ```
+    Show me yesterday's inbound calls that have recordings.
+    ```
+
+---
+
+!!! info "Permission"
+    The caller needs the full company call log permission in their RingCentral role.
+
+---
+
+## read_company_call_recordings
+
+Read-only access to a company call recording. Find the recording id with [`read_company_call_log`](#read_company_call_log) (`withRecording`, or the recording field of a call). Never changes or deletes anything.
+
+**Server:** [RingEX Admin](../servers/ringex-admin.md)  
+**Access:** Read-only
+
+---
+
+### Actions
+
+| Action | Required | Optional | What it returns |
+|--------|----------|----------|-----------------|
+| `get` | `recordingId` | — | The recording metadata (content type, duration). |
+| `download` | `recordingId`, `maxBytes` | — | The audio as a native MCP audio block, limited to `maxBytes`. A larger recording returns status `too_large` instead of audio. |
+
+---
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|:--------:|-------------|
+| `action` | ✅ | `get` or `download`. |
+| `recordingId` | ✅ | Recording id from `read_company_call_log`. |
+| `maxBytes` | ✅ (download) | Largest recording to return, in bytes. Defaults to 4194304 (4 MB) and cannot exceed 8388608 (8 MB). |
+
+---
+
+### Example
+
+=== "MCP JSON-RPC"
+
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "read_company_call_recordings",
+        "arguments": {
+          "action": "get",
+          "recordingId": "rec-123456"
+        }
+      }
+    }
+    ```
+
+=== "Claude prompt"
+
+    ```
+    Get the details of the recording on that call.
+    ```
+
+---
+
+!!! warning "Sensitive content"
+    Recordings can contain sensitive conversations, so only download one when the administrator asked for it. The audio is never copied into structured JSON, and no download link is returned.
+
+!!! info "Permission"
+    The caller needs the call recording read permission in their RingCentral role.
 
 ---
 

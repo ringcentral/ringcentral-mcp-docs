@@ -24,6 +24,7 @@ Resolves a RingCentral Team Chat person by exact person id, or by name, email, e
 |-----------|:--------:|-------------|
 | `personId` | — | Exact RingCentral Team Chat person id. Resolves the person directly. Provide either `personId` or `query`, never both. |
 | `query` | — | A name, email address, extension number, or phone number to resolve through the company directory. Provide either `personId` or `query`, never both. |
+| `me` | — | Set to `true` to return the authenticated user (id, name, email, extension number, and time zone) without any lookup key. Use it to resolve "me" and the user's time zone. Cannot be combined with `personId` or `query`. |
 
 ---
 
@@ -75,7 +76,7 @@ Reads RingCentral Team Chat resources with a strict, discriminated input. Select
 | `file` | `download` | Requires `chatId`, `postId`, and `fileId` from a readable post. Returns bounded file content as a native MCP image, audio, or embedded resource. |
 | `adaptive_card` | `get` | Reads an existing card; use `manage_adaptive_card` to create/update/delete. |
 | `note` | `list`, `get` | Use `manage_chat_item` to create/update/publish/lock/unlock/delete. |
-| `task` | `list`, `get` | Use `manage_chat_item` to create/update/complete/delete. |
+| `task` | `list`, `get`, `find` | `find` resolves one task by `chatId` and an exact, case-sensitive `subject` (optionally `assigneeId` and `status`); it returns a unique match, an ambiguous match, `not_found`, or an incomplete result, and never guesses. Use `manage_chat_item` to create/update/complete/delete. |
 | `event` | `list`, `get` | Use `manage_chat_item` to create/update/delete. |
 | `incoming_webhook` | `list`, `get` | Use `manage_incoming_webhook` to create/activate/suspend/delete. |
 
@@ -165,6 +166,7 @@ Sends a RingCentral Team Chat post, optionally with file or image attachments, t
 | `personId` | One of `chatId`/`personId` | A resolved Team Chat person id (from `find_person`) for a direct chat. The direct conversation is opened or reused before posting. |
 | `text` | ✅ | The post text (max 10,000 characters). |
 | `threadId` | — | Optional thread id to reply within a thread of the destination chat. |
+| `file` | — | Optional single file attachment, supplied as a ChatGPT file reference (`download_url` and `file_id`). |
 | `files` | — | Optional array (1–25) of file/image attachments, uploaded before the post is created. Each entry is either a file reference (`file`) or raw base64 bytes (`contentBase64` + `contentType` + `name`) — do not pass a local path, sandbox URI, data URL, or arbitrary URL. |
 
 ---
@@ -322,8 +324,11 @@ Creates, updates, archives, unarchives, deletes, joins, or leaves a RingCentral 
 | Parameter | Required | Description |
 |-----------|:--------:|-------------|
 | `action` | ✅ | One of `create`, `update`, `delete`, `archive`, `unarchive`, `join`, `leave`, `add_members`, `remove_members`, `favorite`, `unfavorite`, `update_everyone`. |
-| `teamId` / `chatId` | Required for most actions | Identifies the team or chat being acted on (not required for `create`). |
-| `name`, `members`, etc. | Action-specific | Fields required by the chosen action — e.g. `name`/`members` for `create`, `members` for `add_members`/`remove_members`. Exact fields are visible in `tools/list`. |
+| `chatId` | Required for most actions | The team or chat being acted on. Not used by `create` or `update_everyone`. |
+| `name` | ✅ (`create`) | Team name. Optional for `update` and `update_everyone`. |
+| `description` | — | Team description. Accepted by `create`, `update`, and `update_everyone`. |
+| `public` | — | Whether the team is publicly discoverable. Accepted by `create` and `update`. |
+| `members` | ✅ (`add_members`, `remove_members`) | Team Chat person ids to add or remove. Optional on `create` for the initial members. |
 
 ---
 
@@ -338,7 +343,7 @@ Creates, updates, archives, unarchives, deletes, joins, or leaves a RingCentral 
 === "Add members"
 
     ```json
-    { "action": "add_members", "teamId": "team-123", "members": ["person-3"] }
+    { "action": "add_members", "chatId": "chat-123", "members": ["person-3"] }
     ```
 
 === "Favorite a chat"
@@ -370,7 +375,7 @@ Creates, updates, or deletes a RingCentral Team Chat note, task, or event; publi
 |----------|---------|
 | `note` | `create`, `update`, `delete`, `publish`, `lock`, `unlock` |
 | `task` | `create`, `update`, `delete`, `complete` |
-| `event` | `create`, `update`, `delete` |
+| `event` | `create`, `create_by_group_id`, `update`, `delete` |
 
 !!! note "Notes start as drafts"
     A note created with `resource: note, action: create` is a draft and isn't visible to other team members until `action: publish` is called on it.
@@ -384,6 +389,7 @@ Creates, updates, or deletes a RingCentral Team Chat note, task, or event; publi
 | `resource` | ✅ | `note`, `task`, or `event`. |
 | `action` | ✅ | An action valid for the chosen resource (see table above). |
 | `chatId` | Required for `create` | The chat the item belongs to. |
+| `groupId` | ✅ (`create_by_group_id`) | The Team Chat group the event is created in. Use `create_by_group_id` instead of `create` when the event belongs to a specific group. |
 | `noteId` / `taskId` / `eventId` | Required for update/delete/publish/lock/unlock/complete | Identifies the existing item. |
 | *(resource-specific fields)* | Action-specific | e.g. text/title/due date for a task, body for a note, start/end time for an event. Exact fields are visible in `tools/list`. |
 
@@ -431,9 +437,8 @@ Creates an incoming webhook in a RingCentral Team Chat group, or activates, susp
 | Parameter | Required | Description |
 |-----------|:--------:|-------------|
 | `action` | ✅ | `create`, `activate`, `suspend`, or `delete`. |
-| `chatId` | Required for `create` | The group/team chat to create the webhook in. |
+| `groupId` | Required for `create` | The Team Chat group that will own the webhook. |
 | `webhookId` | Required for `activate`/`suspend`/`delete` | Identifies the existing webhook. |
-| `name` | Optional for `create` | A display name for the webhook. |
 
 ---
 
@@ -442,7 +447,7 @@ Creates an incoming webhook in a RingCentral Team Chat group, or activates, susp
 === "Create a webhook"
 
     ```json
-    { "action": "create", "chatId": "chat-123", "name": "CI alerts" }
+    { "action": "create", "groupId": "group-123" }
     ```
 
 === "Suspend a webhook"

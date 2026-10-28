@@ -8,7 +8,10 @@ All notable changes to RingCentral MCP servers are documented here.
 
 ### All RingEX servers — Removed
 - `about_ringcentral_mcp_tools` has been removed from RingEX Phone, Chat, Meetings, and Admin. Call `tools/list` to enumerate the tools and schemas a server exposes.
-- Tool counts are now 11 (Phone), 8 (Chat), 7 (Meetings), and 26 (Admin).
+- Tool counts are now 11 (Phone), 8 (Chat), 7 (Meetings), and 31 (Admin).
+
+### RingEX Admin — Added
+- Five read-only tools for company calls and recording: `read_company_call_log`, `read_company_active_calls`, `read_company_call_analytics`, `read_company_call_recordings`, and `read_call_recording_settings`. See the [RingEX Admin tools reference](tools/ringex-admin.md).
 
 ### RingEX Meetings — Added (Experimental)
 - New experimental server published at `https://mcp.labs.ringcentral.com/ringex/video`, covering RingCentral Meetings. It joins RingEX Phone, Chat, and Admin as the fourth server in the RingEX family, split by communication mode. Note that the endpoint path is `/ringex/video`, not `/ringex/meetings`.

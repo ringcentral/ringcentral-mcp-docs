@@ -13,7 +13,7 @@
 
 RingEX Chat gives your AI assistant access to RingCentral Team Messaging (Glip): chats, direct and group conversations, teams, and posts. It's one of three servers that replace the original monolithic RingCentral MCP server — this one covers team collaboration.
 
-See the [Changelog](../changelog.md) for what's changed across versions — including the v1.1.0 tool-surface consolidation (65 tools down to 9) and the move of Team Chat data-export tools to [RingEX Admin](ringex-admin.md).
+See the [Changelog](../changelog.md) for what's changed across versions — including the v1.1.0 tool-surface consolidation (65 tools down to 8) and the move of Team Chat data-export tools to [RingEX Admin](ringex-admin.md).
 
 ---
 
